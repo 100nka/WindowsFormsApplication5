@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication5.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="L5X_file_dir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\</Value>
+    </Setting>
+    <Setting Name="XLSM_cust_file_dir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\</Value>
+    </Setting>
+    <Setting Name="XLSM_General_dir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\</Value>
+    </Setting>
+    <Setting Name="SavePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\</Value>
+    </Setting>
+    <Setting Name="XLSM_designSheet" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\</Value>
+    </Setting>
+    <Setting Name="filtr_PF_Alarm8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pf_Alarm8\((?&lt;FBI&gt;.*?),(?&lt;I1&gt;\d+),(?&lt;I2&gt;\d+),(?&lt;I3&gt;\d+),(?&lt;I4&gt;\d+),(?&lt;I5&gt;\d+),(?&lt;I6&gt;\d+),(?&lt;I7&gt;\d+),(?&lt;I8&gt;\d+),(?&lt;zVar&gt;.*?),.*?\)</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
