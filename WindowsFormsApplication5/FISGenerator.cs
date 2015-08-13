@@ -30,6 +30,7 @@ namespace WindowsFormsApplication5
         private List<Pf_Alarm8> external_faults;
         private List<Single_fault> all_faults;
         private List<Single_fault> filtered_faults_MIF;
+        private BindingSource _sourceFilteredFaults = new BindingSource();
         public bool l5xLoaded = false;
         public bool xLSCumstomLoaded = false;
         public bool xLSGeneralLoaded = false;
@@ -39,8 +40,8 @@ namespace WindowsFormsApplication5
             InitializeComponent();
             InitialMemArea();
             tbSavePath.Text = Properties.Settings.Default.SavePath.ToString();
-          //  dataGridViewMAF.CellFormatting += dataGridViewMAF_CellFormatting;
-           // dataGridViewMAF.CellClick = 
+            //  dataGridViewMAF.CellFormatting += dataGridViewMAF_CellFormatting;
+            // dataGridViewMAF.CellClick = 
         }
         // private Regex filtr_PF_Alarm8 = new Regex(@"Pf_Alarm8\((?<FBI>.*?),(?<I1>\d+),(?<I2>\d+),(?<I3>\d+),(?<I4>\d+),(?<I5>\d+),(?<I6>\d+),(?<I7>\d+),(?<I8>\d+),(?<zVar>.*?),.*?\)", RegexOptions.Compiled);
         private Regex filtr_PF_Alarm8 = new Regex(Properties.Settings.Default.filtr_PF_Alarm8, RegexOptions.Compiled);
@@ -219,24 +220,16 @@ namespace WindowsFormsApplication5
 
                 CreateAllDatatypes();
                 CreatingExtFaults();
-                AddInternalFaults();
-             
-                dataGridView1.DataSource = all_faults;
-                dgalletlist.DataSource = excelAssetlList;
+                CreatingIntFaults();
 
-                foreach (var assetname in excelAssetlList)
-                {
-                    lbAssetslist.Items.Add(assetname.assetname.ToString());
-                }
-                string name = "";
-                foreach (var groupname in all_faults)
-                {
-                    if (name != groupname.GroupName.ToString())
-                    {
-                        name = groupname.GroupName.ToString();
-                        lbgroupnames.Items.Add(name);                        
-                    }                   
-                }
+                dataGridView_AllFaults.DataSource = all_faults;
+                dataGridView_AssetsList.DataSource = excelAssetlList;
+
+                AddAssetsListBox();
+
+
+
+
 
             }
             else
@@ -246,7 +239,53 @@ namespace WindowsFormsApplication5
 
         }
 
-        private void AddInternalFaults()
+
+        private void AddAssetsListBox()
+        {
+
+            foreach (var assetname in excelAssetlList)
+            {
+                lbAssetslist.Items.Add(assetname.assetname.ToString());
+            }
+
+            if (this.lbAssetslist.ContextMenuStrip == null)
+            {
+                this.lbAssetslist.ContextMenuStrip = this.cmstripassetsname;
+            }
+            if (this.panel5.ContextMenuStrip == null)
+            {
+                this.panel5.ContextMenuStrip = this.cmstripassetsname;
+            }
+        }
+        private void AddDevicesListBox()
+        {
+            //for (int i = 0; i < lbgroupnames.Items.Count; i++)
+            //{
+            lbgroupnames.Items.Clear();
+            //}
+            string name = "";
+            foreach (var groupname in all_faults)
+            {
+                if (name != groupname.GroupName.ToString())
+                {
+                    name = groupname.GroupName.ToString();
+                    lbgroupnames.Items.Add(name);
+                }
+            }
+
+            if (this.lbgroupnames.ContextMenuStrip == null)
+            {
+                this.lbgroupnames.ContextMenuStrip = this.cmStripGroupnames;
+            }
+            if (this.panel6.ContextMenuStrip == null)
+            {
+                this.panel6.ContextMenuStrip = this.cmStripGroupnames;
+            }
+
+        }
+
+
+        private void CreatingIntFaults()
         {
             var x = projektL5x.Root.Element("Controller").Element("Tags").Elements("Tag");
             var lista_struktur_av = (from t in x.Descendants("StructureMember")
@@ -282,7 +321,7 @@ namespace WindowsFormsApplication5
                 var m = filtr_PF_Alarm8.Match(external.Value);
                 if (m.Success)
                 {
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I1"].Value), Name = "A7261_ExtFlt1", FaultFISMember  =2 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I1"].Value), Name = "A7261_ExtFlt1", FaultFISMember = 2 });
                     all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I2"].Value), Name = "A7262_ExtFlt2", FaultFISMember = 2 });
                     all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I3"].Value), Name = "A7263_ExtFlt3", FaultFISMember = 2 });
                     all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I4"].Value), Name = "A7264_ExtFlt4", FaultFISMember = 2 });
@@ -438,7 +477,7 @@ namespace WindowsFormsApplication5
             DialogResult dr = fbd.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                var savedir =( fbd.SelectedPath.ToString() + @"\");
+                var savedir = (fbd.SelectedPath.ToString() + @"\");
                 tbSavePath.Text = savedir;
                 Properties.Settings.Default.SavePath = savedir;
                 Properties.Settings.Default.Save();
@@ -465,28 +504,28 @@ namespace WindowsFormsApplication5
 
         private void lbgroupnames_SelectedIndexChanged(object sender, EventArgs e)
         {
- 
+
             dataGridViewMAF.DataSource = null;
-            filtered_faults_MIF = new List<Single_fault>();    
+            filtered_faults_MIF = new List<Single_fault>();
             if (lbgroupnames.SelectedItem != null)
             {
                 var item = lbgroupnames.SelectedItem.ToString();
                 foreach (var selecteditems in lbgroupnames.SelectedItems)
-                {   
+                {
                     var selname = selecteditems.ToString();
                     string[] saLvwItem = new string[2];
                     foreach (var fault in all_faults)
                     {
                         if (fault.GroupName == selname)
                         {
-                            filtered_faults_MIF.Add(fault);                               
+                            filtered_faults_MIF.Add(fault);
                         }
                     }
-                    
+
                 }
 
                 DataggridMIFformating();
-              
+
 
             }
 
@@ -494,28 +533,144 @@ namespace WindowsFormsApplication5
 
         private void DataggridMIFformating()
         {
-            dataGridViewMAF.DataSource = filtered_faults_MIF;
+            _sourceFilteredFaults.DataSource = filtered_faults_MIF;
+            dataGridViewMAF.DataSource = _sourceFilteredFaults;
             dataGridViewMAF.Columns[0].FillWeight = 100;
             dataGridViewMAF.Columns[1].FillWeight = 100;
-            dataGridViewMAF.Columns[2].FillWeight = 200;
+            dataGridViewMAF.Columns[2].FillWeight = 100;
             dataGridViewMAF.Columns[3].FillWeight = 100;
-            dataGridViewMAF.Columns[4].FillWeight = 200;
-            dataGridViewMAF.Columns[5].FillWeight = 200;
+            dataGridViewMAF.Columns[4].FillWeight = 100;
+            dataGridViewMAF.Columns[5].FillWeight = 80;
+            dataGridViewMAF.Columns[5].FillWeight = 100;
             dataGridViewMAF.Columns[0].Visible = false;
             dataGridViewMAF.Columns[1].Visible = false;
             dataGridViewMAF.Columns[2].Visible = false;
             dataGridViewMAF.Columns[3].Visible = false;
-            dataGridViewMAF.Columns[4].Visible = true;
+            dataGridViewMAF.Columns[4].Visible = false;
             dataGridViewMAF.Columns[5].Visible = true;
+            dataGridViewMAF.Columns[6].Visible = true;
+
+            foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
+            {
+                int value = Convert.ToInt16( irow.Cells[0].Value); 
+                switch (value)
+                {
+                    case 1:
+                        irow.DefaultCellStyle.ForeColor = Color.Blue;
+                        break;
+                    case 2:
+                        irow.DefaultCellStyle.ForeColor = Color.Green;
+                        break;
+                    default:
+                        irow.DefaultCellStyle.ForeColor = Color.Gray;
+                        break;
+                }
+            }
             dataGridViewMAF.AutoResizeColumns();
             dataGridViewMAF.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewMAF.Refresh();
+            Refrescounterdgridinfo();
+
+
             if (this.dataGridViewMAF.ContextMenuStrip == null)
             {
                 this.dataGridViewMAF.ContextMenuStrip = this.cMenuStrip;
             }
         }
-        
+
+        private void Refrescounterdgridinfo()
+        {
+            lrowslicz.Text = (Convert.ToString(dataGridViewMAF.Rows.Count - 1) + " Rows");
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            lbAssetslist.Enabled = true;
+            toolStripMenuItem5.Enabled = true;
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            lbAssetslist.Enabled = false;
+            toolStripMenuItem5.Enabled = false;
+        }
+
+        private void enableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbgroupnames.Enabled = true;
+            unselectAllToolStripMenuItem.Enabled = true;
+        }
+
+        private void disableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbgroupnames.Enabled = false;
+            unselectAllToolStripMenuItem.Enabled = false;
+        }
+
+        private void unselectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbgroupnames.ClearSelected();
+        }
+
+        private void lbAssetslist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddDevicesListBox();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            lbAssetslist.ClearSelected();
+            lbgroupnames.Items.Clear();
+            //  dataGridView_AllFaults.Rows.Clear();
+            dataGridViewMAF.SuspendLayout();
+            dataGridViewMAF.Rows.Clear();
+            dataGridViewMAF.ResumeLayout();
+        }
+
+        private void deleteRowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selectedrow in dataGridViewMAF.SelectedRows)
+            {
+                dataGridViewMAF.Rows.RemoveAt(selectedrow.Index);
+            }
+            Refrescounterdgridinfo();
+        }
+
+        private void machineFaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.DefaultCellStyle.ForeColor = Color.Blue;
+            }
+        }
+
+        private void manualIntFaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.DefaultCellStyle.ForeColor = Color.Green;
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.DefaultCellStyle.ForeColor = Color.Orange;
+            }
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            DataggridMIFformating();
+        }
+
+        private void saveDataToXLSMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         //   ds_excel_DesignCSheet.
+        }
+
+
         //private void listView1_KeyDown(object sender, KeyEventArgs e)
         //{
         //    if (Keys.Delete == e.KeyCode)
@@ -568,13 +723,13 @@ namespace WindowsFormsApplication5
     {
         internal string fulltagname;
         internal string comment_en;
-            public TagAndDiscView(string fulltagname, string comment_en)
-            {
-                this.fulltagname = fulltagname;
-                this.comment_en=comment_en;
-            }
-            public string Fulltagname { get { return fulltagname; } }
-            public string Comment_en { get { return comment_en; } }
+        public TagAndDiscView(string fulltagname, string comment_en)
+        {
+            this.fulltagname = fulltagname;
+            this.comment_en = comment_en;
+        }
+        public string Fulltagname { get { return fulltagname; } }
+        public string Comment_en { get { return comment_en; } }
     }
 
     class Pf_Alarm8

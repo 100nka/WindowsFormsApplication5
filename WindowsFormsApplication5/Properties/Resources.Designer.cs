@@ -63,6 +63,36 @@ namespace WindowsFormsApplication5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_enable {
+            get {
+                object obj = ResourceManager.GetObject("edit enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_enable_deselectted {
+            get {
+                object obj = ResourceManager.GetObject("edit enable deselectted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editenableselected {
+            get {
+                object obj = ResourceManager.GetObject("editenableselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap excelSave {
             get {
                 object obj = ResourceManager.GetObject("excelSave", resourceCulture);
@@ -96,6 +126,16 @@ namespace WindowsFormsApplication5.Properties {
         internal static System.Drawing.Bitmap pic_routine {
             get {
                 object obj = ResourceManager.GetObject("pic_routine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unselect_all {
+            get {
+                object obj = ResourceManager.GetObject("unselect all", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
