@@ -712,8 +712,8 @@ namespace WindowsFormsApplication5
             File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_MI.xls", excel_MI.Select(p => p.ToString()).ToArray());
             if (excel_unused.Count > 0)
             {
-            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_Unnused.xls", excel_unused.Select(p => p.ToString()).ToArray());
-                
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_Unnused.xls", excel_unused.Select(p => p.ToString()).ToArray());
+
             }
             //  File.WriteAllLines(Properties.Settings.Default.SavePath + "dupaaa.xls", all_faults.Select(p => p.ToString()).ToArray());    
             MessageBox.Show(string.Format("{0}{1}{2}", "Files for Asset: ", outfilename, "are generated!"));
