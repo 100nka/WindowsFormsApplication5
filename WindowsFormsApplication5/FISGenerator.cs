@@ -215,6 +215,7 @@ namespace WindowsFormsApplication5
 
 
                             edr.Close();
+                            
                             //         ds_excel_DesignCSheet.WriteXml(fs);
 
                         }
@@ -729,7 +730,7 @@ namespace WindowsFormsApplication5
             {
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
-                string faultDescription = (irow.Cells[3].Value + "_Spare");
+                string faultDescription = (irow.Cells[5].Value + "_Spare");
                 if (irow.Cells[6].Value != null)
                 {
                     faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
