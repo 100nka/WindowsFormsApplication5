@@ -20,5 +20,17 @@
     <Setting Name="filtr_PF_Alarm8" Type="System.String" Scope="User">
       <Value Profile="(Default)">Pf_Alarm8\((?&lt;FBI&gt;.*?),(?&lt;I1&gt;\d+),(?&lt;I2&gt;\d+),(?&lt;I3&gt;\d+),(?&lt;I4&gt;\d+),(?&lt;I5&gt;\d+),(?&lt;I6&gt;\d+),(?&lt;I7&gt;\d+),(?&lt;I8&gt;\d+),(?&lt;zVar&gt;.*?),.*?\)</Value>
     </Setting>
+    <Setting Name="cbupdateactualDesignSheet" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="cbcreateNew" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="cbCreateTxTout" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="cbCreateL5Xout" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

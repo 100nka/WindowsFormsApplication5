@@ -36,11 +36,16 @@
             this.tbxlsgenmname = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lcontrolerName = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btstargen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbCreateL5Xout = new System.Windows.Forms.CheckBox();
+            this.cbCreateTxTout = new System.Windows.Forms.CheckBox();
+            this.cbcreateNew = new System.Windows.Forms.CheckBox();
+            this.cbupdateactualDesignSheet = new System.Windows.Forms.CheckBox();
             this.bSavePath = new System.Windows.Forms.Button();
             this.tbSavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +57,12 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lrowslicz = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lrowslicz = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,12 +74,12 @@
             this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveDataToL5XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
@@ -86,11 +95,6 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lcontrolerName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -102,13 +106,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // load_xml
@@ -180,6 +184,15 @@
             this.panel1.Size = new System.Drawing.Size(986, 21);
             this.panel1.TabIndex = 12;
             // 
+            // lcontrolerName
+            // 
+            this.lcontrolerName.AutoSize = true;
+            this.lcontrolerName.Location = new System.Drawing.Point(910, 5);
+            this.lcontrolerName.Name = "lcontrolerName";
+            this.lcontrolerName.Size = new System.Drawing.Size(10, 13);
+            this.lcontrolerName.TabIndex = 22;
+            this.lcontrolerName.Text = "-";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -237,12 +250,64 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbCreateL5Xout);
+            this.panel3.Controls.Add(this.cbCreateTxTout);
+            this.panel3.Controls.Add(this.cbcreateNew);
+            this.panel3.Controls.Add(this.cbupdateactualDesignSheet);
             this.panel3.Controls.Add(this.bSavePath);
             this.panel3.Controls.Add(this.tbSavePath);
             this.panel3.Location = new System.Drawing.Point(12, 233);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(666, 159);
             this.panel3.TabIndex = 12;
+            // 
+            // cbCreateL5Xout
+            // 
+            this.cbCreateL5Xout.AutoSize = true;
+            this.cbCreateL5Xout.Location = new System.Drawing.Point(12, 132);
+            this.cbCreateL5Xout.Name = "cbCreateL5Xout";
+            this.cbCreateL5Xout.Size = new System.Drawing.Size(114, 17);
+            this.cbCreateL5Xout.TabIndex = 12;
+            this.cbCreateL5Xout.Text = "Create L5X routine";
+            this.cbCreateL5Xout.UseVisualStyleBackColor = true;
+            this.cbCreateL5Xout.CheckedChanged += new System.EventHandler(this.cbupdateactualDesignSheet_CheckedChanged);
+            // 
+            // cbCreateTxTout
+            // 
+            this.cbCreateTxTout.AutoSize = true;
+            this.cbCreateTxTout.Checked = true;
+            this.cbCreateTxTout.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbCreateTxTout.Location = new System.Drawing.Point(12, 109);
+            this.cbCreateTxTout.Name = "cbCreateTxTout";
+            this.cbCreateTxTout.Size = new System.Drawing.Size(116, 17);
+            this.cbCreateTxTout.TabIndex = 11;
+            this.cbCreateTxTout.Text = "Create TXT routine";
+            this.cbCreateTxTout.UseVisualStyleBackColor = true;
+            this.cbCreateTxTout.CheckedChanged += new System.EventHandler(this.cbupdateactualDesignSheet_CheckedChanged);
+            // 
+            // cbcreateNew
+            // 
+            this.cbcreateNew.AutoSize = true;
+            this.cbcreateNew.Location = new System.Drawing.Point(12, 86);
+            this.cbcreateNew.Name = "cbcreateNew";
+            this.cbcreateNew.Size = new System.Drawing.Size(122, 17);
+            this.cbcreateNew.TabIndex = 10;
+            this.cbcreateNew.Text = "Create new file  xlsm";
+            this.cbcreateNew.UseVisualStyleBackColor = true;
+            this.cbcreateNew.CheckedChanged += new System.EventHandler(this.cbupdateactualDesignSheet_CheckedChanged);
+            // 
+            // cbupdateactualDesignSheet
+            // 
+            this.cbupdateactualDesignSheet.AutoSize = true;
+            this.cbupdateactualDesignSheet.Checked = true;
+            this.cbupdateactualDesignSheet.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbupdateactualDesignSheet.Location = new System.Drawing.Point(12, 63);
+            this.cbupdateactualDesignSheet.Name = "cbupdateactualDesignSheet";
+            this.cbupdateactualDesignSheet.Size = new System.Drawing.Size(138, 17);
+            this.cbupdateactualDesignSheet.TabIndex = 9;
+            this.cbupdateactualDesignSheet.Text = "Update Design Crit xlsm";
+            this.cbupdateactualDesignSheet.UseVisualStyleBackColor = true;
+            this.cbupdateactualDesignSheet.CheckedChanged += new System.EventHandler(this.cbupdateactualDesignSheet_CheckedChanged);
             // 
             // bSavePath
             // 
@@ -361,15 +426,6 @@
             this.tabPage2.Text = "Assets log Build";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lrowslicz
-            // 
-            this.lrowslicz.AutoSize = true;
-            this.lrowslicz.Location = new System.Drawing.Point(417, 6);
-            this.lrowslicz.Name = "lrowslicz";
-            this.lrowslicz.Size = new System.Drawing.Size(10, 13);
-            this.lrowslicz.TabIndex = 20;
-            this.lrowslicz.Text = "-";
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.pictureBox2);
@@ -381,6 +437,53 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(527, 26);
             this.panel7.TabIndex = 19;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox2.Location = new System.Drawing.Point(163, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lrowslicz
+            // 
+            this.lrowslicz.AutoSize = true;
+            this.lrowslicz.Location = new System.Drawing.Point(417, 6);
+            this.lrowslicz.Name = "lrowslicz";
+            this.lrowslicz.Size = new System.Drawing.Size(10, 13);
+            this.lrowslicz.TabIndex = 20;
+            this.lrowslicz.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(210, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Manual Int Fault";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(70, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Machine Fault";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel6
             // 
@@ -455,7 +558,7 @@
             this.deleteToolStripMenuItem,
             this.deleteRowsToolStripMenuItem});
             this.cMenuStrip.Name = "cMenuStrip";
-            this.cMenuStrip.Size = new System.Drawing.Size(172, 176);
+            this.cMenuStrip.Size = new System.Drawing.Size(172, 154);
             // 
             // toolStripMenuItem1
             // 
@@ -487,14 +590,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.deleteToolStripMenuItem.Text = "Deselect";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -528,6 +623,14 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(168, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.deleteToolStripMenuItem.Text = "Deselect";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // deleteRowsToolStripMenuItem
             // 
@@ -649,53 +752,6 @@
             this.toolStripMenuItem5.Text = "Unselect All";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(70, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Machine Fault";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(210, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Manual Int Fault";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox2.Location = new System.Drawing.Point(163, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lcontrolerName
-            // 
-            this.lcontrolerName.AutoSize = true;
-            this.lcontrolerName.Location = new System.Drawing.Point(910, 5);
-            this.lcontrolerName.Name = "lcontrolerName";
-            this.lcontrolerName.Size = new System.Drawing.Size(10, 13);
-            this.lcontrolerName.TabIndex = 22;
-            this.lcontrolerName.Text = "-";
-            // 
             // FISGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -722,6 +778,8 @@
             this.tabPage2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
@@ -729,8 +787,6 @@
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
             this.cmstripassetsname.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -799,6 +855,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lcontrolerName;
+        private System.Windows.Forms.CheckBox cbcreateNew;
+        private System.Windows.Forms.CheckBox cbupdateactualDesignSheet;
+        private System.Windows.Forms.CheckBox cbCreateL5Xout;
+        private System.Windows.Forms.CheckBox cbCreateTxTout;
     }
 }
 

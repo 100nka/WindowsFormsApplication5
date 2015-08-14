@@ -95,5 +95,53 @@ namespace WindowsFormsApplication5.Properties {
                 this["filtr_PF_Alarm8"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cbupdateactualDesignSheet {
+            get {
+                return ((bool)(this["cbupdateactualDesignSheet"]));
+            }
+            set {
+                this["cbupdateactualDesignSheet"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cbcreateNew {
+            get {
+                return ((bool)(this["cbcreateNew"]));
+            }
+            set {
+                this["cbcreateNew"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cbCreateTxTout {
+            get {
+                return ((bool)(this["cbCreateTxTout"]));
+            }
+            set {
+                this["cbCreateTxTout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cbCreateL5Xout {
+            get {
+                return ((bool)(this["cbCreateL5Xout"]));
+            }
+            set {
+                this["cbCreateL5Xout"] = value;
+            }
+        }
     }
 }

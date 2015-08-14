@@ -10,11 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using ExcelM = Microsoft.Office.Interop.Excel;
 
 namespace WindowsFormsApplication5
 {
     public partial class FISGenerator : Form
     {
+        private static ExcelM.Workbook MyBook = null;
+        private static ExcelM.Application MyApp = null;
+        private static ExcelM.Worksheet MySheet_MI = null;
+        private static ExcelM.Worksheet MySheet_MF = null;
         private Dictionary<int, ExcelData> excelFaultList;
         private List<AssetList> excelAssetlList;
 
@@ -28,26 +33,38 @@ namespace WindowsFormsApplication5
         private List<XElement> all_datatypes;
         private List<XElement> all_tags;
         private List<excel_out_data> excel_MI;
-        private List<excel_out_data> excel_AF;
+        private List<excel_out_data> excel_MF;
         private List<excel_out_data> excel_unused;
         private List<Pf_Alarm8> external_faults;
         private List<Single_fault> all_faults;
         private List<Single_fault> filtered_faults_MIF;
         private BindingSource _sourceFilteredFaults = new BindingSource();
+        private string designssheetlink = "";
         public bool l5xLoaded = false;
         public bool xLSCumstomLoaded = false;
         public bool xLSGeneralLoaded = false;
         public bool xLSDataSheetLoaded = false;
+        public string tagFISName = "";
         //   public bool generatedfinished = false;
         public FISGenerator()
         {
             InitializeComponent();
             InitialMemArea();
-            tbSavePath.Text = Properties.Settings.Default.SavePath.ToString();
+            initialSetings();
+
             Genetatestatus(false);
 
             //  dataGridViewMAF.CellFormatting += dataGridViewMAF_CellFormatting;
             // dataGridViewMAF.CellClick = 
+        }
+
+        private void initialSetings()
+        {
+            tbSavePath.Text = Properties.Settings.Default.SavePath.ToString();
+            cbCreateL5Xout.Checked = Properties.Settings.Default.cbCreateL5Xout;
+            cbcreateNew.Checked =Properties.Settings.Default.cbcreateNew;
+            cbCreateTxTout.Checked = Properties.Settings.Default.cbCreateTxTout;
+            cbupdateactualDesignSheet.Checked = Properties.Settings.Default.cbupdateactualDesignSheet;
         }
         // private Regex filtr_PF_Alarm8 = new Regex(@"Pf_Alarm8\((?<FBI>.*?),(?<I1>\d+),(?<I2>\d+),(?<I3>\d+),(?<I4>\d+),(?<I5>\d+),(?<I6>\d+),(?<I7>\d+),(?<I8>\d+),(?<zVar>.*?),.*?\)", RegexOptions.Compiled);
         private Regex filtr_PF_Alarm8 = new Regex(Properties.Settings.Default.filtr_PF_Alarm8, RegexOptions.Compiled);
@@ -204,6 +221,7 @@ namespace WindowsFormsApplication5
                                 xLSDataSheetLoaded = true;
                                 tbcriteriasheetname.Text = file.SafeFileName;
                                 Properties.Settings.Default.XLSM_designSheet = DirFromlink(file.FileName.ToString());
+                                designssheetlink = file.FileName.ToString();
                                 Properties.Settings.Default.Save();
                             }
                             else
@@ -215,7 +233,7 @@ namespace WindowsFormsApplication5
 
 
                             edr.Close();
-                            
+
                             //         ds_excel_DesignCSheet.WriteXml(fs);
 
                         }
@@ -284,6 +302,14 @@ namespace WindowsFormsApplication5
             //{
             lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
+            tagFISName = "";
+            foreach (var tagname in excelAssetlList)
+            {
+                if (lbAssetslist.SelectedItem.ToString().Contains(tagname.TagName))
+                {
+                    tagFISName = tagname.TagName;
+                }
+            }
             //}
             string name = "";
             foreach (var groupname in all_faults)
@@ -515,7 +541,7 @@ namespace WindowsFormsApplication5
             all_faults = new List<Single_fault>();
             filtered_faults_MIF = new List<Single_fault>();
             all_datatypes = new List<XElement>();
-            excel_AF = new List<excel_out_data>();
+            excel_MF = new List<excel_out_data>();
             excel_MI = new List<excel_out_data>();
             excel_unused = new List<excel_out_data>();
             lbAssetslist.Items.Clear();
@@ -707,30 +733,150 @@ namespace WindowsFormsApplication5
         private void saveDataToXLSMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateXLSTable();
+
+            if (cbcreateNew.Checked == true)
+            {
+                _writeExternalExcelMiMF();
+            }
+            if (cbupdateactualDesignSheet.Checked == true)
+            {
+                _writeDastaSheetExcelMIMF();        
+            }
+            if (cbCreateTxTout.Checked == true)
+            {
+                _writeExternalExcelRoutineTXT();
+            }
+        }
+
+
+        private void _writeExternalExcelMiMF()
+        {
             string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
             string outfilename_sep = outfilename.Replace("/", ".");
-            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_AF.xls", excel_AF.Select(p => p.ToString()).ToArray());
-            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_MI.xls", excel_MI.Select(p => p.ToString()).ToArray());
+            if (excel_MF.Count > 0)
+            {
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_MF.xls", excel_MF.Select(p => p.ToString()).ToArray());
+            }
+            if (excel_MI.Count > 0)
+            {
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_MI.xls", excel_MI.Select(p => p.ToString()).ToArray());
+            }
             if (excel_unused.Count > 0)
             {
                 File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_Unnused.xls", excel_unused.Select(p => p.ToString()).ToArray());
-
             }
-            //  File.WriteAllLines(Properties.Settings.Default.SavePath + "dupaaa.xls", all_faults.Select(p => p.ToString()).ToArray());    
-            MessageBox.Show(string.Format("{0}{1}{2}", "Files for Asset: ", outfilename, "are generated!"));
+            MessageBox.Show(string.Format("{0}{1}{2}", " New Files for Asset: ", outfilename, "are generated!"));
         }
+        private void _writeDastaSheetExcelMIMF()
+        {
+            var filepath = designssheetlink;
+            MyApp = new ExcelM.Application();
+            MyApp.Visible = false;
+            MyBook = MyApp.Workbooks.Open(filepath);
+            #region Update MI
+            MySheet_MI = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MI"]; // Explicit cast is not required here
+            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count, 3]];
+            foreach (ExcelM.Range item in cell_MI)
+            {
+                switch (item.Column)
+                {
+                    case 1:
+                        item.Value = excel_MI.ElementAt(item.Row - 3).AddressFIS;
+                        break;
+                    case 2:
+                        item.Value = excel_MI.ElementAt(item.Row - 3).Trigger;
+                        break;
+                    case 3:
+                        item.Value = excel_MI.ElementAt(item.Row - 3).FaultDescription;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            #endregion
+            # region update MF
+            if (excel_MF.Count > 0)
+            {
+                MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
+                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count, 3]];
+                foreach (ExcelM.Range item in cell_MF)
+                {
+                    //   item.Value = string.Format("row:{0:D2} col:{1:D2}", item.Row, item.Column);
+                    //   item.Value = excel_MI.ElementAt(1).Address;
+                    switch (item.Column)
+                    {
+                        case 1:
+                            item.Value = excel_MF.ElementAt(item.Row - 3).AddressFIS;
+                            break;
+                        case 2:
+                            item.Value = excel_MF.ElementAt(item.Row - 3).Trigger;
+                            break;
+                        case 3:
+                            item.Value = excel_MF.ElementAt(item.Row - 3).FaultDescription;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            #endregion
+                MyBook.SaveAs(Filename: filepath);
+                MyBook.Close();
+            }
+        }
+
+
+        private void _writeExternalExcelRoutineTXT()
+        {
+            string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
+            string outfilename_sep = outfilename.Replace("/", ".");
+            if (excel_MF.Count > 0)
+            {
+     // XIC(CD01_OC0402_OC0402.AV.A1000_FMP)OTE(S001FIS.M.MachFlt[0].5);
+              var temp = new List<string>();
+                foreach (var item in excel_MF)
+                {
+                    temp.Add("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");");
+                }
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMF.txt", temp.ToArray());                   
+            }
+
+            if (excel_MI.Count > 0)           
+            {
+                var temp = new List<string>();
+                  foreach (var item in excel_MI)
+                {
+                    temp.Add("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");");
+                }
+                  File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMI.txt", temp.ToArray());
+            }     
+      
+            MessageBox.Show(string.Format("{0}{1}{2}", " New Files for PLC : ", outfilename, "are generated!"));
+        }
+
+        private string addroutine(List <excel_out_data> aa)
+        {
+            string dupa = "";
+            foreach (var item in excel_MI )
+            {
+                dupa = (item.AddressFIS + item.AddressPLC);
+            }
+     //       excel_MI.ElementAt(item.Row - 3).Address;
+            return  dupa;
+        }
+
 
         private void CreateXLSTable()
         {
             int miTrigger = 1;
             int afTrigger = 1;
-            excel_AF.Clear();
+            excel_MF.Clear();
             excel_MI.Clear();
             foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
             {
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
                 string faultDescription = (irow.Cells[5].Value + "_Spare");
+                string addressPLC = (irow.Cells[5].Value + "") ;
                 if (irow.Cells[6].Value != null)
                 {
                     faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
@@ -740,15 +886,15 @@ namespace WindowsFormsApplication5
                 {
                     case "Color [Green]":
                         var dupa = irow.Cells[0].Value.ToString();
-                        excel_MI.Add(new excel_out_data() { Address = CountFISBit("S001FIS", 2, miTrigger), Trigger = miTrigger, FaultDescription = faultDescription });
+                        excel_MI.Add(new excel_out_data() { AddressFIS = CountFISBit(tagFISName, 2, miTrigger),AddressPLC = addressPLC, Trigger = miTrigger, FaultDescription = faultDescription });     
                         miTrigger++;
                         break;
                     case "Color [Blue]":
-                        excel_AF.Add(new excel_out_data() { Address = CountFISBit("S001FIS", 1, afTrigger), Trigger = afTrigger, FaultDescription = faultDescription });
+                        excel_MF.Add(new excel_out_data() { AddressFIS = CountFISBit(tagFISName, 1, afTrigger), AddressPLC = addressPLC, Trigger = afTrigger, FaultDescription = faultDescription });
                         afTrigger++;
                         break;
                     case "Color [Orange]":
-                        excel_unused.Add(new excel_out_data() { Address = "Unnused tag", Trigger = 1, FaultDescription = faultDescription });
+                        excel_unused.Add(new excel_out_data() { AddressFIS = tagFISName + "Unnused tag",AddressPLC = addressPLC, Trigger = 1, FaultDescription = faultDescription });
                         break;
                     default:
                         if (irow.Index == (dataGridViewMAF.Rows.Count - 1))
@@ -809,6 +955,16 @@ namespace WindowsFormsApplication5
             //      dataGridViewMAF.Refresh();
         }
 
+        private void cbupdateactualDesignSheet_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.cbCreateL5Xout = cbCreateL5Xout.Checked;
+            Properties.Settings.Default.cbcreateNew = cbcreateNew.Checked;
+            Properties.Settings.Default.cbCreateTxTout = cbCreateTxTout.Checked;
+            Properties.Settings.Default.cbupdateactualDesignSheet = cbupdateactualDesignSheet.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        
 
         //private void listView1_KeyDown(object sender, KeyEventArgs e)
         //{
@@ -941,15 +1097,15 @@ namespace WindowsFormsApplication5
 
     class excel_out_data
     {
-        public string Address { get; set; }
+        public string AddressFIS { get; set; }
+        public string AddressPLC { get; set; }
         public int Trigger { get; set; }
         public string FaultDescription { get; set; }
 
         public override string ToString()
         {
-            return string.Format("{0}{3}{1}{3}{2}", Address, Trigger, FaultDescription, "\t");
+            return string.Format("{0}{4}{1}{4}{2}{4}{3}", AddressFIS,AddressPLC, Trigger, FaultDescription, "\t");
         }
-
     }
     # endregion
 }
