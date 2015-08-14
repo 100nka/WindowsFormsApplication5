@@ -28,7 +28,7 @@ namespace Excel_Write
             MyApp = new Excel.Application();
             MyApp.Visible = false;
             MyBook = MyApp.Workbooks.Open(filepath);
-            MySheet = (Excel.Worksheet)MyBook.Sheets[1]; // Explicit cast is not required here
+            MySheet = (Excel.Worksheet)MyBook.Sheets["Arkusz3"]; // Explicit cast is not required here
             Excel.Range cell = MySheet.Range[MySheet.Cells[1, 1], MySheet.Cells[4, 4]];
             foreach (Excel.Range item in cell)
             {
