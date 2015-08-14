@@ -38,9 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
             this.btstargen = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bSavePath = new System.Windows.Forms.Button();
@@ -49,6 +47,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btLoadDesignCt = new System.Windows.Forms.Button();
             this.tbcriteriasheetname = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView_AssetsList = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lrowslicz = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -58,10 +60,6 @@
             this.dataGridViewMAF = new System.Windows.Forms.DataGridView();
             this.lbgroupnames = new System.Windows.Forms.ListBox();
             this.lbAssetslist = new System.Windows.Forms.ListBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView_AssetsList = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
             this.cMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,20 +86,29 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lcontrolerName = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AssetsList)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // load_xml
@@ -166,30 +173,29 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lcontrolerName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(974, 21);
+            this.panel1.Size = new System.Drawing.Size(986, 21);
             this.panel1.TabIndex = 12;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(974, 591);
+            this.tabControl1.Size = new System.Drawing.Size(986, 656);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.btstargen);
-            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.label1);
@@ -203,38 +209,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1067, 565);
+            this.tabPage1.Size = new System.Drawing.Size(978, 630);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sources";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(701, 153);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(153, 42);
-            this.button6.TabIndex = 15;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // btstargen
             // 
-            this.btstargen.Location = new System.Drawing.Point(701, 21);
+            this.btstargen.Location = new System.Drawing.Point(692, 21);
             this.btstargen.Name = "btstargen";
-            this.btstargen.Size = new System.Drawing.Size(153, 42);
+            this.btstargen.Size = new System.Drawing.Size(266, 178);
             this.btstargen.TabIndex = 14;
             this.btstargen.Text = "Generate list";
             this.btstargen.UseVisualStyleBackColor = true;
             this.btstargen.Click += new System.EventHandler(this.bt_startGen);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(701, 85);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 42);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Save config";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btSaveas_Click);
             // 
             // label2
             // 
@@ -315,103 +303,13 @@
             this.tbcriteriasheetname.TabIndex = 14;
             this.tbcriteriasheetname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.lrowslicz);
-            this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(966, 565);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Configuration";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lrowslicz
-            // 
-            this.lrowslicz.AutoSize = true;
-            this.lrowslicz.Location = new System.Drawing.Point(848, 542);
-            this.lrowslicz.Name = "lrowslicz";
-            this.lrowslicz.Size = new System.Drawing.Size(10, 13);
-            this.lrowslicz.TabIndex = 20;
-            this.lrowslicz.Text = "-";
-            // 
-            // panel7
-            // 
-            this.panel7.Location = new System.Drawing.Point(333, 535);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(493, 26);
-            this.panel7.TabIndex = 19;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(140, 535);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 26);
-            this.panel6.TabIndex = 18;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(8, 535);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(126, 26);
-            this.panel5.TabIndex = 17;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dataGridViewMAF);
-            this.panel4.Controls.Add(this.lbgroupnames);
-            this.panel4.Controls.Add(this.lbAssetslist);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(960, 526);
-            this.panel4.TabIndex = 15;
-            // 
-            // dataGridViewMAF
-            // 
-            this.dataGridViewMAF.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewMAF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewMAF.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridViewMAF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMAF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMAF.Location = new System.Drawing.Point(324, 0);
-            this.dataGridViewMAF.Name = "dataGridViewMAF";
-            this.dataGridViewMAF.Size = new System.Drawing.Size(636, 526);
-            this.dataGridViewMAF.TabIndex = 3;
-            // 
-            // lbgroupnames
-            // 
-            this.lbgroupnames.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbgroupnames.FormattingEnabled = true;
-            this.lbgroupnames.Location = new System.Drawing.Point(131, 0);
-            this.lbgroupnames.Name = "lbgroupnames";
-            this.lbgroupnames.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbgroupnames.Size = new System.Drawing.Size(193, 526);
-            this.lbgroupnames.Sorted = true;
-            this.lbgroupnames.TabIndex = 1;
-            this.lbgroupnames.SelectedIndexChanged += new System.EventHandler(this.lbgroupnames_SelectedIndexChanged);
-            // 
-            // lbAssetslist
-            // 
-            this.lbAssetslist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbAssetslist.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbAssetslist.Location = new System.Drawing.Point(0, 0);
-            this.lbAssetslist.Name = "lbAssetslist";
-            this.lbAssetslist.Size = new System.Drawing.Size(131, 526);
-            this.lbAssetslist.TabIndex = 2;
-            this.lbAssetslist.SelectedIndexChanged += new System.EventHandler(this.lbAssetslist_SelectedIndexChanged);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView_AssetsList);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1067, 565);
+            this.tabPage4.Size = new System.Drawing.Size(978, 630);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Assets List";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -424,7 +322,7 @@
             this.dataGridView_AssetsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_AssetsList.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_AssetsList.Name = "dataGridView_AssetsList";
-            this.dataGridView_AssetsList.Size = new System.Drawing.Size(1061, 559);
+            this.dataGridView_AssetsList.Size = new System.Drawing.Size(972, 624);
             this.dataGridView_AssetsList.TabIndex = 10;
             // 
             // tabPage5
@@ -433,7 +331,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1067, 565);
+            this.tabPage5.Size = new System.Drawing.Size(978, 630);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "All faults list";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -446,20 +344,115 @@
             this.dataGridView_AllFaults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_AllFaults.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_AllFaults.Name = "dataGridView_AllFaults";
-            this.dataGridView_AllFaults.Size = new System.Drawing.Size(1061, 559);
+            this.dataGridView_AllFaults.Size = new System.Drawing.Size(972, 624);
             this.dataGridView_AllFaults.TabIndex = 8;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Controls.Add(this.panel5);
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(978, 630);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Assets log Build";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lrowslicz
+            // 
+            this.lrowslicz.AutoSize = true;
+            this.lrowslicz.Location = new System.Drawing.Point(417, 6);
+            this.lrowslicz.Name = "lrowslicz";
+            this.lrowslicz.Size = new System.Drawing.Size(10, 13);
+            this.lrowslicz.TabIndex = 20;
+            this.lrowslicz.Text = "-";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBox2);
+            this.panel7.Controls.Add(this.lrowslicz);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Controls.Add(this.pictureBox1);
+            this.panel7.Location = new System.Drawing.Point(431, 597);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(527, 26);
+            this.panel7.TabIndex = 19;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(239, 597);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(187, 26);
+            this.panel6.TabIndex = 18;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(8, 597);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(225, 26);
+            this.panel5.TabIndex = 17;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dataGridViewMAF);
+            this.panel4.Controls.Add(this.lbgroupnames);
+            this.panel4.Controls.Add(this.lbAssetslist);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(972, 593);
+            this.panel4.TabIndex = 15;
+            // 
+            // dataGridViewMAF
+            // 
+            this.dataGridViewMAF.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewMAF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewMAF.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewMAF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMAF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridViewMAF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMAF.Location = new System.Drawing.Point(428, 0);
+            this.dataGridViewMAF.Name = "dataGridViewMAF";
+            this.dataGridViewMAF.Size = new System.Drawing.Size(544, 593);
+            this.dataGridViewMAF.TabIndex = 3;
+            // 
+            // lbgroupnames
+            // 
+            this.lbgroupnames.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbgroupnames.FormattingEnabled = true;
+            this.lbgroupnames.Location = new System.Drawing.Point(235, 0);
+            this.lbgroupnames.Name = "lbgroupnames";
+            this.lbgroupnames.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbgroupnames.Size = new System.Drawing.Size(193, 593);
+            this.lbgroupnames.Sorted = true;
+            this.lbgroupnames.TabIndex = 1;
+            this.lbgroupnames.SelectedIndexChanged += new System.EventHandler(this.lbgroupnames_SelectedIndexChanged);
+            // 
+            // lbAssetslist
+            // 
+            this.lbAssetslist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbAssetslist.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbAssetslist.Location = new System.Drawing.Point(0, 0);
+            this.lbAssetslist.Name = "lbAssetslist";
+            this.lbAssetslist.Size = new System.Drawing.Size(235, 593);
+            this.lbAssetslist.TabIndex = 2;
+            this.lbAssetslist.SelectedIndexChanged += new System.EventHandler(this.lbAssetslist_SelectedIndexChanged);
             // 
             // cMenuStrip
             // 
             this.cMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripSeparator1,
-            this.deleteToolStripMenuItem,
             this.toolStripMenuItem6,
             this.toolStripSeparator2,
             this.saveDataToXLSMToolStripMenuItem,
             this.saveDataToL5XToolStripMenuItem,
             this.toolStripSeparator3,
+            this.deleteToolStripMenuItem,
             this.deleteRowsToolStripMenuItem});
             this.cMenuStrip.Name = "cMenuStrip";
             this.cMenuStrip.Size = new System.Drawing.Size(172, 176);
@@ -472,7 +465,7 @@
             this.toolStripMenuItem1.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItem1.Text = "Select ";
+            this.toolStripMenuItem1.Text = "Mark Selected";
             // 
             // machineFaultToolStripMenuItem
             // 
@@ -508,7 +501,7 @@
             this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItem6.Text = "Set Default";
+            this.toolStripMenuItem6.Text = "Return Default";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // toolStripSeparator2
@@ -656,16 +649,65 @@
             this.toolStripMenuItem5.Text = "Unselect All";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(70, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Machine Fault";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(210, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Manual Int Fault";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox2.Location = new System.Drawing.Point(163, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lcontrolerName
+            // 
+            this.lcontrolerName.AutoSize = true;
+            this.lcontrolerName.Location = new System.Drawing.Point(910, 5);
+            this.lcontrolerName.Name = "lcontrolerName";
+            this.lcontrolerName.Size = new System.Drawing.Size(10, 13);
+            this.lcontrolerName.TabIndex = 22;
+            this.lcontrolerName.Text = "-";
+            // 
             // FISGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 612);
+            this.ClientSize = new System.Drawing.Size(986, 677);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FISGenerator";
             this.Text = "FIS Generator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -673,19 +715,22 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AssetsList)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
             this.cmStripGroupnames.ResumeLayout(false);
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
             this.cmstripassetsname.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,9 +763,7 @@
         private System.Windows.Forms.ListBox lbAssetslist;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridViewMAF;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btstargen;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ContextMenuStrip cMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem machineFaultToolStripMenuItem;
@@ -751,6 +794,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lrowslicz;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lcontrolerName;
     }
 }
 

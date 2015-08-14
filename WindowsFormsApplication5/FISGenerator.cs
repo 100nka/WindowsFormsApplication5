@@ -27,6 +27,9 @@ namespace WindowsFormsApplication5
         private List<XElement> all_rungs_networks_FIS;
         private List<XElement> all_datatypes;
         private List<XElement> all_tags;
+        private List<excel_out_data> excel_MI;
+        private List<excel_out_data> excel_AF;
+        private List<excel_out_data> excel_unused;
         private List<Pf_Alarm8> external_faults;
         private List<Single_fault> all_faults;
         private List<Single_fault> filtered_faults_MIF;
@@ -35,11 +38,14 @@ namespace WindowsFormsApplication5
         public bool xLSCumstomLoaded = false;
         public bool xLSGeneralLoaded = false;
         public bool xLSDataSheetLoaded = false;
+        //   public bool generatedfinished = false;
         public FISGenerator()
         {
             InitializeComponent();
             InitialMemArea();
             tbSavePath.Text = Properties.Settings.Default.SavePath.ToString();
+            Genetatestatus(false);
+
             //  dataGridViewMAF.CellFormatting += dataGridViewMAF_CellFormatting;
             // dataGridViewMAF.CellClick = 
         }
@@ -60,11 +66,14 @@ namespace WindowsFormsApplication5
             {
                 if (File.Exists(file.FileName))
                 {
+                    Genetatestatus(false);
                     l5filename = file.SafeFileName;
 
                     projektL5x = XDocument.Load(file.FileName);
                     if (projektL5x.Root.Name.ToString() == "RSLogix5000Content")
                     {
+                        lcontrolerName.Text = projektL5x.Root.Element("Controller").Attribute("Name").Value.ToString();
+
                         all_rungs_networks_CV = projektL5x.Root.Element("Controller").Element("Programs").Descendants("Routine").Descendants("Text").ToList();
                         all_rungs_networks_FIS = projektL5x.Root.Element("Controller").Element("Programs").Descendants("Rung").ToList();
                         all_tags = projektL5x.Root.Element("Controller").Element("Tags").Elements("Tag").ToList();
@@ -88,6 +97,7 @@ namespace WindowsFormsApplication5
         }
         private void loadcutomXls_Click(object sender, EventArgs e)
         {
+
             xLSCumstomLoaded = false;
             tbxlsmname.Text = "";
             var file = new OpenFileDialog();
@@ -99,6 +109,7 @@ namespace WindowsFormsApplication5
             {
                 if (File.Exists(file.FileName))
                 {
+                    Genetatestatus(false);
                     try
                     {
                         using (FileStream fs = File.Open(file.FileName, FileMode.Open))
@@ -142,6 +153,7 @@ namespace WindowsFormsApplication5
                 {
                     try
                     {
+                        Genetatestatus(false);
                         using (FileStream fs = File.Open(file.FileName, FileMode.Open))
                         {
                             Excel.IExcelDataReader edr = Excel.ExcelReaderFactory.CreateOpenXmlReader(fs);
@@ -180,6 +192,7 @@ namespace WindowsFormsApplication5
             {
                 if (File.Exists(file.FileName))
                 {
+                    Genetatestatus(false);
                     try
                     {
                         using (FileStream fs = File.Open(file.FileName, FileMode.Open))
@@ -197,7 +210,13 @@ namespace WindowsFormsApplication5
                             {
                                 MessageBox.Show("File: " + file.SafeFileName + " incorrect, no Design Criteria Sheet Text file");
                             }
+
+
+
+
                             edr.Close();
+                            //         ds_excel_DesignCSheet.WriteXml(fs);
+
                         }
                     }
                     catch (Exception ex)
@@ -214,6 +233,11 @@ namespace WindowsFormsApplication5
         {
             if (l5xLoaded && xLSCumstomLoaded && xLSGeneralLoaded && xLSDataSheetLoaded)
             {
+                //excelAssetlList.Clear();
+                //all_faults.Clear();
+                //all_datatypes.Clear();
+                //excelFaultList.Clear();
+                InitialMemArea();
                 ReadDataFromFaultsExcels(ds_excel_custom, "A_Faults", 1, 4);
                 ReadDataFromFaultsExcels(ds_excel_General, "A_Faults", 1, 5);
                 ReadDataFromDesignCSheet(ds_excel_DesignCSheet, "AssetList", 1, 3, 4, 5);
@@ -226,11 +250,7 @@ namespace WindowsFormsApplication5
                 dataGridView_AssetsList.DataSource = excelAssetlList;
 
                 AddAssetsListBox();
-
-
-
-
-
+                Genetatestatus(true);
             }
             else
             {
@@ -242,10 +262,10 @@ namespace WindowsFormsApplication5
 
         private void AddAssetsListBox()
         {
-
+            lbAssetslist.Items.Clear();
             foreach (var assetname in excelAssetlList)
             {
-                lbAssetslist.Items.Add(assetname.assetname.ToString());
+                lbAssetslist.Items.Add(assetname.TagName.ToString() + "-" + assetname.assetname.ToString());
             }
 
             if (this.lbAssetslist.ContextMenuStrip == null)
@@ -262,6 +282,7 @@ namespace WindowsFormsApplication5
             //for (int i = 0; i < lbgroupnames.Items.Count; i++)
             //{
             lbgroupnames.Items.Clear();
+            dataGridViewMAF.Rows.Clear();
             //}
             string name = "";
             foreach (var groupname in all_faults)
@@ -493,6 +514,23 @@ namespace WindowsFormsApplication5
             all_faults = new List<Single_fault>();
             filtered_faults_MIF = new List<Single_fault>();
             all_datatypes = new List<XElement>();
+            excel_AF = new List<excel_out_data>();
+            excel_MI = new List<excel_out_data>();
+            excel_unused = new List<excel_out_data>();
+            lbAssetslist.Items.Clear();
+            lbgroupnames.Items.Clear();
+            dataGridViewMAF.Rows.Clear();
+        }
+        public void Genetatestatus(bool gen)
+        {
+            if (gen)
+            {
+                btstargen.BackColor = Color.Green;
+            }
+            else
+            {
+                btstargen.BackColor = Color.Red;
+            }
         }
         #endregion
 
@@ -552,7 +590,7 @@ namespace WindowsFormsApplication5
 
             foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
             {
-                int value = Convert.ToInt16( irow.Cells[0].Value); 
+                int value = Convert.ToInt16(irow.Cells[0].Value);
                 switch (value)
                 {
                     case 1:
@@ -667,7 +705,107 @@ namespace WindowsFormsApplication5
 
         private void saveDataToXLSMToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         //   ds_excel_DesignCSheet.
+            CreateXLSTable();
+            string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
+            string outfilename_sep = outfilename.Replace("/", ".");
+            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_AF.xls", excel_AF.Select(p => p.ToString()).ToArray());
+            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_MI.xls", excel_MI.Select(p => p.ToString()).ToArray());
+            if (excel_unused.Count > 0)
+            {
+            File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_Unnused.xls", excel_unused.Select(p => p.ToString()).ToArray());
+                
+            }
+            //  File.WriteAllLines(Properties.Settings.Default.SavePath + "dupaaa.xls", all_faults.Select(p => p.ToString()).ToArray());    
+            MessageBox.Show(string.Format("{0}{1}{2}", "Files for Asset: ", outfilename, "are generated!"));
+        }
+
+        private void CreateXLSTable()
+        {
+            int miTrigger = 1;
+            int afTrigger = 1;
+            excel_AF.Clear();
+            excel_MI.Clear();
+            foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
+            {
+
+                var value = irow.DefaultCellStyle.ForeColor.ToString();
+                string faultDescription = (irow.Cells[3].Value + "_Spare");
+                if (irow.Cells[6].Value != null)
+                {
+                    faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
+                    //      irow.Cells[5].Value = new string 
+                }
+                switch (value)
+                {
+                    case "Color [Green]":
+                        var dupa = irow.Cells[0].Value.ToString();
+                        excel_MI.Add(new excel_out_data() { Address = CountFISBit("S001FIS", 2, miTrigger), Trigger = miTrigger, FaultDescription = faultDescription });
+                        miTrigger++;
+                        break;
+                    case "Color [Blue]":
+                        excel_AF.Add(new excel_out_data() { Address = CountFISBit("S001FIS", 1, afTrigger), Trigger = afTrigger, FaultDescription = faultDescription });
+                        afTrigger++;
+                        break;
+                    case "Color [Orange]":
+                        excel_unused.Add(new excel_out_data() { Address = "Unnused tag", Trigger = 1, FaultDescription = faultDescription });
+                        break;
+                    default:
+                        if (irow.Index == (dataGridViewMAF.Rows.Count - 1))
+                        {
+                            break;
+                        }
+                        MessageBox.Show("Missed fault: " + faultDescription);
+                        break;
+                }
+            }
+
+        }
+
+        private string CountFISBit(string tag, int type, int pos)
+        {
+            string value = "";
+            string parttype = "";
+            int dint = pos / 32;
+            int bit = pos % 32;
+
+            switch (type)
+            {
+                case 1:
+                    parttype = ".M.MachFlt";
+                    break;
+                case 2:
+                    parttype = "M.ManualInt";
+                    break;
+                default:
+                    break;
+            }
+
+            value = tag + parttype + "[" + dint + "]." + bit;
+
+            //  S001FIS.M.MachFlt[0].5
+            //  S001FIS.M.ManualInt[0].5
+            return value;
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow oneRow in dataGridViewMAF.Rows)
+            {
+                oneRow.Cells[6].Value = "bleble";
+            }
+
+            //foreach (DataGridViewRow selrow in dataGridViewMAF.Rows)
+            //{
+            //    selrow.Cells[6].Value = "Spare Fault";
+            //   // selrow.DefaultCellStyle.ForeColor = Color.Green;
+            //}
+            //      dataGridViewMAF.Refresh();
         }
 
 
@@ -796,6 +934,19 @@ namespace WindowsFormsApplication5
         public override string ToString()
         {
             return string.Format("{0}{7}{1}{7}{2}{7}{3}{7}{4}{7}{5}{7}{6}{7}", Name, MagicNumber, GroupName, AVName, Fulltag, FaultTextEn, FaultFISMember, "\t");
+        }
+
+    }
+
+    class excel_out_data
+    {
+        public string Address { get; set; }
+        public int Trigger { get; set; }
+        public string FaultDescription { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}{3}{1}{3}{2}", Address, Trigger, FaultDescription, "\t");
         }
 
     }
