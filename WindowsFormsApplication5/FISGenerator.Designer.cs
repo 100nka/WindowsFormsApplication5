@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FISGenerator));
             this.load_xml = new System.Windows.Forms.Button();
             this.loadcustomXls = new System.Windows.Forms.Button();
             this.tbxmlname = new System.Windows.Forms.TextBox();
@@ -58,11 +59,9 @@
             this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lrowslicz = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -70,31 +69,34 @@
             this.lbgroupnames = new System.Windows.Forms.ListBox();
             this.lbAssetslist = new System.Windows.Forms.ListBox();
             this.cMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDataToL5XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.unselectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -106,13 +108,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // load_xml
@@ -208,6 +211,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox3);
             this.tabPage1.Controls.Add(this.btstargen);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.panel3);
@@ -229,11 +233,12 @@
             // 
             // btstargen
             // 
+            this.btstargen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btstargen.Location = new System.Drawing.Point(692, 21);
             this.btstargen.Name = "btstargen";
             this.btstargen.Size = new System.Drawing.Size(266, 178);
             this.btstargen.TabIndex = 14;
-            this.btstargen.Text = "Generate list";
+            this.btstargen.Text = "Start";
             this.btstargen.UseVisualStyleBackColor = true;
             this.btstargen.Click += new System.EventHandler(this.bt_startGen);
             // 
@@ -438,15 +443,6 @@
             this.panel7.Size = new System.Drawing.Size(527, 26);
             this.panel7.TabIndex = 19;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox2.Location = new System.Drawing.Point(163, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
-            // 
             // lrowslicz
             // 
             this.lrowslicz.AutoSize = true;
@@ -476,25 +472,16 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Machine Fault";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(239, 597);
+            this.panel6.Location = new System.Drawing.Point(241, 599);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(187, 26);
             this.panel6.TabIndex = 18;
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(8, 597);
+            this.panel5.Location = new System.Drawing.Point(10, 598);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 26);
             this.panel5.TabIndex = 17;
@@ -513,6 +500,7 @@
             // dataGridViewMAF
             // 
             this.dataGridViewMAF.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewMAF.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewMAF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewMAF.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewMAF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -551,23 +539,109 @@
             this.toolStripMenuItem1,
             this.toolStripSeparator1,
             this.toolStripMenuItem6,
+            this.deleteRowsToolStripMenuItem,
             this.toolStripSeparator2,
             this.saveDataToXLSMToolStripMenuItem,
-            this.saveDataToL5XToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.deleteToolStripMenuItem,
-            this.deleteRowsToolStripMenuItem});
+            this.toolStripSeparator6});
             this.cMenuStrip.Name = "cMenuStrip";
-            this.cMenuStrip.Size = new System.Drawing.Size(172, 154);
+            this.cMenuStrip.Size = new System.Drawing.Size(177, 110);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            // 
+            // cmStripGroupnames
+            // 
+            this.cmStripGroupnames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox2,
+            this.editToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.unselectAllToolStripMenuItem});
+            this.cmStripGroupnames.Name = "cmStripGroupnames";
+            this.cmStripGroupnames.Size = new System.Drawing.Size(161, 79);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.ReadOnly = true;
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.Text = "Devices list";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
+            // 
+            // cmstripassetsname
+            // 
+            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem5});
+            this.cmstripassetsname.Name = "cmStripGroupnames";
+            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "Assets list";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(173, 6);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
+            this.pictureBox3.Location = new System.Drawing.Point(858, 562);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "FIS Generator Version V0.8");
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox2.Location = new System.Drawing.Point(163, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.machineFaultToolStripMenuItem,
-            this.manualIntFaultToolStripMenuItem});
+            this.manualIntFaultToolStripMenuItem,
+            this.unusedToolStripMenuItem});
             this.toolStripMenuItem1.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem1.Text = "Mark Selected";
             // 
             // machineFaultToolStripMenuItem
@@ -586,76 +660,37 @@
             this.manualIntFaultToolStripMenuItem.Text = "Manual Int Fault";
             this.manualIntFaultToolStripMenuItem.Click += new System.EventHandler(this.manualIntFaultToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
+            // unusedToolStripMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
+            this.unusedToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.unusedToolStripMenuItem.Name = "unusedToolStripMenuItem";
+            this.unusedToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.unusedToolStripMenuItem.Text = "Unused";
+            this.unusedToolStripMenuItem.Click += new System.EventHandler(this.unusedToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItem6.Text = "Return Default";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 22);
+            this.toolStripMenuItem6.Text = "Return default view";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
-            // 
-            // saveDataToXLSMToolStripMenuItem
-            // 
-            this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
-            this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
-            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.saveDataToXLSMToolStripMenuItem.Text = "Save data to XLSM";
-            this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
-            // 
-            // saveDataToL5XToolStripMenuItem
-            // 
-            this.saveDataToL5XToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_routine;
-            this.saveDataToL5XToolStripMenuItem.Name = "saveDataToL5XToolStripMenuItem";
-            this.saveDataToL5XToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.saveDataToL5XToolStripMenuItem.Text = "Save data  to L5X";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(168, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.deleteToolStripMenuItem.Text = "Deselect";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // deleteRowsToolStripMenuItem
             // 
             this.deleteRowsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
             this.deleteRowsToolStripMenuItem.Name = "deleteRowsToolStripMenuItem";
-            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.deleteRowsToolStripMenuItem.Text = "Delete Rows";
+            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
             this.deleteRowsToolStripMenuItem.Click += new System.EventHandler(this.deleteRowsToolStripMenuItem_Click);
             // 
-            // cmStripGroupnames
+            // saveDataToXLSMToolStripMenuItem
             // 
-            this.cmStripGroupnames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox2,
-            this.editToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.unselectAllToolStripMenuItem});
-            this.cmStripGroupnames.Name = "cmStripGroupnames";
-            this.cmStripGroupnames.Size = new System.Drawing.Size(161, 79);
-            // 
-            // toolStripTextBox2
-            // 
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.ReadOnly = true;
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox2.Text = "Devices list";
+            this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
+            this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
+            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
+            this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -683,11 +718,6 @@
             this.disableToolStripMenuItem.Text = "Disable";
             this.disableToolStripMenuItem.Click += new System.EventHandler(this.disableToolStripMenuItem_Click);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
-            // 
             // unselectAllToolStripMenuItem
             // 
             this.unselectAllToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -695,23 +725,6 @@
             this.unselectAllToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.unselectAllToolStripMenuItem.Text = "Unselect All";
             this.unselectAllToolStripMenuItem.Click += new System.EventHandler(this.unselectAllToolStripMenuItem_Click);
-            // 
-            // cmstripassetsname
-            // 
-            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1,
-            this.toolStripMenuItem2,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem5});
-            this.cmstripassetsname.Name = "cmStripGroupnames";
-            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.ReadOnly = true;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "Assets list";
             // 
             // toolStripMenuItem2
             // 
@@ -739,11 +752,6 @@
             this.toolStripMenuItem4.Text = "Disable";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
-            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -759,6 +767,7 @@
             this.ClientSize = new System.Drawing.Size(986, 677);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FISGenerator";
             this.Text = "FIS Generator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -778,8 +787,6 @@
             this.tabPage2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
@@ -787,6 +794,9 @@
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
             this.cmstripassetsname.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -825,11 +835,8 @@
         private System.Windows.Forms.ToolStripMenuItem machineFaultToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualIntFaultToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem saveDataToXLSMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveDataToL5XToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem deleteRowsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cmStripGroupnames;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -859,6 +866,10 @@
         private System.Windows.Forms.CheckBox cbupdateactualDesignSheet;
         private System.Windows.Forms.CheckBox cbCreateL5Xout;
         private System.Windows.Forms.CheckBox cbCreateTxTout;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem unusedToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

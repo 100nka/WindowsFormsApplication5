@@ -45,7 +45,6 @@ namespace WindowsFormsApplication5
         public bool xLSGeneralLoaded = false;
         public bool xLSDataSheetLoaded = false;
         public string tagFISName = "";
-        //   public bool generatedfinished = false;
         public FISGenerator()
         {
             InitializeComponent();
@@ -53,16 +52,13 @@ namespace WindowsFormsApplication5
             initialSetings();
 
             Genetatestatus(false);
-
-            //  dataGridViewMAF.CellFormatting += dataGridViewMAF_CellFormatting;
-            // dataGridViewMAF.CellClick = 
         }
 
         private void initialSetings()
         {
             tbSavePath.Text = Properties.Settings.Default.SavePath.ToString();
             cbCreateL5Xout.Checked = Properties.Settings.Default.cbCreateL5Xout;
-            cbcreateNew.Checked =Properties.Settings.Default.cbcreateNew;
+            cbcreateNew.Checked = Properties.Settings.Default.cbcreateNew;
             cbCreateTxTout.Checked = Properties.Settings.Default.cbCreateTxTout;
             cbupdateactualDesignSheet.Checked = Properties.Settings.Default.cbupdateactualDesignSheet;
         }
@@ -298,8 +294,6 @@ namespace WindowsFormsApplication5
         }
         private void AddDevicesListBox()
         {
-            //for (int i = 0; i < lbgroupnames.Items.Count; i++)
-            //{
             lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
             tagFISName = "";
@@ -409,24 +403,6 @@ namespace WindowsFormsApplication5
             }
         }
 
-        private object Find_AV(XElement av_tag)
-        {
-            var temp_av = av_tag.Descendants("StructureMember").Attributes("Name");
-            av_tag.Descendants("StructureMember").Attributes("Name");
-            return temp_av;
-        }
-
-        private bool is_AV(XElement dupa)
-        {
-            var temp = dupa.Descendants("StructureMember");
-            var temp2 = from temp3 in temp where temp3.HasAttributes && temp3.Attribute("Name") != null && temp3.Attribute("Name").Value.Contains("AV") select temp3;
-            if (temp2.Count() > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
         private void dataGridViewMAF_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             var dgv = sender as DataGridView;
@@ -511,10 +487,6 @@ namespace WindowsFormsApplication5
                 if (oneCell.Selected)
                     dataGridViewMAF.Rows.RemoveAt(oneCell.RowIndex);
             }
-        }
-        private void btSaveas_Click(object sender, EventArgs e)
-        {
-            File.WriteAllLines(Properties.Settings.Default.SavePath + "dupaaa.xls", all_faults.Select(p => p.ToString()).ToArray());
         }
 
         private void bSavePath_Click(object sender, EventArgs e)
@@ -717,14 +689,6 @@ namespace WindowsFormsApplication5
             }
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
-            {
-                selrow.DefaultCellStyle.ForeColor = Color.Orange;
-            }
-        }
-
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             DataggridMIFformating();
@@ -740,15 +704,136 @@ namespace WindowsFormsApplication5
             }
             if (cbupdateactualDesignSheet.Checked == true)
             {
-                _writeDastaSheetExcelMIMF();        
+                _writeDastaSheetExcelMIMF();
             }
             if (cbCreateTxTout.Checked == true)
             {
                 _writeExternalExcelRoutineTXT();
             }
+            if (cbCreateL5Xout.Checked == true)
+            {
+                _writeExternalL5XRoutineMFMI();
+            }
+            MessageBox.Show("All Neccessary files are generated");
         }
 
+        private void _writeExternalL5XRoutineMFMI()
+        {
+            string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
+            string outfilename_sep = outfilename.Replace("/", ".");
+            #region MF
+            if (excel_MF.Count > 0)
+            {
+                int TargetCount = excel_MF.Count;
+                string ExportDate = "True " + String.Format("{0:ddd MMM d HH:mm:ss yyyy}", System.DateTime.Now);  // "Sun, Mar 9, 2008" //"True Fri Jul 31 15:44:38 2015"; //System.DateTime.Now(); 
+                string FILE_PATH = Properties.Settings.Default.SavePath + outfilename_sep + "_MF.L5X";
+                string ExportOptions = "References DecoratedData Context RoutineLabels AliasExtras IOTags NoStringData ForceProtectedEncoding AllProjDocTrans";
+                string PLCName = lcontrolerName.Text;
+                string RoutineName ="B_"+  outfilename.Substring(0, 4);
+                XDocument xDoc = new XDocument(
+                new XElement("RSLogix5000Content",
+                                new XAttribute("SchemaRevision", "1.0"),
+                                new XAttribute("SoftwareRevision", "20.01"),
+                                new XAttribute("TargetName", RoutineName + "Faults_MF"),
+                                new XAttribute("TargetType", "Routine"),
+                                new XAttribute("TargetSubType", "RLL"),
+                                new XAttribute("TargetClass", "Standard"),
+                         //       new XAttribute("TargetCount", TargetCount.ToString()),
+                                new XAttribute("ContainsContext", "true"),
+                                new XAttribute("Owner", "Logix, Durr"),
+                                new XAttribute("ExportDate", ExportDate),
+                                new XAttribute("ExportOptions", ExportOptions),
+              new XElement("Controller",
+                                new XAttribute("Use", "Context"),
+                                new XAttribute("Name", PLCName),
+              new XElement("Programs",
+                                new XAttribute("Use", "Context"),
+              new XElement("Program",
+                                new XAttribute("Use", "Context"),
+                                new XAttribute("Name", "FIS"),
+                                new XAttribute("Class", "Standard"),
+              new XElement("Routines",
+                                new XAttribute("Use", "Context"),
+              new XElement("Routine",
+                                new XAttribute("Use", "Target"),
+                                new XAttribute("Name", RoutineName + "Faults_MF"),
+                                new XAttribute("Type", "RLL"),
+              new XElement("RLLContent")
+                              //  new XAttribute("Use", "Context")
+                                )))))));
+                foreach (var item in excel_MF)
+                {
+                    xDoc.Root.Element("Controller").Element("Programs").Element("Program").Element("Routines").Element("Routine").Element("RLLContent").Add(
+                    new XElement("Rung",
+                          //    new XAttribute("Use", "Target"),
+                              new XAttribute("Number", (item.Trigger - 1).ToString()),
+                              new XAttribute("Type", "N"),
+                    new XElement("Text",
+                        new XCData("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");")
+                              )));
 
+                }
+
+
+                xDoc.Save(FILE_PATH);
+            }
+            #endregion
+            #region MI
+            if (excel_MI.Count > 0)
+            {
+                int TargetCount = excel_MI.Count;
+                string ExportDate = "Fri Jul 31 15:44:38 2015"; //System.DateTime.Now(); 
+                string FILE_PATH = Properties.Settings.Default.SavePath + outfilename_sep + "_MI.L5X";
+                string ExportOptions = "References DecoratedData Context RoutineLabels AliasExtras IOTags NoStringData ForceProtectedEncoding AllProjDocTrans";
+                string PLCName = lcontrolerName.Text;
+                string RoutineName = "B_" + outfilename.Substring(0, 4);
+                        XDocument xDoc = new XDocument(
+                new XElement("RSLogix5000Content",
+                                new XAttribute("SchemaRevision", "1.0"),
+                                new XAttribute("SoftwareRevision", "20.01"),
+                                new XAttribute("TargetName", RoutineName + "Faults_MF"),
+                                new XAttribute("TargetType", "Routine"),
+                                new XAttribute("TargetSubType", "RLL"),
+                                new XAttribute("TargetClass", "Standard"),
+                         //       new XAttribute("TargetCount", TargetCount.ToString()),
+                                new XAttribute("ContainsContext", "true"),
+                                new XAttribute("Owner", "Logix, Durr"),
+                                new XAttribute("ExportDate", ExportDate),
+                                new XAttribute("ExportOptions", ExportOptions),
+              new XElement("Controller",
+                                new XAttribute("Use", "Context"),
+                                new XAttribute("Name", PLCName),
+              new XElement("Programs",
+                                new XAttribute("Use", "Context"),
+              new XElement("Program",
+                                new XAttribute("Use", "Context"),
+                                new XAttribute("Name", "FIS"),
+                                new XAttribute("Class", "Standard"),
+              new XElement("Routines",
+                                new XAttribute("Use", "Context"),
+              new XElement("Routine",
+                                new XAttribute("Use", "Target"),
+                                new XAttribute("Name", RoutineName + "Faults_MI"),
+                                new XAttribute("Type", "RLL"),
+              new XElement("RLLContent")
+                              //  new XAttribute("Use", "Context")
+                                )))))));
+                foreach (var item in excel_MI)
+                {
+                    xDoc.Root.Element("Controller").Element("Programs").Element("Program").Element("Routines").Element("Routine").Element("RLLContent").Add(
+                    new XElement("Rung",
+                        //    new XAttribute("Use", "Target"),
+                              new XAttribute("Number", (item.Trigger - 1).ToString()),
+                              new XAttribute("Type", "N"),
+                    new XElement("Text",
+                        new XCData("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");")
+                              )));
+                }
+                xDoc.Save(FILE_PATH);
+            }
+            #endregion
+           
+        }
         private void _writeExternalExcelMiMF()
         {
             string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
@@ -775,7 +860,7 @@ namespace WindowsFormsApplication5
             MyBook = MyApp.Workbooks.Open(filepath);
             #region Update MI
             MySheet_MI = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MI"]; // Explicit cast is not required here
-            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count, 3]];
+            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count+2, 3]];
             foreach (ExcelM.Range item in cell_MI)
             {
                 switch (item.Column)
@@ -798,7 +883,7 @@ namespace WindowsFormsApplication5
             if (excel_MF.Count > 0)
             {
                 MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
-                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count, 3]];
+                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count+2, 3]];
                 foreach (ExcelM.Range item in cell_MF)
                 {
                     //   item.Value = string.Format("row:{0:D2} col:{1:D2}", item.Row, item.Column);
@@ -823,45 +908,43 @@ namespace WindowsFormsApplication5
                 MyBook.Close();
             }
         }
-
-
         private void _writeExternalExcelRoutineTXT()
         {
             string outfilename = lbAssetslist.GetItemText(lbAssetslist.SelectedItem);
             string outfilename_sep = outfilename.Replace("/", ".");
             if (excel_MF.Count > 0)
             {
-     // XIC(CD01_OC0402_OC0402.AV.A1000_FMP)OTE(S001FIS.M.MachFlt[0].5);
-              var temp = new List<string>();
+                // XIC(CD01_OC0402_OC0402.AV.A1000_FMP)OTE(S001FIS.M.MachFlt[0].5);
+                var temp = new List<string>();
                 foreach (var item in excel_MF)
                 {
                     temp.Add("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");");
                 }
-                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMF.txt", temp.ToArray());                   
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMF.txt", temp.ToArray());
             }
 
-            if (excel_MI.Count > 0)           
+            if (excel_MI.Count > 0)
             {
                 var temp = new List<string>();
-                  foreach (var item in excel_MI)
+                foreach (var item in excel_MI)
                 {
                     temp.Add("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");");
                 }
-                  File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMI.txt", temp.ToArray());
+                File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMI.txt", temp.ToArray());
             }     
-      
-            MessageBox.Show(string.Format("{0}{1}{2}", " New Files for PLC : ", outfilename, "are generated!"));
         }
 
-        private string addroutine(List <excel_out_data> aa)
+       
+       //   " New Files are generated!");
+   
+        private string addroutine(List<excel_out_data> aa)
         {
             string dupa = "";
-            foreach (var item in excel_MI )
+            foreach (var item in excel_MI)
             {
                 dupa = (item.AddressFIS + item.AddressPLC);
             }
-     //       excel_MI.ElementAt(item.Row - 3).Address;
-            return  dupa;
+            return dupa;
         }
 
 
@@ -876,7 +959,7 @@ namespace WindowsFormsApplication5
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
                 string faultDescription = (irow.Cells[5].Value + "_Spare");
-                string addressPLC = (irow.Cells[5].Value + "") ;
+                string addressPLC = (irow.Cells[5].Value + "");
                 if (irow.Cells[6].Value != null)
                 {
                     faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
@@ -886,7 +969,7 @@ namespace WindowsFormsApplication5
                 {
                     case "Color [Green]":
                         var dupa = irow.Cells[0].Value.ToString();
-                        excel_MI.Add(new excel_out_data() { AddressFIS = CountFISBit(tagFISName, 2, miTrigger),AddressPLC = addressPLC, Trigger = miTrigger, FaultDescription = faultDescription });     
+                        excel_MI.Add(new excel_out_data() { AddressFIS = CountFISBit(tagFISName, 2, miTrigger), AddressPLC = addressPLC, Trigger = miTrigger, FaultDescription = faultDescription });
                         miTrigger++;
                         break;
                     case "Color [Blue]":
@@ -894,7 +977,7 @@ namespace WindowsFormsApplication5
                         afTrigger++;
                         break;
                     case "Color [Orange]":
-                        excel_unused.Add(new excel_out_data() { AddressFIS = tagFISName + "Unnused tag",AddressPLC = addressPLC, Trigger = 1, FaultDescription = faultDescription });
+                        excel_unused.Add(new excel_out_data() { AddressFIS = tagFISName + "Unnused tag", AddressPLC = addressPLC, Trigger = 1, FaultDescription = faultDescription });
                         break;
                     default:
                         if (irow.Index == (dataGridViewMAF.Rows.Count - 1))
@@ -921,40 +1004,18 @@ namespace WindowsFormsApplication5
                     parttype = ".M.MachFlt";
                     break;
                 case 2:
-                    parttype = "M.ManualInt";
+                    parttype = ".M.ManualInt";
                     break;
                 default:
                     break;
             }
 
             value = tag + parttype + "[" + dint + "]." + bit;
-
             //  S001FIS.M.MachFlt[0].5
             //  S001FIS.M.ManualInt[0].5
             return value;
         }
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-
-            foreach (DataGridViewRow oneRow in dataGridViewMAF.Rows)
-            {
-                oneRow.Cells[6].Value = "bleble";
-            }
-
-            //foreach (DataGridViewRow selrow in dataGridViewMAF.Rows)
-            //{
-            //    selrow.Cells[6].Value = "Spare Fault";
-            //   // selrow.DefaultCellStyle.ForeColor = Color.Green;
-            //}
-            //      dataGridViewMAF.Refresh();
-        }
-
+ 
         private void cbupdateactualDesignSheet_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.cbCreateL5Xout = cbCreateL5Xout.Checked;
@@ -964,18 +1025,13 @@ namespace WindowsFormsApplication5
             Properties.Settings.Default.Save();
         }
 
-        
-
-        //private void listView1_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    if (Keys.Delete == e.KeyCode)
-        //    {
-        //        for (int i = lbfaults.SelectedIndices.Count - 1; i >= 0; i--)
-        //        {
-        //            lbfaults.Items.RemoveAt(lbfaults.SelectedIndices[i]);
-        //        }
-        //    }
-        //}
+        private void unusedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.DefaultCellStyle.ForeColor = Color.Orange;
+            }
+        }
     }
     #region classes
     class ExcelData
@@ -1104,7 +1160,7 @@ namespace WindowsFormsApplication5
 
         public override string ToString()
         {
-            return string.Format("{0}{4}{1}{4}{2}{4}{3}", AddressFIS,AddressPLC, Trigger, FaultDescription, "\t");
+            return string.Format("{0}{4}{1}{4}{2}{4}{3}", AddressFIS, AddressPLC, Trigger, FaultDescription, "\t");
         }
     }
     # endregion

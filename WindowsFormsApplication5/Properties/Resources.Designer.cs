@@ -63,6 +63,26 @@ namespace WindowsFormsApplication5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dürr_AG_logo_svg {
+            get {
+                object obj = ResourceManager.GetObject("Dürr_AG_logo.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dürr_AG_logo1 {
+            get {
+                object obj = ResourceManager.GetObject("Dürr_AG_logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_enable {
             get {
                 object obj = ResourceManager.GetObject("edit enable", resourceCulture);
