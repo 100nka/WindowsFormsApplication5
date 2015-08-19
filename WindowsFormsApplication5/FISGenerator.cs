@@ -280,7 +280,16 @@ namespace WindowsFormsApplication5
             lbAssetslist.Items.Clear();
             foreach (var assetname in excelAssetlList)
             {
-                lbAssetslist.Items.Add(assetname.TagName.ToString() + "-" + assetname.assetname.ToString());
+                lbAssetslist.Items.Add(assetname);
+            }
+            string name = "";
+            foreach (var groupname in all_faults)
+            {
+                if (name != groupname.GroupName.ToString())
+                {
+                    name = groupname.GroupName.ToString();
+                    lbgroupnames.Items.Add(name);
+                }
             }
 
             if (this.lbAssetslist.ContextMenuStrip == null)
@@ -294,7 +303,7 @@ namespace WindowsFormsApplication5
         }
         private void AddDevicesListBox()
         {
-            lbgroupnames.Items.Clear();
+           // lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
             tagFISName = "";
             foreach (var tagname in excelAssetlList)
@@ -305,16 +314,6 @@ namespace WindowsFormsApplication5
                 }
             }
             //}
-            string name = "";
-            foreach (var groupname in all_faults)
-            {
-                if (name != groupname.GroupName.ToString())
-                {
-                    name = groupname.GroupName.ToString();
-                    lbgroupnames.Items.Add(name);
-                }
-            }
-
             if (this.lbgroupnames.ContextMenuStrip == null)
             {
                 this.lbgroupnames.ContextMenuStrip = this.cmStripGroupnames;
@@ -324,6 +323,15 @@ namespace WindowsFormsApplication5
                 this.panel6.ContextMenuStrip = this.cmStripGroupnames;
             }
 
+
+            var aa = (AssetList)lbAssetslist.SelectedItem;
+            if (aa.Selected != null)
+            {
+                foreach (int item in aa.Selected)
+                {
+                    lbgroupnames.SetSelected(item, true);
+                }
+            }
         }
 
 
@@ -541,7 +549,6 @@ namespace WindowsFormsApplication5
 
         private void lbgroupnames_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             dataGridViewMAF.DataSource = null;
             filtered_faults_MIF = new List<Single_fault>();
             if (lbgroupnames.SelectedItem != null)
@@ -550,7 +557,6 @@ namespace WindowsFormsApplication5
                 foreach (var selecteditems in lbgroupnames.SelectedItems)
                 {
                     var selname = selecteditems.ToString();
-                    string[] saLvwItem = new string[2];
                     foreach (var fault in all_faults)
                     {
                         if (fault.GroupName == selname)
@@ -560,10 +566,14 @@ namespace WindowsFormsApplication5
                     }
 
                 }
-
+                var aa = (AssetList)lbAssetslist.SelectedItem;
+                List<int> selected = new List<int>();
+                foreach (int index in lbgroupnames.SelectedIndices)
+                {
+                    selected.Add(index);
+                }
+                aa.Selected = selected;
                 DataggridMIFformating();
-
-
             }
 
         }
@@ -578,7 +588,7 @@ namespace WindowsFormsApplication5
             dataGridViewMAF.Columns[3].FillWeight = 100;
             dataGridViewMAF.Columns[4].FillWeight = 100;
             dataGridViewMAF.Columns[5].FillWeight = 80;
-            dataGridViewMAF.Columns[5].FillWeight = 100;
+            dataGridViewMAF.Columns[6].FillWeight = 100;
             dataGridViewMAF.Columns[0].Visible = false;
             dataGridViewMAF.Columns[1].Visible = false;
             dataGridViewMAF.Columns[2].Visible = false;
@@ -729,7 +739,7 @@ namespace WindowsFormsApplication5
                 string FILE_PATH = Properties.Settings.Default.SavePath + outfilename_sep + "_MF.L5X";
                 string ExportOptions = "References DecoratedData Context RoutineLabels AliasExtras IOTags NoStringData ForceProtectedEncoding AllProjDocTrans";
                 string PLCName = lcontrolerName.Text;
-                string RoutineName ="B_"+  outfilename.Substring(0, 4);
+                string RoutineName = "B_" + outfilename.Substring(0, 4);
                 XDocument xDoc = new XDocument(
                 new XElement("RSLogix5000Content",
                                 new XAttribute("SchemaRevision", "1.0"),
@@ -738,7 +748,7 @@ namespace WindowsFormsApplication5
                                 new XAttribute("TargetType", "Routine"),
                                 new XAttribute("TargetSubType", "RLL"),
                                 new XAttribute("TargetClass", "Standard"),
-                         //       new XAttribute("TargetCount", TargetCount.ToString()),
+                    //       new XAttribute("TargetCount", TargetCount.ToString()),
                                 new XAttribute("ContainsContext", "true"),
                                 new XAttribute("Owner", "Logix, Durr"),
                                 new XAttribute("ExportDate", ExportDate),
@@ -759,13 +769,13 @@ namespace WindowsFormsApplication5
                                 new XAttribute("Name", RoutineName + "Faults_MF"),
                                 new XAttribute("Type", "RLL"),
               new XElement("RLLContent")
-                              //  new XAttribute("Use", "Context")
+                    //  new XAttribute("Use", "Context")
                                 )))))));
                 foreach (var item in excel_MF)
                 {
                     xDoc.Root.Element("Controller").Element("Programs").Element("Program").Element("Routines").Element("Routine").Element("RLLContent").Add(
                     new XElement("Rung",
-                          //    new XAttribute("Use", "Target"),
+                        //    new XAttribute("Use", "Target"),
                               new XAttribute("Number", (item.Trigger - 1).ToString()),
                               new XAttribute("Type", "N"),
                     new XElement("Text",
@@ -787,37 +797,37 @@ namespace WindowsFormsApplication5
                 string ExportOptions = "References DecoratedData Context RoutineLabels AliasExtras IOTags NoStringData ForceProtectedEncoding AllProjDocTrans";
                 string PLCName = lcontrolerName.Text;
                 string RoutineName = "B_" + outfilename.Substring(0, 4);
-                        XDocument xDoc = new XDocument(
-                new XElement("RSLogix5000Content",
-                                new XAttribute("SchemaRevision", "1.0"),
-                                new XAttribute("SoftwareRevision", "20.01"),
-                                new XAttribute("TargetName", RoutineName + "Faults_MF"),
-                                new XAttribute("TargetType", "Routine"),
-                                new XAttribute("TargetSubType", "RLL"),
-                                new XAttribute("TargetClass", "Standard"),
-                         //       new XAttribute("TargetCount", TargetCount.ToString()),
-                                new XAttribute("ContainsContext", "true"),
-                                new XAttribute("Owner", "Logix, Durr"),
-                                new XAttribute("ExportDate", ExportDate),
-                                new XAttribute("ExportOptions", ExportOptions),
-              new XElement("Controller",
-                                new XAttribute("Use", "Context"),
-                                new XAttribute("Name", PLCName),
-              new XElement("Programs",
-                                new XAttribute("Use", "Context"),
-              new XElement("Program",
-                                new XAttribute("Use", "Context"),
-                                new XAttribute("Name", "FIS"),
-                                new XAttribute("Class", "Standard"),
-              new XElement("Routines",
-                                new XAttribute("Use", "Context"),
-              new XElement("Routine",
-                                new XAttribute("Use", "Target"),
-                                new XAttribute("Name", RoutineName + "Faults_MI"),
-                                new XAttribute("Type", "RLL"),
-              new XElement("RLLContent")
-                              //  new XAttribute("Use", "Context")
-                                )))))));
+                XDocument xDoc = new XDocument(
+        new XElement("RSLogix5000Content",
+                        new XAttribute("SchemaRevision", "1.0"),
+                        new XAttribute("SoftwareRevision", "20.01"),
+                        new XAttribute("TargetName", RoutineName + "Faults_MF"),
+                        new XAttribute("TargetType", "Routine"),
+                        new XAttribute("TargetSubType", "RLL"),
+                        new XAttribute("TargetClass", "Standard"),
+                    //       new XAttribute("TargetCount", TargetCount.ToString()),
+                        new XAttribute("ContainsContext", "true"),
+                        new XAttribute("Owner", "Logix, Durr"),
+                        new XAttribute("ExportDate", ExportDate),
+                        new XAttribute("ExportOptions", ExportOptions),
+      new XElement("Controller",
+                        new XAttribute("Use", "Context"),
+                        new XAttribute("Name", PLCName),
+      new XElement("Programs",
+                        new XAttribute("Use", "Context"),
+      new XElement("Program",
+                        new XAttribute("Use", "Context"),
+                        new XAttribute("Name", "FIS"),
+                        new XAttribute("Class", "Standard"),
+      new XElement("Routines",
+                        new XAttribute("Use", "Context"),
+      new XElement("Routine",
+                        new XAttribute("Use", "Target"),
+                        new XAttribute("Name", RoutineName + "Faults_MI"),
+                        new XAttribute("Type", "RLL"),
+      new XElement("RLLContent")
+                    //  new XAttribute("Use", "Context")
+                        )))))));
                 foreach (var item in excel_MI)
                 {
                     xDoc.Root.Element("Controller").Element("Programs").Element("Program").Element("Routines").Element("Routine").Element("RLLContent").Add(
@@ -832,7 +842,7 @@ namespace WindowsFormsApplication5
                 xDoc.Save(FILE_PATH);
             }
             #endregion
-           
+
         }
         private void _writeExternalExcelMiMF()
         {
@@ -860,7 +870,7 @@ namespace WindowsFormsApplication5
             MyBook = MyApp.Workbooks.Open(filepath);
             #region Update MI
             MySheet_MI = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MI"]; // Explicit cast is not required here
-            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count+2, 3]];
+            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count + 2, 3]];
             foreach (ExcelM.Range item in cell_MI)
             {
                 switch (item.Column)
@@ -883,7 +893,7 @@ namespace WindowsFormsApplication5
             if (excel_MF.Count > 0)
             {
                 MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
-                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count+2, 3]];
+                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count + 2, 3]];
                 foreach (ExcelM.Range item in cell_MF)
                 {
                     //   item.Value = string.Format("row:{0:D2} col:{1:D2}", item.Row, item.Column);
@@ -931,12 +941,12 @@ namespace WindowsFormsApplication5
                     temp.Add("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");");
                 }
                 File.WriteAllLines(Properties.Settings.Default.SavePath + outfilename_sep + "_routineMI.txt", temp.ToArray());
-            }     
+            }
         }
 
-       
-       //   " New Files are generated!");
-   
+
+        //   " New Files are generated!");
+
         private string addroutine(List<excel_out_data> aa)
         {
             string dupa = "";
@@ -1015,7 +1025,7 @@ namespace WindowsFormsApplication5
             //  S001FIS.M.ManualInt[0].5
             return value;
         }
- 
+
         private void cbupdateactualDesignSheet_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.cbCreateL5Xout = cbCreateL5Xout.Checked;
@@ -1049,6 +1059,9 @@ namespace WindowsFormsApplication5
         public string Coment_en { get { return comment_en; } }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     class AssetList
     {
         internal string line;
@@ -1056,6 +1069,22 @@ namespace WindowsFormsApplication5
         internal string tagname;
         internal string ipaddress;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format("{0}-{1}", tagname, assetname);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="assetname"></param>
+        /// <param name="ipaddress"></param>
+        /// <param name="tagname"></param>
         public AssetList(string line, string assetname, string ipaddress, string tagname)
         {
             this.line = line;
@@ -1063,12 +1092,19 @@ namespace WindowsFormsApplication5
             this.tagname = tagname;
             this.ipaddress = ipaddress;
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Valid { get { return (!string.IsNullOrWhiteSpace(assetname) && !string.IsNullOrWhiteSpace(tagname)); } }  //propertis
         public string Line { get { return line; } }
         public string AssetName { get { return assetname; } }
         public string TagName { get { return tagname; } }
         public string IPAdress { get { return ipaddress; } }
-
+        public List<int> Selected { get; set; }
+        /// <summary>
+        /// Fault Filtered List w huj opis
+        /// </summary>
+        public List<Single_fault> FaultfiltList { get; set; } 
     }
     class TagAndDiscView
     {
@@ -1130,7 +1166,6 @@ namespace WindowsFormsApplication5
         public string AVName { get; set; }
         public string Fulltag { get { return string.Format("{0}.{1}.{2}", GroupName, AVName, Name); } }
         public string FaultTextEn { get { return GetTextFromInt(MagicNumber); } }
-
 
         private string GetTextFromInt(int magicnumber)
         {
