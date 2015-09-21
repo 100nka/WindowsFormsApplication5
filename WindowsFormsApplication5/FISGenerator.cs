@@ -52,6 +52,30 @@ namespace WindowsFormsApplication5
             initialSetings();
 
             Genetatestatus(false);
+            _loadfiltrcfg(@"filtrMF.cfg", lbMF);
+            _loadfiltrcfg(@"FiltrMI.cfg", lbMI);
+            _writefiltrcfg(@"filtrMI.cfg", lbMF);
+        }
+
+        private void _writefiltrcfg(string filtrname, ListBox Lbox)
+        {
+            List<string> wlines = new List<string>();
+            foreach (var item in Lbox.Items)
+            {
+                wlines.Add(item.ToString());
+            }
+
+            System.IO.File.WriteAllLines(filtrname, wlines);
+        }
+
+        private void _loadfiltrcfg(string filtrname, ListBox Lbox)
+        {
+            string[] lines = System.IO.File.ReadAllLines(filtrname);
+
+            foreach (string str in lines)
+            {
+                Lbox.Items.Add(str);
+            }
         }
 
         private void initialSetings()
@@ -61,6 +85,8 @@ namespace WindowsFormsApplication5
             cbcreateNew.Checked = Properties.Settings.Default.cbcreateNew;
             cbCreateTxTout.Checked = Properties.Settings.Default.cbCreateTxTout;
             cbupdateactualDesignSheet.Checked = Properties.Settings.Default.cbupdateactualDesignSheet;
+
+
         }
         // private Regex filtr_PF_Alarm8 = new Regex(@"Pf_Alarm8\((?<FBI>.*?),(?<I1>\d+),(?<I2>\d+),(?<I3>\d+),(?<I4>\d+),(?<I5>\d+),(?<I6>\d+),(?<I7>\d+),(?<I8>\d+),(?<zVar>.*?),.*?\)", RegexOptions.Compiled);
         private Regex filtr_PF_Alarm8 = new Regex(Properties.Settings.Default.filtr_PF_Alarm8, RegexOptions.Compiled);
@@ -1041,6 +1067,23 @@ namespace WindowsFormsApplication5
             {
                 selrow.DefaultCellStyle.ForeColor = Color.Orange;
             }
+        }
+
+        private void btRemMIItem_Click(object sender, EventArgs e)
+        {
+            //foreach (var eachItem in lbMF.SelectedItems)
+            //{
+            //    lbMF.Items.Remove(eachItem);
+            //}
+            while (lbMF.SelectedItems.Count > 0)
+            {
+                lbMF.Items.Remove(lbMF.SelectedItems[0]);
+            }
+        }
+
+        private void btAddMIItem_Click(object sender, EventArgs e)
+        {
+            lbMF.Items.Add(tbAddItem.Text);
         }
     }
     #region classes
