@@ -11,9 +11,11 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using ExcelM = Microsoft.Office.Interop.Excel;
+using MetroFramework.Forms;
 
 namespace WindowsFormsApplication5
 {
+
     public partial class FISGenerator : Form
     {
         private static ExcelM.Workbook MyBook = null;
@@ -52,9 +54,9 @@ namespace WindowsFormsApplication5
             initialSetings();
 
             Genetatestatus(false);
-            _loadfiltrcfg(@"filtrMF.cfg", lbMF);
             _loadfiltrcfg(@"FiltrMI.cfg", lbMI);
-            _writefiltrcfg(@"filtrMI.cfg", lbMF);
+            _loadfiltrcfg(@"FiltrDel.cfg", lbRem);
+
         }
 
         private void _writefiltrcfg(string filtrname, ListBox Lbox)
@@ -95,6 +97,7 @@ namespace WindowsFormsApplication5
         {
             tbxmlname.Text = "";
             l5xLoaded = false;
+            bts_l5x.BackColor = Color.Red;
             l5filename = string.Empty;
             var file = new OpenFileDialog();
             file.InitialDirectory = Properties.Settings.Default.L5X_file_dir.ToString();     //Environment.CurrentDirectory;
@@ -118,6 +121,7 @@ namespace WindowsFormsApplication5
                         all_tags = projektL5x.Root.Element("Controller").Element("Tags").Elements("Tag").ToList();
                         tbxmlname.Text = file.SafeFileName;
                         l5xLoaded = true;
+                        bts_l5x.BackColor = Color.Green;
                         Properties.Settings.Default.L5X_file_dir = DirFromlink(file.FileName.ToString());
                         Properties.Settings.Default.Save();
 
@@ -138,6 +142,7 @@ namespace WindowsFormsApplication5
         {
 
             xLSCumstomLoaded = false;
+            bts_custom.BackColor = Color.Red;
             tbxlsmname.Text = "";
             var file = new OpenFileDialog();
             file.InitialDirectory = Properties.Settings.Default.XLSM_cust_file_dir; //Environment.CurrentDirectory;
@@ -159,6 +164,7 @@ namespace WindowsFormsApplication5
                             if (ds_excel_custom.Tables[2].TableName.Contains("A_Faults"))
                             {
                                 xLSCumstomLoaded = true;
+                                bts_custom.BackColor = Color.Green;
                                 tbxlsmname.Text = file.SafeFileName;
                                 Properties.Settings.Default.XLSM_cust_file_dir = DirFromlink(file.FileName.ToString());
                                 Properties.Settings.Default.Save();
@@ -200,6 +206,7 @@ namespace WindowsFormsApplication5
                             if (ds_excel_General.Tables[2].TableName.Contains("A_Faults"))
                             {
                                 xLSGeneralLoaded = true;
+                                bts_general.BackColor = Color.Green;
                                 tbxlsgenmname.Text = file.SafeFileName;
                                 Properties.Settings.Default.XLSM_General_dir = DirFromlink(file.FileName.ToString());
                                 Properties.Settings.Default.Save();
@@ -222,6 +229,7 @@ namespace WindowsFormsApplication5
         private void loadFisDesignSheetXls_Click(object sender, EventArgs e)
         {
             xLSDataSheetLoaded = false;
+            bts_design.BackColor = Color.Red;
             var file = new OpenFileDialog();
             file.InitialDirectory = Properties.Settings.Default.XLSM_designSheet; //Environment.CurrentDirectory;
             file.Filter = "ALL|*.*|XLSM|*.XLSM";
@@ -241,6 +249,7 @@ namespace WindowsFormsApplication5
                             if (ds_excel_DesignCSheet.Tables[1].TableName.Contains("AssetList"))
                             {
                                 xLSDataSheetLoaded = true;
+                                bts_design.BackColor = Color.Green;
                                 tbcriteriasheetname.Text = file.SafeFileName;
                                 Properties.Settings.Default.XLSM_designSheet = DirFromlink(file.FileName.ToString());
                                 designssheetlink = file.FileName.ToString();
@@ -281,14 +290,27 @@ namespace WindowsFormsApplication5
                 InitialMemArea();
                 ReadDataFromFaultsExcels(ds_excel_custom, "A_Faults", 1, 4);
                 ReadDataFromFaultsExcels(ds_excel_General, "A_Faults", 1, 5);
-                ReadDataFromDesignCSheet(ds_excel_DesignCSheet, "AssetList", 1, 3, 4, 5);
+                if (cbDontUseDesignCrit.Checked == false)
+                {
+                    ReadDataFromDesignCSheet(ds_excel_DesignCSheet, "AssetList", 1, 3, 4, 5);
+                }
+                else
+                {
+                    excelAssetlList.Clear();
+                    for (int i = 1; i < 21; i++)
+                    {
+                        var item = new AssetList( _createassetnr(i), "Asset", "0.0.0.0", _createassetnr(i));
+                        excelAssetlList.Add(item);
+                    }
+                }
 
                 CreateAllDatatypes();
                 CreatingExtFaults();
                 CreatingIntFaults();
 
-                dataGridView_AllFaults.DataSource = all_faults;
-                dataGridView_AssetsList.DataSource = excelAssetlList;
+                _formatingDataGridAllFaults(dataGridView_AllFaults);  // dodanie wszystkich bledow dla grida 
+
+                dataGridView_AssetsList.DataSource = excelAssetlList;  // lista z assetami pobrana z excela .
 
                 AddAssetsListBox();
                 Genetatestatus(true);
@@ -300,36 +322,48 @@ namespace WindowsFormsApplication5
 
         }
 
+        private string _createassetnr(int i)
+        {
+            if (i < 10)
+            {
+                return "S00" + i.ToString();
+            }
+            else
+            {
+                return "S0" + i.ToString();
+            }
+        }
+
+        private void _formatingDataGridAllFaults(DataGridView dg)
+        {
+            dg.DataSource = all_faults;
+        }
+
 
         private void AddAssetsListBox()
         {
+
+            //AssetStruct assetsobj = new AssetStruct();
+
             lbAssetslist.Items.Clear();
             foreach (var assetname in excelAssetlList)
             {
-                lbAssetslist.Items.Add(assetname);
-            }
-            string name = "";
-            foreach (var groupname in all_faults)
-            {
-                if (name != groupname.GroupName.ToString())
-                {
-                    name = groupname.GroupName.ToString();
-                    lbgroupnames.Items.Add(name);
-                }
+                lbAssetslist.Items.Add(assetname); // przepisanie listy assetow do lisboxa 
+                //        assetlistobj.Add(assetname);
             }
 
             if (this.lbAssetslist.ContextMenuStrip == null)
             {
-                this.lbAssetslist.ContextMenuStrip = this.cmstripassetsname;
+                this.lbAssetslist.ContextMenuStrip = this.cmstripassetsname; // podpiecie contexmenu dla groupname
             }
             if (this.panel5.ContextMenuStrip == null)
             {
-                this.panel5.ContextMenuStrip = this.cmstripassetsname;
+                this.panel5.ContextMenuStrip = this.cmstripassetsname;     // podpiecie contexmenu dla dolnego paska
             }
         }
         private void AddDevicesListBox()
         {
-           // lbgroupnames.Items.Clear();
+            lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
             tagFISName = "";
             foreach (var tagname in excelAssetlList)
@@ -337,6 +371,15 @@ namespace WindowsFormsApplication5
                 if (lbAssetslist.SelectedItem.ToString().Contains(tagname.TagName))
                 {
                     tagFISName = tagname.TagName;
+                }
+            }
+            string name = "";
+            foreach (var groupname in all_faults)  // tworzenie grupy urzadzen (redukcja do jednej groupname )
+            {
+                if (name != groupname.GroupName.ToString())
+                {
+                    name = groupname.GroupName.ToString();
+                    lbgroupnames.Items.Add(name);  // przepisanie tylko jednego wywolania grupy do lboxa
                 }
             }
             //}
@@ -383,7 +426,7 @@ namespace WindowsFormsApplication5
                     string name = tag.Attribute("Name").Value;
                     int magicnumber = int.Parse(name.Substring(1, 4));
 
-                    all_faults.Add(new Single_fault() { AVName = av_name, GroupName = groupname, MagicNumber = magicnumber, Name = name, FaultFISMember = 1 });
+                    all_faults.Add(new Single_fault() { AVName = av_name, GroupName = groupname, MagicNumber = magicnumber, Name = name, FaultFISMember = 0 });
                 }
             }
             Single_fault.excelFaultList = excelFaultList;
@@ -397,14 +440,14 @@ namespace WindowsFormsApplication5
                 var m = filtr_PF_Alarm8.Match(external.Value);
                 if (m.Success)
                 {
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I1"].Value), Name = "A7261_ExtFlt1", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I2"].Value), Name = "A7262_ExtFlt2", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I3"].Value), Name = "A7263_ExtFlt3", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I4"].Value), Name = "A7264_ExtFlt4", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I5"].Value), Name = "A7265_ExtFlt5", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I6"].Value), Name = "A7266_ExtFlt6", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I7"].Value), Name = "A7267_ExtFlt7", FaultFISMember = 2 });
-                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I8"].Value), Name = "A7268_ExtFlt8", FaultFISMember = 2 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I1"].Value), Name = "A7261_ExtFlt1", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I2"].Value), Name = "A7262_ExtFlt2", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I3"].Value), Name = "A7263_ExtFlt3", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I4"].Value), Name = "A7264_ExtFlt4", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I5"].Value), Name = "A7265_ExtFlt5", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I6"].Value), Name = "A7266_ExtFlt6", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I7"].Value), Name = "A7267_ExtFlt7", FaultFISMember = 0 });
+                    all_faults.Add(new Single_fault() { AVName = "AV", GroupName = m.Groups["zVar"].Value, MagicNumber = int.Parse(m.Groups["I8"].Value), Name = "A7268_ExtFlt8", FaultFISMember = 0 });
                 }
             }
         }
@@ -433,8 +476,15 @@ namespace WindowsFormsApplication5
         {
             if (MessageBox.Show("Close the window?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
+
                 e.Cancel = true;
             }
+            else
+            {
+                _writefiltrcfg(@"filtrMI.cfg", lbMI);
+                _writefiltrcfg(@"FiltrDel.cfg", lbRem);
+            }
+
         }
 
         private void dataGridViewMAF_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -559,10 +609,12 @@ namespace WindowsFormsApplication5
             if (gen)
             {
                 btstargen.BackColor = Color.Green;
+                btstargen.Text = "Files loaded";
             }
             else
             {
                 btstargen.BackColor = Color.Red;
+                btstargen.Text = "Start";
             }
         }
         #endregion
@@ -587,7 +639,10 @@ namespace WindowsFormsApplication5
                     {
                         if (fault.GroupName == selname)
                         {
+                            _MiFilterSet(fault);
                             filtered_faults_MIF.Add(fault);
+
+
                         }
                     }
 
@@ -603,6 +658,47 @@ namespace WindowsFormsApplication5
             }
 
         }
+
+        private void _MiFilterSet(Single_fault fault)
+        {
+            //       if     fault.FaultTextEn     
+            if (fault.FaultTextEn != null)
+            {
+                foreach (var item in lbMI.Items)
+                {
+                    if (fault.FaultTextEn.Contains(item.ToString()))
+                    {
+                        fault.FaultFISMember = 2;
+                        break;
+                    }
+                    else
+                    {
+                        fault.FaultFISMember = 1;
+                    }
+                }
+                foreach (var item in lbRem.Items)
+                {
+                    if (fault.FaultTextEn.Contains(item.ToString()))
+                    {
+                        fault.FaultFISMember = 3;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                if (cboxAddFaultswithSpareDesc.Checked == true)
+                {
+                    fault.FaultFISMember = 1;
+                }
+                else
+                {
+                    fault.FaultFISMember = 3;
+                }
+            }
+
+        }
+
 
         private void DataggridMIFformating()
         {
@@ -623,6 +719,8 @@ namespace WindowsFormsApplication5
             dataGridViewMAF.Columns[5].Visible = true;
             dataGridViewMAF.Columns[6].Visible = true;
 
+
+
             foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
             {
                 int value = Convert.ToInt16(irow.Cells[0].Value);
@@ -633,6 +731,9 @@ namespace WindowsFormsApplication5
                         break;
                     case 2:
                         irow.DefaultCellStyle.ForeColor = Color.Green;
+                        break;
+                    case 3:
+                        irow.DefaultCellStyle.ForeColor = Color.Orange;
                         break;
                     default:
                         irow.DefaultCellStyle.ForeColor = Color.Gray;
@@ -704,6 +805,7 @@ namespace WindowsFormsApplication5
         {
             foreach (DataGridViewRow selectedrow in dataGridViewMAF.SelectedRows)
             {
+
                 dataGridViewMAF.Rows.RemoveAt(selectedrow.Index);
             }
             Refrescounterdgridinfo();
@@ -804,8 +906,10 @@ namespace WindowsFormsApplication5
                         //    new XAttribute("Use", "Target"),
                               new XAttribute("Number", (item.Trigger - 1).ToString()),
                               new XAttribute("Type", "N"),
-                    new XElement("Text",
-                        new XCData("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");")
+                              new XElement("Comment",
+                              new XCData(item.FaultDescription)),
+                              new XElement("Text",
+                              new XCData("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");")
                               )));
 
                 }
@@ -861,6 +965,8 @@ namespace WindowsFormsApplication5
                         //    new XAttribute("Use", "Target"),
                               new XAttribute("Number", (item.Trigger - 1).ToString()),
                               new XAttribute("Type", "N"),
+                              new XElement("Comment",
+                              new XCData(item.FaultDescription)),
                     new XElement("Text",
                         new XCData("XIC(" + item.AddressPLC + ")OTE(" + item.AddressFIS + ");")
                               )));
@@ -990,11 +1096,16 @@ namespace WindowsFormsApplication5
             int afTrigger = 1;
             excel_MF.Clear();
             excel_MI.Clear();
+            excel_unused.Clear();
             foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
             {
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
                 string faultDescription = (irow.Cells[5].Value + "_Spare");
+                if (cb_removeDescNoName.Checked == true)
+                {
+                    faultDescription = "  ";
+                }
                 string addressPLC = (irow.Cells[5].Value + "");
                 if (irow.Cells[6].Value != null)
                 {
@@ -1054,6 +1165,12 @@ namespace WindowsFormsApplication5
 
         private void cbupdateactualDesignSheet_CheckedChanged(object sender, EventArgs e)
         {
+            if (cbcreateNew.Checked == false)
+            {
+                cbDontUseDesignCrit.Checked = false;
+                xLSDataSheetLoaded = false;
+                bts_design.BackColor = Color.Red;
+            }
             Properties.Settings.Default.cbCreateL5Xout = cbCreateL5Xout.Checked;
             Properties.Settings.Default.cbcreateNew = cbcreateNew.Checked;
             Properties.Settings.Default.cbCreateTxTout = cbCreateTxTout.Checked;
@@ -1071,19 +1188,129 @@ namespace WindowsFormsApplication5
 
         private void btRemMIItem_Click(object sender, EventArgs e)
         {
-            //foreach (var eachItem in lbMF.SelectedItems)
-            //{
-            //    lbMF.Items.Remove(eachItem);
-            //}
-            while (lbMF.SelectedItems.Count > 0)
+            while (lbMI.SelectedItems.Count > 0)
             {
-                lbMF.Items.Remove(lbMF.SelectedItems[0]);
+                lbMI.Items.Remove(lbMI.SelectedItems[0]);
             }
         }
 
         private void btAddMIItem_Click(object sender, EventArgs e)
         {
-            lbMF.Items.Add(tbAddItem.Text);
+            lbMI.Items.Add(tbMIAddItem.Text);
+        }
+        private void useFiltersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //    dasdadadwawda
+        }
+
+        private void copyDescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell selcell in dataGridView_AllFaults.SelectedCells)
+            {
+                if (selcell.Value != null)
+                {
+                    Clipboard.SetText(selcell.Value.ToString());
+                }
+            }
+        }
+
+        private void misisingNumbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in dataGridView_AllFaults.Rows)
+            {
+                if (row.Cells[2].Value == null)
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Purple;
+                    count++;
+                }
+
+                if (row.Cells[2].Value != null)
+                {
+                    if (Convert.ToString(row.Cells[2].Value) == "0")
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Purple;
+                        count++;
+                    }
+                }
+
+            }
+            if (count > 0)
+            {
+                MessageBox.Show("Found " + count.ToString() + " Misising Numbers");
+            }
+            else
+            {
+                MessageBox.Show("No Misising Numbers");
+            }
+        }
+
+        private void missingDescriptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in dataGridView_AllFaults.Rows)
+            {
+
+                if (row.Cells[2].Value != null & row.Cells[6].Value == null)
+                {
+
+                    if (Convert.ToString(row.Cells[2].Value) != "0")
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                        count++;
+                    }
+                }
+            }
+            if (count > 0)
+            {
+                MessageBox.Show("Found " + count.ToString() + " Missing Descriptions");
+            }
+            else
+            {
+                MessageBox.Show("No Missing Descriptions");
+            }
+        }
+
+        private void unselectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView_AllFaults.Rows)
+            {
+                row.DefaultCellStyle.ForeColor = Color.Black;
+            }
+        }
+
+        private void btAddRemItem_Click(object sender, EventArgs e)
+        {
+            lbRem.Items.Add(tbRemAddItem.Text);
+        }
+
+        private void tbDelRemItem_Click(object sender, EventArgs e)
+        {
+            while (lbRem.SelectedItems.Count > 0)
+            {
+                lbRem.Items.Remove(lbRem.SelectedItems[0]);
+            }
+        }
+
+        private void cbDontUseDesignCrit_MouseLeave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cbDontUseDesignCrit_Click(object sender, EventArgs e)
+        {
+            if (cbDontUseDesignCrit.Checked == true)
+            {
+                xLSDataSheetLoaded = true;
+                bts_design.BackColor = Color.Green;
+                cbcreateNew.Checked = true;
+                cbupdateactualDesignSheet.Checked = false;
+            }
+            else
+            {
+                xLSDataSheetLoaded = false;
+                bts_design.BackColor = Color.Red;
+            }
         }
     }
     #region classes
@@ -1147,7 +1374,7 @@ namespace WindowsFormsApplication5
         /// <summary>
         /// Fault Filtered List w huj opis
         /// </summary>
-        public List<Single_fault> FaultfiltList { get; set; } 
+        public List<Single_fault> FaultfiltList { get; set; }
     }
     class TagAndDiscView
     {
@@ -1222,12 +1449,21 @@ namespace WindowsFormsApplication5
             return null;
         }
 
+
+
         public override string ToString()
         {
             return string.Format("{0}{7}{1}{7}{2}{7}{3}{7}{4}{7}{5}{7}{6}{7}", Name, MagicNumber, GroupName, AVName, Fulltag, FaultTextEn, FaultFISMember, "\t");
         }
 
     }
+
+    //public class AssetStruct 
+    //{
+    //    public string AssetName { get; set; }
+    //    public List<string> groupConnction { get; set; }
+    //    public List<Single_fault> aaa { get; set; }
+    //}
 
     class excel_out_data
     {
