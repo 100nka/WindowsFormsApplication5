@@ -41,6 +41,9 @@ namespace WindowsFormsApplication5
         private List<Single_fault> all_faults;
         private List<Single_fault> filtered_faults_MIF;
         private BindingSource _sourceFilteredFaults = new BindingSource();
+        public int selRowsCount_MI = 0;
+        public int selRowsCount_MF = 0;
+        public int selRowsCount_Unused = 0;
         private string designssheetlink = "";
         public bool l5xLoaded = false;
         public bool xLSCumstomLoaded = false;
@@ -87,6 +90,12 @@ namespace WindowsFormsApplication5
             cbcreateNew.Checked = Properties.Settings.Default.cbcreateNew;
             cbCreateTxTout.Checked = Properties.Settings.Default.cbCreateTxTout;
             cbupdateactualDesignSheet.Checked = Properties.Settings.Default.cbupdateactualDesignSheet;
+            bts_custom.BackColor = Color.Red;
+            bts_design.BackColor = Color.Red;
+            bts_general.BackColor = Color.Red;
+            bts_l5x.BackColor = Color.Red;
+
+
 
 
         }
@@ -229,6 +238,7 @@ namespace WindowsFormsApplication5
         private void loadFisDesignSheetXls_Click(object sender, EventArgs e)
         {
             xLSDataSheetLoaded = false;
+            cbDontUseDesignCrit.Checked = false;
             bts_design.BackColor = Color.Red;
             var file = new OpenFileDialog();
             file.InitialDirectory = Properties.Settings.Default.XLSM_designSheet; //Environment.CurrentDirectory;
@@ -297,9 +307,9 @@ namespace WindowsFormsApplication5
                 else
                 {
                     excelAssetlList.Clear();
-                    for (int i = 1; i < 21; i++)
+                    for (int i = 1; i < 26; i++)
                     {
-                        var item = new AssetList( _createassetnr(i), "Asset", "0.0.0.0", _createassetnr(i));
+                        var item = new AssetList(_createassetnr(i) + "FIS", "Asset", "0.0.0.0", _createassetnr(i) + "FIS");
                         excelAssetlList.Add(item);
                     }
                 }
@@ -356,16 +366,20 @@ namespace WindowsFormsApplication5
             {
                 this.lbAssetslist.ContextMenuStrip = this.cmstripassetsname; // podpiecie contexmenu dla groupname
             }
-            if (this.panel5.ContextMenuStrip == null)
-            {
-                this.panel5.ContextMenuStrip = this.cmstripassetsname;     // podpiecie contexmenu dla dolnego paska
-            }
+            //if (this.panel5.ContextMenuStrip == null)
+            //{
+            //    this.panel5.ContextMenuStrip = this.cmstripassetsname;     // podpiecie contexmenu dla dolnego paska
+            //}
         }
         private void AddDevicesListBox()
         {
             lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
             tagFISName = "";
+            selRowsCount_MI = 0;
+            selRowsCount_MF = 0;
+            selRowsCount_Unused = 0;
+            Refrescounterdgridinfo();
             foreach (var tagname in excelAssetlList)
             {
                 if (lbAssetslist.SelectedItem.ToString().Contains(tagname.TagName))
@@ -387,10 +401,10 @@ namespace WindowsFormsApplication5
             {
                 this.lbgroupnames.ContextMenuStrip = this.cmStripGroupnames;
             }
-            if (this.panel6.ContextMenuStrip == null)
-            {
-                this.panel6.ContextMenuStrip = this.cmStripGroupnames;
-            }
+            //if (this.panel6.ContextMenuStrip == null)
+            //{
+            //    this.panel6.ContextMenuStrip = this.cmStripGroupnames;
+            //}
 
 
             var aa = (AssetList)lbAssetslist.SelectedItem;
@@ -704,13 +718,13 @@ namespace WindowsFormsApplication5
         {
             _sourceFilteredFaults.DataSource = filtered_faults_MIF;
             dataGridViewMAF.DataSource = _sourceFilteredFaults;
-            dataGridViewMAF.Columns[0].FillWeight = 100;
-            dataGridViewMAF.Columns[1].FillWeight = 100;
-            dataGridViewMAF.Columns[2].FillWeight = 100;
-            dataGridViewMAF.Columns[3].FillWeight = 100;
-            dataGridViewMAF.Columns[4].FillWeight = 100;
-            dataGridViewMAF.Columns[5].FillWeight = 80;
-            dataGridViewMAF.Columns[6].FillWeight = 100;
+            dataGridViewMAF.Columns[0].FillWeight = 2;
+            dataGridViewMAF.Columns[1].FillWeight = 2;
+            dataGridViewMAF.Columns[2].FillWeight = 2;
+            dataGridViewMAF.Columns[3].FillWeight = 2;
+            dataGridViewMAF.Columns[4].FillWeight = 3;
+            dataGridViewMAF.Columns[5].FillWeight = 20;
+            dataGridViewMAF.Columns[6].FillWeight = 10;
             dataGridViewMAF.Columns[0].Visible = false;
             dataGridViewMAF.Columns[1].Visible = false;
             dataGridViewMAF.Columns[2].Visible = false;
@@ -718,8 +732,9 @@ namespace WindowsFormsApplication5
             dataGridViewMAF.Columns[4].Visible = false;
             dataGridViewMAF.Columns[5].Visible = true;
             dataGridViewMAF.Columns[6].Visible = true;
-
-
+            selRowsCount_MI = 0;
+            selRowsCount_MF = 0;
+            selRowsCount_Unused = 0;
 
             foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
             {
@@ -728,12 +743,15 @@ namespace WindowsFormsApplication5
                 {
                     case 1:
                         irow.DefaultCellStyle.ForeColor = Color.Blue;
+                        selRowsCount_MF++;
                         break;
                     case 2:
                         irow.DefaultCellStyle.ForeColor = Color.Green;
+                        selRowsCount_MI++;
                         break;
                     case 3:
                         irow.DefaultCellStyle.ForeColor = Color.Orange;
+                        selRowsCount_Unused++;
                         break;
                     default:
                         irow.DefaultCellStyle.ForeColor = Color.Gray;
@@ -741,7 +759,7 @@ namespace WindowsFormsApplication5
                 }
             }
             dataGridViewMAF.AutoResizeColumns();
-            dataGridViewMAF.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewMAF.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridViewMAF.Refresh();
             Refrescounterdgridinfo();
 
@@ -754,7 +772,10 @@ namespace WindowsFormsApplication5
 
         private void Refrescounterdgridinfo()
         {
-            lrowslicz.Text = (Convert.ToString(dataGridViewMAF.Rows.Count - 1) + " Rows");
+            l_MF_count.Text = (selRowsCount_MF.ToString() + " Machine Fault");
+            l_MI_count.Text = (selRowsCount_MI.ToString() + " Manual Int Fault");
+            l_Noused.Text = (selRowsCount_Unused.ToString() + " Not Used");
+
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -1294,7 +1315,7 @@ namespace WindowsFormsApplication5
 
         private void cbDontUseDesignCrit_MouseLeave(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cbDontUseDesignCrit_Click(object sender, EventArgs e)

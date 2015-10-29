@@ -51,14 +51,23 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.cbDontUseDesignCrit = new System.Windows.Forms.CheckBox();
+            this.lbRem = new System.Windows.Forms.ListBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbRemAddItem = new System.Windows.Forms.TextBox();
+            this.tbDelRemItem = new System.Windows.Forms.Button();
+            this.btAddRemItem = new System.Windows.Forms.Button();
             this.cboxAddFaultswithSpareDesc = new System.Windows.Forms.CheckBox();
             this.cb_removeDescNoName = new System.Windows.Forms.CheckBox();
             this.lbMI = new System.Windows.Forms.ListBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbMIAddItem = new System.Windows.Forms.TextBox();
             this.btRemMIItem = new System.Windows.Forms.Button();
             this.btAddMIItem = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbCreateL5Xout = new System.Windows.Forms.CheckBox();
@@ -70,97 +79,85 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btstargen = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bts_design = new System.Windows.Forms.Button();
+            this.bts_general = new System.Windows.Forms.Button();
+            this.bts_custom = new System.Windows.Forms.Button();
+            this.bts_l5x = new System.Windows.Forms.Button();
             this.btLoadDesignCt = new System.Windows.Forms.Button();
             this.tbcriteriasheetname = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView_AssetsList = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
+            this.cMenuAllFaultGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.missingDescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.misisingNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.unselectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lrowslicz = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.l_Noused = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.l_MI_count = new System.Windows.Forms.Label();
+            this.l_MF_count = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewMAF = new System.Windows.Forms.DataGridView();
             this.cMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lbgroupnames = new System.Windows.Forms.ListBox();
             this.lbAssetslist = new System.Windows.Forms.ListBox();
             this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.cMenuAllFaultGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.missingDescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.misisingNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unselectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.unselectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbRem = new System.Windows.Forms.ListBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbRemAddItem = new System.Windows.Forms.TextBox();
-            this.tbDelRemItem = new System.Windows.Forms.Button();
-            this.btAddRemItem = new System.Windows.Forms.Button();
-            this.cbDontUseDesignCrit = new System.Windows.Forms.CheckBox();
-            this.bts_l5x = new System.Windows.Forms.Button();
-            this.bts_custom = new System.Windows.Forms.Button();
-            this.bts_general = new System.Windows.Forms.Button();
-            this.bts_design = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AssetsList)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).BeginInit();
+            this.cMenuAllFaultGrid.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
-            this.cMenuAllFaultGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // load_xml
@@ -251,7 +248,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(986, 587);
+            this.tabControl1.Size = new System.Drawing.Size(986, 679);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -312,6 +309,74 @@
             this.panel9.Size = new System.Drawing.Size(666, 207);
             this.panel9.TabIndex = 18;
             // 
+            // cbDontUseDesignCrit
+            // 
+            this.cbDontUseDesignCrit.AutoSize = true;
+            this.cbDontUseDesignCrit.Location = new System.Drawing.Point(12, 83);
+            this.cbDontUseDesignCrit.Name = "cbDontUseDesignCrit";
+            this.cbDontUseDesignCrit.Size = new System.Drawing.Size(148, 17);
+            this.cbDontUseDesignCrit.TabIndex = 36;
+            this.cbDontUseDesignCrit.Text = "Don\'t use Design Crit xlsm";
+            this.cbDontUseDesignCrit.UseVisualStyleBackColor = true;
+            this.cbDontUseDesignCrit.Click += new System.EventHandler(this.cbDontUseDesignCrit_Click);
+            this.cbDontUseDesignCrit.MouseLeave += new System.EventHandler(this.cbDontUseDesignCrit_MouseLeave);
+            // 
+            // lbRem
+            // 
+            this.lbRem.FormattingEnabled = true;
+            this.lbRem.Location = new System.Drawing.Point(326, 25);
+            this.lbRem.Name = "lbRem";
+            this.lbRem.Size = new System.Drawing.Size(152, 121);
+            this.lbRem.TabIndex = 35;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
+            this.pictureBox6.Location = new System.Drawing.Point(326, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(15, 16);
+            this.pictureBox6.TabIndex = 34;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(342, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 13);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Filter for Remove item";
+            // 
+            // tbRemAddItem
+            // 
+            this.tbRemAddItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbRemAddItem.Location = new System.Drawing.Point(326, 149);
+            this.tbRemAddItem.Name = "tbRemAddItem";
+            this.tbRemAddItem.Size = new System.Drawing.Size(152, 20);
+            this.tbRemAddItem.TabIndex = 30;
+            this.tbRemAddItem.Text = "new item";
+            // 
+            // tbDelRemItem
+            // 
+            this.tbDelRemItem.Location = new System.Drawing.Point(399, 173);
+            this.tbDelRemItem.Name = "tbDelRemItem";
+            this.tbDelRemItem.Size = new System.Drawing.Size(79, 22);
+            this.tbDelRemItem.TabIndex = 32;
+            this.tbDelRemItem.Text = "Delete Item";
+            this.tbDelRemItem.UseVisualStyleBackColor = true;
+            this.tbDelRemItem.Click += new System.EventHandler(this.tbDelRemItem_Click);
+            // 
+            // btAddRemItem
+            // 
+            this.btAddRemItem.Location = new System.Drawing.Point(326, 173);
+            this.btAddRemItem.Name = "btAddRemItem";
+            this.btAddRemItem.Size = new System.Drawing.Size(73, 22);
+            this.btAddRemItem.TabIndex = 31;
+            this.btAddRemItem.Text = "Add Item";
+            this.btAddRemItem.UseVisualStyleBackColor = true;
+            this.btAddRemItem.Click += new System.EventHandler(this.btAddRemItem_Click);
+            // 
             // cboxAddFaultswithSpareDesc
             // 
             this.cboxAddFaultswithSpareDesc.AutoSize = true;
@@ -343,6 +408,15 @@
             this.lbMI.Name = "lbMI";
             this.lbMI.Size = new System.Drawing.Size(152, 121);
             this.lbMI.TabIndex = 27;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox4.Location = new System.Drawing.Point(503, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(13, 16);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
             // 
             // checkBox1
             // 
@@ -394,6 +468,16 @@
             this.btAddMIItem.Text = "Add Item";
             this.btAddMIItem.UseVisualStyleBackColor = true;
             this.btAddMIItem.Click += new System.EventHandler(this.btAddMIItem_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
+            this.pictureBox3.Location = new System.Drawing.Point(853, 503);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "FIS Generator Version V0.8");
             // 
             // label2
             // 
@@ -523,6 +607,42 @@
             this.panel2.Size = new System.Drawing.Size(666, 178);
             this.panel2.TabIndex = 10;
             // 
+            // bts_design
+            // 
+            this.bts_design.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bts_design.Location = new System.Drawing.Point(634, 134);
+            this.bts_design.Name = "bts_design";
+            this.bts_design.Size = new System.Drawing.Size(21, 20);
+            this.bts_design.TabIndex = 23;
+            this.bts_design.UseVisualStyleBackColor = true;
+            // 
+            // bts_general
+            // 
+            this.bts_general.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bts_general.Location = new System.Drawing.Point(634, 95);
+            this.bts_general.Name = "bts_general";
+            this.bts_general.Size = new System.Drawing.Size(21, 20);
+            this.bts_general.TabIndex = 22;
+            this.bts_general.UseVisualStyleBackColor = true;
+            // 
+            // bts_custom
+            // 
+            this.bts_custom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bts_custom.Location = new System.Drawing.Point(634, 55);
+            this.bts_custom.Name = "bts_custom";
+            this.bts_custom.Size = new System.Drawing.Size(21, 20);
+            this.bts_custom.TabIndex = 21;
+            this.bts_custom.UseVisualStyleBackColor = true;
+            // 
+            // bts_l5x
+            // 
+            this.bts_l5x.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bts_l5x.Location = new System.Drawing.Point(634, 16);
+            this.bts_l5x.Name = "bts_l5x";
+            this.bts_l5x.Size = new System.Drawing.Size(21, 20);
+            this.bts_l5x.TabIndex = 20;
+            this.bts_l5x.UseVisualStyleBackColor = true;
+            // 
             // btLoadDesignCt
             // 
             this.btLoadDesignCt.Location = new System.Drawing.Point(8, 131);
@@ -636,243 +756,6 @@
             this.dataGridView_AllFaults.Size = new System.Drawing.Size(972, 555);
             this.dataGridView_AllFaults.TabIndex = 8;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(978, 561);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Assets log Build";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.pictureBox5);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.pictureBox2);
-            this.panel7.Controls.Add(this.lrowslicz);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.pictureBox1);
-            this.panel7.Location = new System.Drawing.Point(431, 597);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(527, 26);
-            this.panel7.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(415, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Not Used";
-            // 
-            // lrowslicz
-            // 
-            this.lrowslicz.AutoSize = true;
-            this.lrowslicz.Location = new System.Drawing.Point(417, 6);
-            this.lrowslicz.Name = "lrowslicz";
-            this.lrowslicz.Size = new System.Drawing.Size(10, 13);
-            this.lrowslicz.TabIndex = 20;
-            this.lrowslicz.Text = "-";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(250, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Manual Int Fault";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(99, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Machine Fault";
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(241, 599);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 26);
-            this.panel6.TabIndex = 18;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(10, 598);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(225, 26);
-            this.panel5.TabIndex = 17;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dataGridViewMAF);
-            this.panel4.Controls.Add(this.lbgroupnames);
-            this.panel4.Controls.Add(this.lbAssetslist);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(972, 593);
-            this.panel4.TabIndex = 15;
-            // 
-            // dataGridViewMAF
-            // 
-            this.dataGridViewMAF.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewMAF.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewMAF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewMAF.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMAF.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewMAF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMAF.ContextMenuStrip = this.cMenuStrip;
-            this.dataGridViewMAF.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewMAF.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewMAF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMAF.Location = new System.Drawing.Point(428, 0);
-            this.dataGridViewMAF.Name = "dataGridViewMAF";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMAF.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewMAF.Size = new System.Drawing.Size(544, 593);
-            this.dataGridViewMAF.TabIndex = 3;
-            // 
-            // cMenuStrip
-            // 
-            this.cMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem6,
-            this.deleteRowsToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.saveDataToXLSMToolStripMenuItem,
-            this.toolStripSeparator6});
-            this.cMenuStrip.Name = "cMenuStrip";
-            this.cMenuStrip.Size = new System.Drawing.Size(177, 110);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(173, 6);
-            // 
-            // lbgroupnames
-            // 
-            this.lbgroupnames.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbgroupnames.FormattingEnabled = true;
-            this.lbgroupnames.Location = new System.Drawing.Point(235, 0);
-            this.lbgroupnames.Name = "lbgroupnames";
-            this.lbgroupnames.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbgroupnames.Size = new System.Drawing.Size(193, 593);
-            this.lbgroupnames.Sorted = true;
-            this.lbgroupnames.TabIndex = 1;
-            this.lbgroupnames.SelectedIndexChanged += new System.EventHandler(this.lbgroupnames_SelectedIndexChanged);
-            // 
-            // lbAssetslist
-            // 
-            this.lbAssetslist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbAssetslist.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbAssetslist.Location = new System.Drawing.Point(0, 0);
-            this.lbAssetslist.Name = "lbAssetslist";
-            this.lbAssetslist.Size = new System.Drawing.Size(235, 593);
-            this.lbAssetslist.TabIndex = 2;
-            this.lbAssetslist.SelectedIndexChanged += new System.EventHandler(this.lbAssetslist_SelectedIndexChanged);
-            // 
-            // cmStripGroupnames
-            // 
-            this.cmStripGroupnames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox2,
-            this.editToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.unselectAllToolStripMenuItem});
-            this.cmStripGroupnames.Name = "cmStripGroupnames";
-            this.cmStripGroupnames.Size = new System.Drawing.Size(161, 79);
-            // 
-            // toolStripTextBox2
-            // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.ReadOnly = true;
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox2.Text = "Devices list";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
-            // 
-            // cmstripassetsname
-            // 
-            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1,
-            this.toolStripMenuItem2,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem5});
-            this.cmstripassetsname.Name = "cmStripGroupnames";
-            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.ReadOnly = true;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "Assets list";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(116, 6);
-            // 
             // cMenuAllFaultGrid
             // 
             this.cMenuAllFaultGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -882,25 +765,6 @@
             this.toolStripSeparator7});
             this.cMenuAllFaultGrid.Name = "cMenuAllFaultGrid";
             this.cMenuAllFaultGrid.Size = new System.Drawing.Size(120, 60);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox4.Location = new System.Drawing.Point(503, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(13, 16);
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
-            this.pictureBox3.Location = new System.Drawing.Point(853, 503);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, "FIS Generator Version V0.8");
             // 
             // showToolStripMenuItem
             // 
@@ -928,6 +792,11 @@
             this.misisingNumbersToolStripMenuItem.Text = "Misising Numbers";
             this.misisingNumbersToolStripMenuItem.Click += new System.EventHandler(this.misisingNumbersToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
+            // 
             // unselectToolStripMenuItem
             // 
             this.unselectToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unfilter;
@@ -936,32 +805,165 @@
             this.unselectToolStripMenuItem.Text = "Unselect";
             this.unselectToolStripMenuItem.Click += new System.EventHandler(this.unselectToolStripMenuItem_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(116, 6);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(978, 653);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Assets log Build";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBox5);
+            this.panel7.Controls.Add(this.l_Noused);
+            this.panel7.Controls.Add(this.pictureBox2);
+            this.panel7.Controls.Add(this.l_MI_count);
+            this.panel7.Controls.Add(this.l_MF_count);
+            this.panel7.Controls.Add(this.pictureBox1);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(3, 624);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(972, 26);
+            this.panel7.TabIndex = 19;
+            // 
             // pictureBox5
             // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox5.Image = global::WindowsFormsApplication5.Properties.Resources.pic_notused;
-            this.pictureBox5.Location = new System.Drawing.Point(368, 6);
+            this.pictureBox5.Location = new System.Drawing.Point(815, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(45, 16);
             this.pictureBox5.TabIndex = 23;
             this.pictureBox5.TabStop = false;
             // 
+            // l_Noused
+            // 
+            this.l_Noused.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.l_Noused.AutoSize = true;
+            this.l_Noused.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.l_Noused.Location = new System.Drawing.Point(874, 6);
+            this.l_Noused.Name = "l_Noused";
+            this.l_Noused.Size = new System.Drawing.Size(60, 13);
+            this.l_Noused.TabIndex = 22;
+            this.l_Noused.Text = "Not Used";
+            // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox2.Location = new System.Drawing.Point(203, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(643, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 16);
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
             // 
+            // l_MI_count
+            // 
+            this.l_MI_count.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.l_MI_count.AutoSize = true;
+            this.l_MI_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.l_MI_count.Location = new System.Drawing.Point(699, 6);
+            this.l_MI_count.Name = "l_MI_count";
+            this.l_MI_count.Size = new System.Drawing.Size(99, 13);
+            this.l_MI_count.TabIndex = 4;
+            this.l_MI_count.Text = "Manual Int Fault";
+            // 
+            // l_MF_count
+            // 
+            this.l_MF_count.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.l_MF_count.AutoSize = true;
+            this.l_MF_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.l_MF_count.Location = new System.Drawing.Point(524, 6);
+            this.l_MF_count.Name = "l_MF_count";
+            this.l_MF_count.Size = new System.Drawing.Size(87, 13);
+            this.l_MF_count.TabIndex = 2;
+            this.l_MF_count.Text = "Machine Fault";
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(468, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 16);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.lbgroupnames);
+            this.panel4.Controls.Add(this.lbAssetslist);
+            this.panel4.Controls.Add(this.dataGridViewMAF);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(972, 647);
+            this.panel4.TabIndex = 15;
+            // 
+            // dataGridViewMAF
+            // 
+            this.dataGridViewMAF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewMAF.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewMAF.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewMAF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewMAF.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMAF.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewMAF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMAF.ContextMenuStrip = this.cMenuStrip;
+            this.dataGridViewMAF.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewMAF.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewMAF.Location = new System.Drawing.Point(431, 0);
+            this.dataGridViewMAF.Name = "dataGridViewMAF";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMAF.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewMAF.Size = new System.Drawing.Size(538, 621);
+            this.dataGridViewMAF.TabIndex = 3;
+            // 
+            // cMenuStrip
+            // 
+            this.cMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem6,
+            this.deleteRowsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.saveDataToXLSMToolStripMenuItem,
+            this.toolStripSeparator6});
+            this.cMenuStrip.Name = "cMenuStrip";
+            this.cMenuStrip.Size = new System.Drawing.Size(177, 110);
             // 
             // toolStripMenuItem1
             // 
@@ -998,6 +1000,11 @@
             this.unusedToolStripMenuItem.Text = "Unused";
             this.unusedToolStripMenuItem.Click += new System.EventHandler(this.unusedToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
+            // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
@@ -1014,6 +1021,11 @@
             this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
             this.deleteRowsToolStripMenuItem.Click += new System.EventHandler(this.deleteRowsToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            // 
             // saveDataToXLSMToolStripMenuItem
             // 
             this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
@@ -1021,6 +1033,50 @@
             this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
             this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(173, 6);
+            // 
+            // lbgroupnames
+            // 
+            this.lbgroupnames.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbgroupnames.FormattingEnabled = true;
+            this.lbgroupnames.Location = new System.Drawing.Point(235, 0);
+            this.lbgroupnames.Name = "lbgroupnames";
+            this.lbgroupnames.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbgroupnames.Size = new System.Drawing.Size(193, 647);
+            this.lbgroupnames.Sorted = true;
+            this.lbgroupnames.TabIndex = 1;
+            this.lbgroupnames.SelectedIndexChanged += new System.EventHandler(this.lbgroupnames_SelectedIndexChanged);
+            // 
+            // lbAssetslist
+            // 
+            this.lbAssetslist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbAssetslist.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbAssetslist.Location = new System.Drawing.Point(0, 0);
+            this.lbAssetslist.Name = "lbAssetslist";
+            this.lbAssetslist.Size = new System.Drawing.Size(235, 647);
+            this.lbAssetslist.TabIndex = 2;
+            this.lbAssetslist.SelectedIndexChanged += new System.EventHandler(this.lbAssetslist_SelectedIndexChanged);
+            // 
+            // cmStripGroupnames
+            // 
+            this.cmStripGroupnames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox2,
+            this.editToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.unselectAllToolStripMenuItem});
+            this.cmStripGroupnames.Name = "cmStripGroupnames";
+            this.cmStripGroupnames.Size = new System.Drawing.Size(161, 79);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.ReadOnly = true;
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.Text = "Devices list";
             // 
             // editToolStripMenuItem
             // 
@@ -1048,6 +1104,11 @@
             this.disableToolStripMenuItem.Text = "Disable";
             this.disableToolStripMenuItem.Click += new System.EventHandler(this.disableToolStripMenuItem_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
+            // 
             // unselectAllToolStripMenuItem
             // 
             this.unselectAllToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -1055,6 +1116,23 @@
             this.unselectAllToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.unselectAllToolStripMenuItem.Text = "Unselect All";
             this.unselectAllToolStripMenuItem.Click += new System.EventHandler(this.unselectAllToolStripMenuItem_Click);
+            // 
+            // cmstripassetsname
+            // 
+            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem5});
+            this.cmstripassetsname.Name = "cmStripGroupnames";
+            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "Assets list";
             // 
             // toolStripMenuItem2
             // 
@@ -1082,6 +1160,11 @@
             this.toolStripMenuItem4.Text = "Disable";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
+            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -1090,120 +1173,16 @@
             this.toolStripMenuItem5.Text = "Unselect All";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
-            // lbRem
-            // 
-            this.lbRem.FormattingEnabled = true;
-            this.lbRem.Location = new System.Drawing.Point(326, 25);
-            this.lbRem.Name = "lbRem";
-            this.lbRem.Size = new System.Drawing.Size(152, 121);
-            this.lbRem.TabIndex = 35;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
-            this.pictureBox6.Location = new System.Drawing.Point(326, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(15, 16);
-            this.pictureBox6.TabIndex = 34;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(342, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(131, 13);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Filter for Remove item";
-            // 
-            // tbRemAddItem
-            // 
-            this.tbRemAddItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbRemAddItem.Location = new System.Drawing.Point(326, 149);
-            this.tbRemAddItem.Name = "tbRemAddItem";
-            this.tbRemAddItem.Size = new System.Drawing.Size(152, 20);
-            this.tbRemAddItem.TabIndex = 30;
-            this.tbRemAddItem.Text = "new item";
-            // 
-            // tbDelRemItem
-            // 
-            this.tbDelRemItem.Location = new System.Drawing.Point(399, 173);
-            this.tbDelRemItem.Name = "tbDelRemItem";
-            this.tbDelRemItem.Size = new System.Drawing.Size(79, 22);
-            this.tbDelRemItem.TabIndex = 32;
-            this.tbDelRemItem.Text = "Delete Item";
-            this.tbDelRemItem.UseVisualStyleBackColor = true;
-            this.tbDelRemItem.Click += new System.EventHandler(this.tbDelRemItem_Click);
-            // 
-            // btAddRemItem
-            // 
-            this.btAddRemItem.Location = new System.Drawing.Point(326, 173);
-            this.btAddRemItem.Name = "btAddRemItem";
-            this.btAddRemItem.Size = new System.Drawing.Size(73, 22);
-            this.btAddRemItem.TabIndex = 31;
-            this.btAddRemItem.Text = "Add Item";
-            this.btAddRemItem.UseVisualStyleBackColor = true;
-            this.btAddRemItem.Click += new System.EventHandler(this.btAddRemItem_Click);
-            // 
-            // cbDontUseDesignCrit
-            // 
-            this.cbDontUseDesignCrit.AutoSize = true;
-            this.cbDontUseDesignCrit.Location = new System.Drawing.Point(12, 83);
-            this.cbDontUseDesignCrit.Name = "cbDontUseDesignCrit";
-            this.cbDontUseDesignCrit.Size = new System.Drawing.Size(148, 17);
-            this.cbDontUseDesignCrit.TabIndex = 36;
-            this.cbDontUseDesignCrit.Text = "Don\'t use Design Crit xlsm";
-            this.cbDontUseDesignCrit.UseVisualStyleBackColor = true;
-            this.cbDontUseDesignCrit.Click += new System.EventHandler(this.cbDontUseDesignCrit_Click);
-            this.cbDontUseDesignCrit.MouseLeave += new System.EventHandler(this.cbDontUseDesignCrit_MouseLeave);
-            // 
-            // bts_l5x
-            // 
-            this.bts_l5x.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bts_l5x.Location = new System.Drawing.Point(634, 16);
-            this.bts_l5x.Name = "bts_l5x";
-            this.bts_l5x.Size = new System.Drawing.Size(21, 20);
-            this.bts_l5x.TabIndex = 20;
-            this.bts_l5x.UseVisualStyleBackColor = true;
-            // 
-            // bts_custom
-            // 
-            this.bts_custom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bts_custom.Location = new System.Drawing.Point(634, 55);
-            this.bts_custom.Name = "bts_custom";
-            this.bts_custom.Size = new System.Drawing.Size(21, 20);
-            this.bts_custom.TabIndex = 21;
-            this.bts_custom.UseVisualStyleBackColor = true;
-            // 
-            // bts_general
-            // 
-            this.bts_general.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bts_general.Location = new System.Drawing.Point(634, 95);
-            this.bts_general.Name = "bts_general";
-            this.bts_general.Size = new System.Drawing.Size(21, 20);
-            this.bts_general.TabIndex = 22;
-            this.bts_general.UseVisualStyleBackColor = true;
-            // 
-            // bts_design
-            // 
-            this.bts_design.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bts_design.Location = new System.Drawing.Point(634, 134);
-            this.bts_design.Name = "bts_design";
-            this.bts_design.Size = new System.Drawing.Size(21, 20);
-            this.bts_design.TabIndex = 23;
-            this.bts_design.UseVisualStyleBackColor = true;
-            // 
             // FISGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 608);
+            this.ClientSize = new System.Drawing.Size(986, 700);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FISGenerator";
-            this.Text = "FIS Generator V1.2";
+            this.Text = "FIS Generator V1.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1212,6 +1191,9 @@
             this.tabPage1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1220,9 +1202,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AssetsList)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AllFaults)).EndInit();
+            this.cMenuAllFaultGrid.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
@@ -1230,13 +1217,6 @@
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
             this.cmstripassetsname.PerformLayout();
-            this.cMenuAllFaultGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1293,13 +1273,10 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lrowslicz;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label l_MI_count;
+        private System.Windows.Forms.Label l_MF_count;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lcontrolerName;
         private System.Windows.Forms.CheckBox cbcreateNew;
@@ -1322,7 +1299,7 @@
         private System.Windows.Forms.CheckBox cb_removeDescNoName;
         private System.Windows.Forms.CheckBox cboxAddFaultswithSpareDesc;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label l_Noused;
         private System.Windows.Forms.ContextMenuStrip cMenuAllFaultGrid;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem missingDescriptionsToolStripMenuItem;
