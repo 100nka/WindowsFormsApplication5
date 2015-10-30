@@ -680,7 +680,8 @@ namespace WindowsFormsApplication5
             {
                 foreach (var item in lbMI.Items)
                 {
-                    if (fault.FaultTextEn.Contains(item.ToString()))
+                   // if (fault.FaultTextEn.Contains(item.ToString()))
+                    if ( Regex.IsMatch(fault.FaultTextEn, item.ToString(), RegexOptions.IgnoreCase))
                     {
                         fault.FaultFISMember = 2;
                         break;
@@ -692,7 +693,8 @@ namespace WindowsFormsApplication5
                 }
                 foreach (var item in lbRem.Items)
                 {
-                    if (fault.FaultTextEn.Contains(item.ToString()))
+                  //  if (fault.FaultTextEn.Contains(item.ToString()))
+                    if (Regex.IsMatch(fault.FaultTextEn, item.ToString(), RegexOptions.IgnoreCase))
                     {
                         fault.FaultFISMember = 3;
                         break;
