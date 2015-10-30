@@ -124,8 +124,8 @@
   <data name="pic_notused" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pic_notused.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic_machinefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic_machinefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic_NoMagicnumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic_NoMagicnumber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="unfilter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unfilter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,6 +151,9 @@
   <data name="edit enable deselectted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit enable deselectted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pic_NoMagicnumber1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic_NoMagicnumber1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="edit enable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit enable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,10 +163,10 @@
   <data name="editenableselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editenableselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic_NoMagicnumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic_NoMagicnumber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pic_machinefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pic_machinefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pic_NoMagicnumber1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pic_NoMagicnumber1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ford" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ford.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

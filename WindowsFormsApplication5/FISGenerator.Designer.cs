@@ -53,7 +53,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.cbDontUseDesignCrit = new System.Windows.Forms.CheckBox();
             this.lbRem = new System.Windows.Forms.ListBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbRemAddItem = new System.Windows.Forms.TextBox();
             this.tbDelRemItem = new System.Windows.Forms.Button();
@@ -61,13 +60,11 @@
             this.cboxAddFaultswithSpareDesc = new System.Windows.Forms.CheckBox();
             this.cb_removeDescNoName = new System.Windows.Forms.CheckBox();
             this.lbMI = new System.Windows.Forms.ListBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbMIAddItem = new System.Windows.Forms.TextBox();
             this.btRemMIItem = new System.Windows.Forms.Button();
             this.btAddMIItem = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbCreateL5Xout = new System.Windows.Forms.CheckBox();
@@ -90,57 +87,58 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView_AllFaults = new System.Windows.Forms.DataGridView();
             this.cMenuAllFaultGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.missingDescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.misisingNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.unselectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.l_Noused = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.l_MI_count = new System.Windows.Forms.Label();
             this.l_MF_count = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewMAF = new System.Windows.Forms.DataGridView();
             this.cMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lbgroupnames = new System.Windows.Forms.ListBox();
             this.lbAssetslist = new System.Windows.Forms.ListBox();
             this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.missingDescriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.misisingNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unselectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.unselectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmstripassetsname = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -150,14 +148,18 @@
             this.cMenuAllFaultGrid.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // load_xml
@@ -253,6 +255,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox7);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.panel9);
             this.tabPage1.Controls.Add(this.pictureBox3);
@@ -270,7 +273,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(978, 561);
+            this.tabPage1.Size = new System.Drawing.Size(978, 653);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sources";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -328,15 +331,6 @@
             this.lbRem.Name = "lbRem";
             this.lbRem.Size = new System.Drawing.Size(152, 121);
             this.lbRem.TabIndex = 35;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
-            this.pictureBox6.Location = new System.Drawing.Point(326, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(15, 16);
-            this.pictureBox6.TabIndex = 34;
-            this.pictureBox6.TabStop = false;
             // 
             // label7
             // 
@@ -409,15 +403,6 @@
             this.lbMI.Size = new System.Drawing.Size(152, 121);
             this.lbMI.TabIndex = 27;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox4.Location = new System.Drawing.Point(503, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(13, 16);
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -468,16 +453,6 @@
             this.btAddMIItem.Text = "Add Item";
             this.btAddMIItem.UseVisualStyleBackColor = true;
             this.btAddMIItem.Click += new System.EventHandler(this.btAddMIItem_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
-            this.pictureBox3.Location = new System.Drawing.Point(853, 503);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, "FIS Generator Version V0.8");
             // 
             // label2
             // 
@@ -587,7 +562,7 @@
             this.btstargen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btstargen.Location = new System.Drawing.Point(695, 21);
             this.btstargen.Name = "btstargen";
-            this.btstargen.Size = new System.Drawing.Size(260, 178);
+            this.btstargen.Size = new System.Drawing.Size(260, 535);
             this.btstargen.TabIndex = 14;
             this.btstargen.Text = "Start";
             this.btstargen.UseVisualStyleBackColor = true;
@@ -669,7 +644,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(978, 561);
+            this.tabPage4.Size = new System.Drawing.Size(978, 653);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Assets List";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -706,7 +681,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_AssetsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView_AssetsList.Size = new System.Drawing.Size(972, 555);
+            this.dataGridView_AssetsList.Size = new System.Drawing.Size(972, 647);
             this.dataGridView_AssetsList.TabIndex = 10;
             // 
             // tabPage5
@@ -715,7 +690,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(978, 561);
+            this.tabPage5.Size = new System.Drawing.Size(978, 653);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "All faults list";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -753,7 +728,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_AllFaults.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView_AllFaults.Size = new System.Drawing.Size(972, 555);
+            this.dataGridView_AllFaults.Size = new System.Drawing.Size(972, 647);
             this.dataGridView_AllFaults.TabIndex = 8;
             // 
             // cMenuAllFaultGrid
@@ -766,44 +741,10 @@
             this.cMenuAllFaultGrid.Name = "cMenuAllFaultGrid";
             this.cMenuAllFaultGrid.Size = new System.Drawing.Size(120, 60);
             // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.missingDescriptionsToolStripMenuItem,
-            this.misisingNumbersToolStripMenuItem});
-            this.showToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.filter;
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.showToolStripMenuItem.Text = "Select";
-            // 
-            // missingDescriptionsToolStripMenuItem
-            // 
-            this.missingDescriptionsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
-            this.missingDescriptionsToolStripMenuItem.Name = "missingDescriptionsToolStripMenuItem";
-            this.missingDescriptionsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.missingDescriptionsToolStripMenuItem.Text = "Missing Descriptions";
-            this.missingDescriptionsToolStripMenuItem.Click += new System.EventHandler(this.missingDescriptionsToolStripMenuItem_Click);
-            // 
-            // misisingNumbersToolStripMenuItem
-            // 
-            this.misisingNumbersToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_NoMagicnumber1;
-            this.misisingNumbersToolStripMenuItem.Name = "misisingNumbersToolStripMenuItem";
-            this.misisingNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.misisingNumbersToolStripMenuItem.Text = "Misising Numbers";
-            this.misisingNumbersToolStripMenuItem.Click += new System.EventHandler(this.misisingNumbersToolStripMenuItem_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
-            // 
-            // unselectToolStripMenuItem
-            // 
-            this.unselectToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unfilter;
-            this.unselectToolStripMenuItem.Name = "unselectToolStripMenuItem";
-            this.unselectToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.unselectToolStripMenuItem.Text = "Unselect";
-            this.unselectToolStripMenuItem.Click += new System.EventHandler(this.unselectToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -836,16 +777,6 @@
             this.panel7.Size = new System.Drawing.Size(972, 26);
             this.panel7.TabIndex = 19;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox5.Image = global::WindowsFormsApplication5.Properties.Resources.pic_notused;
-            this.pictureBox5.Location = new System.Drawing.Point(815, 6);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox5.TabIndex = 23;
-            this.pictureBox5.TabStop = false;
-            // 
             // l_Noused
             // 
             this.l_Noused.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -856,16 +787,6 @@
             this.l_Noused.Size = new System.Drawing.Size(60, 13);
             this.l_Noused.TabIndex = 22;
             this.l_Noused.Text = "Not Used";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.pictureBox2.Location = new System.Drawing.Point(643, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
             // 
             // l_MI_count
             // 
@@ -888,16 +809,6 @@
             this.l_MF_count.Size = new System.Drawing.Size(87, 13);
             this.l_MF_count.TabIndex = 2;
             this.l_MF_count.Text = "Machine Fault";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
-            this.pictureBox1.Location = new System.Drawing.Point(468, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
@@ -965,74 +876,15 @@
             this.cMenuStrip.Name = "cMenuStrip";
             this.cMenuStrip.Size = new System.Drawing.Size(177, 110);
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.machineFaultToolStripMenuItem,
-            this.manualIntFaultToolStripMenuItem,
-            this.unusedToolStripMenuItem});
-            this.toolStripMenuItem1.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
-            this.toolStripMenuItem1.Text = "Mark Selected";
-            // 
-            // machineFaultToolStripMenuItem
-            // 
-            this.machineFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
-            this.machineFaultToolStripMenuItem.Name = "machineFaultToolStripMenuItem";
-            this.machineFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.machineFaultToolStripMenuItem.Text = "Machine Fault";
-            this.machineFaultToolStripMenuItem.Click += new System.EventHandler(this.machineFaultToolStripMenuItem_Click);
-            // 
-            // manualIntFaultToolStripMenuItem
-            // 
-            this.manualIntFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
-            this.manualIntFaultToolStripMenuItem.Name = "manualIntFaultToolStripMenuItem";
-            this.manualIntFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.manualIntFaultToolStripMenuItem.Text = "Manual Int Fault";
-            this.manualIntFaultToolStripMenuItem.Click += new System.EventHandler(this.manualIntFaultToolStripMenuItem_Click);
-            // 
-            // unusedToolStripMenuItem
-            // 
-            this.unusedToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
-            this.unusedToolStripMenuItem.Name = "unusedToolStripMenuItem";
-            this.unusedToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.unusedToolStripMenuItem.Text = "Unused";
-            this.unusedToolStripMenuItem.Click += new System.EventHandler(this.unusedToolStripMenuItem_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
             // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 22);
-            this.toolStripMenuItem6.Text = "Return default view";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // deleteRowsToolStripMenuItem
-            // 
-            this.deleteRowsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
-            this.deleteRowsToolStripMenuItem.Name = "deleteRowsToolStripMenuItem";
-            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
-            this.deleteRowsToolStripMenuItem.Click += new System.EventHandler(this.deleteRowsToolStripMenuItem_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
-            // 
-            // saveDataToXLSMToolStripMenuItem
-            // 
-            this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
-            this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
-            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
-            this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1078,6 +930,195 @@
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox2.Text = "Devices list";
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
+            // 
+            // cmstripassetsname
+            // 
+            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem5});
+            this.cmstripassetsname.Name = "cmStripGroupnames";
+            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "Assets list";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::WindowsFormsApplication5.Properties.Resources.ford;
+            this.pictureBox7.Location = new System.Drawing.Point(706, 562);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(120, 70);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 20;
+            this.pictureBox7.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox7, "FIS Generator Version V0.8");
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
+            this.pictureBox6.Location = new System.Drawing.Point(326, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(15, 16);
+            this.pictureBox6.TabIndex = 34;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox4.Location = new System.Drawing.Point(503, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(13, 16);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
+            this.pictureBox3.Location = new System.Drawing.Point(845, 572);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 15;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "FIS Generator Version V0.8");
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.missingDescriptionsToolStripMenuItem,
+            this.misisingNumbersToolStripMenuItem});
+            this.showToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.filter;
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.showToolStripMenuItem.Text = "Select";
+            // 
+            // missingDescriptionsToolStripMenuItem
+            // 
+            this.missingDescriptionsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
+            this.missingDescriptionsToolStripMenuItem.Name = "missingDescriptionsToolStripMenuItem";
+            this.missingDescriptionsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.missingDescriptionsToolStripMenuItem.Text = "Missing Descriptions";
+            this.missingDescriptionsToolStripMenuItem.Click += new System.EventHandler(this.missingDescriptionsToolStripMenuItem_Click);
+            // 
+            // misisingNumbersToolStripMenuItem
+            // 
+            this.misisingNumbersToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_NoMagicnumber1;
+            this.misisingNumbersToolStripMenuItem.Name = "misisingNumbersToolStripMenuItem";
+            this.misisingNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.misisingNumbersToolStripMenuItem.Text = "Misising Numbers";
+            this.misisingNumbersToolStripMenuItem.Click += new System.EventHandler(this.misisingNumbersToolStripMenuItem_Click);
+            // 
+            // unselectToolStripMenuItem
+            // 
+            this.unselectToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unfilter;
+            this.unselectToolStripMenuItem.Name = "unselectToolStripMenuItem";
+            this.unselectToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.unselectToolStripMenuItem.Text = "Unselect";
+            this.unselectToolStripMenuItem.Click += new System.EventHandler(this.unselectToolStripMenuItem_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox5.Image = global::WindowsFormsApplication5.Properties.Resources.pic_notused;
+            this.pictureBox5.Location = new System.Drawing.Point(815, 6);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox5.TabIndex = 23;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox2.Location = new System.Drawing.Point(643, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.pictureBox1.Location = new System.Drawing.Point(468, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 16);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.machineFaultToolStripMenuItem,
+            this.manualIntFaultToolStripMenuItem,
+            this.unusedToolStripMenuItem});
+            this.toolStripMenuItem1.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
+            this.toolStripMenuItem1.Text = "Mark Selected";
+            // 
+            // machineFaultToolStripMenuItem
+            // 
+            this.machineFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.machineFaultToolStripMenuItem.Name = "machineFaultToolStripMenuItem";
+            this.machineFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.machineFaultToolStripMenuItem.Text = "Machine Fault";
+            this.machineFaultToolStripMenuItem.Click += new System.EventHandler(this.machineFaultToolStripMenuItem_Click);
+            // 
+            // manualIntFaultToolStripMenuItem
+            // 
+            this.manualIntFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.manualIntFaultToolStripMenuItem.Name = "manualIntFaultToolStripMenuItem";
+            this.manualIntFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.manualIntFaultToolStripMenuItem.Text = "Manual Int Fault";
+            this.manualIntFaultToolStripMenuItem.Click += new System.EventHandler(this.manualIntFaultToolStripMenuItem_Click);
+            // 
+            // unusedToolStripMenuItem
+            // 
+            this.unusedToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.unusedToolStripMenuItem.Name = "unusedToolStripMenuItem";
+            this.unusedToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.unusedToolStripMenuItem.Text = "Unused";
+            this.unusedToolStripMenuItem.Click += new System.EventHandler(this.unusedToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 22);
+            this.toolStripMenuItem6.Text = "Return default view";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // deleteRowsToolStripMenuItem
+            // 
+            this.deleteRowsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
+            this.deleteRowsToolStripMenuItem.Name = "deleteRowsToolStripMenuItem";
+            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
+            this.deleteRowsToolStripMenuItem.Click += new System.EventHandler(this.deleteRowsToolStripMenuItem_Click);
+            // 
+            // saveDataToXLSMToolStripMenuItem
+            // 
+            this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
+            this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
+            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
+            this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1104,11 +1145,6 @@
             this.disableToolStripMenuItem.Text = "Disable";
             this.disableToolStripMenuItem.Click += new System.EventHandler(this.disableToolStripMenuItem_Click);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(157, 6);
-            // 
             // unselectAllToolStripMenuItem
             // 
             this.unselectAllToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -1116,23 +1152,6 @@
             this.unselectAllToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.unselectAllToolStripMenuItem.Text = "Unselect All";
             this.unselectAllToolStripMenuItem.Click += new System.EventHandler(this.unselectAllToolStripMenuItem_Click);
-            // 
-            // cmstripassetsname
-            // 
-            this.cmstripassetsname.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1,
-            this.toolStripMenuItem2,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem5});
-            this.cmstripassetsname.Name = "cmStripGroupnames";
-            this.cmstripassetsname.Size = new System.Drawing.Size(161, 79);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.ReadOnly = true;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "Assets list";
             // 
             // toolStripMenuItem2
             // 
@@ -1160,11 +1179,6 @@
             this.toolStripMenuItem4.Text = "Disable";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(157, 6);
-            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
@@ -1191,9 +1205,6 @@
             this.tabPage1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1207,9 +1218,6 @@
             this.tabPage2.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
@@ -1217,6 +1225,13 @@
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
             this.cmstripassetsname.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1318,6 +1333,7 @@
         private System.Windows.Forms.Button bts_general;
         private System.Windows.Forms.Button bts_custom;
         private System.Windows.Forms.Button bts_l5x;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 
