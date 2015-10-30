@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication5
+﻿namespace WFA_FISGenerator
 {
     partial class FISGenerator
     {
@@ -280,7 +280,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::WindowsFormsApplication5.Properties.Resources.ford;
+            this.pictureBox7.Image = global::WFA_FISGenerator.Properties.Resources.ford;
             this.pictureBox7.Location = new System.Drawing.Point(706, 562);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(120, 70);
@@ -345,7 +345,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
+            this.pictureBox6.Image = global::WFA_FISGenerator.Properties.Resources.pic_nodesc;
             this.pictureBox6.Location = new System.Drawing.Point(326, 6);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(15, 16);
@@ -425,7 +425,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox4.Image = global::WFA_FISGenerator.Properties.Resources.pic_manualfault;
             this.pictureBox4.Location = new System.Drawing.Point(503, 6);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(13, 16);
@@ -485,7 +485,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::WindowsFormsApplication5.Properties.Resources.Dürr_AG_logo1;
+            this.pictureBox3.Image = global::WFA_FISGenerator.Properties.Resources.Dürr_AG_logo1;
             this.pictureBox3.Location = new System.Drawing.Point(845, 572);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
@@ -787,14 +787,14 @@
             this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.missingDescriptionsToolStripMenuItem,
             this.misisingNumbersToolStripMenuItem});
-            this.showToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.filter;
+            this.showToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.filter;
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
             this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.showToolStripMenuItem.Text = "Select";
             // 
             // missingDescriptionsToolStripMenuItem
             // 
-            this.missingDescriptionsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_nodesc;
+            this.missingDescriptionsToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.pic_nodesc;
             this.missingDescriptionsToolStripMenuItem.Name = "missingDescriptionsToolStripMenuItem";
             this.missingDescriptionsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.missingDescriptionsToolStripMenuItem.Text = "Missing Descriptions";
@@ -802,7 +802,7 @@
             // 
             // misisingNumbersToolStripMenuItem
             // 
-            this.misisingNumbersToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_NoMagicnumber1;
+            this.misisingNumbersToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.pic_NoMagicnumber1;
             this.misisingNumbersToolStripMenuItem.Name = "misisingNumbersToolStripMenuItem";
             this.misisingNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.misisingNumbersToolStripMenuItem.Text = "Misising Numbers";
@@ -815,7 +815,7 @@
             // 
             // unselectToolStripMenuItem
             // 
-            this.unselectToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unfilter;
+            this.unselectToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unfilter;
             this.unselectToolStripMenuItem.Name = "unselectToolStripMenuItem";
             this.unselectToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.unselectToolStripMenuItem.Text = "Unselect";
@@ -855,7 +855,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox5.Image = global::WindowsFormsApplication5.Properties.Resources.pic_notused;
+            this.pictureBox5.Image = global::WFA_FISGenerator.Properties.Resources.pic_notused;
             this.pictureBox5.Location = new System.Drawing.Point(815, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(45, 16);
@@ -876,7 +876,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox2.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.pictureBox2.Image = global::WFA_FISGenerator.Properties.Resources.pic_manualfault;
             this.pictureBox2.Location = new System.Drawing.Point(643, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 16);
@@ -908,7 +908,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox1.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.pictureBox1.Image = global::WFA_FISGenerator.Properties.Resources.pic_machinefault;
             this.pictureBox1.Location = new System.Drawing.Point(468, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 16);
@@ -1009,14 +1009,14 @@
             this.machineFaultToolStripMenuItem,
             this.manualIntFaultToolStripMenuItem,
             this.unusedToolStripMenuItem});
-            this.toolStripMenuItem1.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
+            this.toolStripMenuItem1.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem1.Text = "Mark Selected";
             // 
             // machineFaultToolStripMenuItem
             // 
-            this.machineFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_machinefault;
+            this.machineFaultToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.pic_machinefault;
             this.machineFaultToolStripMenuItem.Name = "machineFaultToolStripMenuItem";
             this.machineFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.machineFaultToolStripMenuItem.Text = "Machine Fault";
@@ -1024,7 +1024,7 @@
             // 
             // manualIntFaultToolStripMenuItem
             // 
-            this.manualIntFaultToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.pic_manualfault;
+            this.manualIntFaultToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.pic_manualfault;
             this.manualIntFaultToolStripMenuItem.Name = "manualIntFaultToolStripMenuItem";
             this.manualIntFaultToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.manualIntFaultToolStripMenuItem.Text = "Manual Int Fault";
@@ -1032,7 +1032,7 @@
             // 
             // unusedToolStripMenuItem
             // 
-            this.unusedToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.unusedToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable_deselectted;
             this.unusedToolStripMenuItem.Name = "unusedToolStripMenuItem";
             this.unusedToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.unusedToolStripMenuItem.Text = "Unused";
@@ -1045,7 +1045,7 @@
             // 
             // toolStripMenuItem6
             // 
-            this.toolStripMenuItem6.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
+            this.toolStripMenuItem6.Image = global::WFA_FISGenerator.Properties.Resources.editenableselected;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 22);
             this.toolStripMenuItem6.Text = "Return default view";
@@ -1053,7 +1053,7 @@
             // 
             // deleteRowsToolStripMenuItem
             // 
-            this.deleteRowsToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
+            this.deleteRowsToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unselect_all;
             this.deleteRowsToolStripMenuItem.Name = "deleteRowsToolStripMenuItem";
             this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
@@ -1066,7 +1066,7 @@
             // 
             // saveDataToXLSMToolStripMenuItem
             // 
-            this.saveDataToXLSMToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.excelSave;
+            this.saveDataToXLSMToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.excelSave;
             this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
             this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
@@ -1099,14 +1099,14 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enableToolStripMenuItem,
             this.disableToolStripMenuItem});
-            this.editToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
+            this.editToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // enableToolStripMenuItem
             // 
-            this.enableToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
+            this.enableToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.editenableselected;
             this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
             this.enableToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.enableToolStripMenuItem.Text = "Enable";
@@ -1114,7 +1114,7 @@
             // 
             // disableToolStripMenuItem
             // 
-            this.disableToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.disableToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable_deselectted;
             this.disableToolStripMenuItem.Name = "disableToolStripMenuItem";
             this.disableToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.disableToolStripMenuItem.Text = "Disable";
@@ -1127,7 +1127,7 @@
             // 
             // unselectAllToolStripMenuItem
             // 
-            this.unselectAllToolStripMenuItem.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
+            this.unselectAllToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unselect_all;
             this.unselectAllToolStripMenuItem.Name = "unselectAllToolStripMenuItem";
             this.unselectAllToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.unselectAllToolStripMenuItem.Text = "Unselect All";
@@ -1155,14 +1155,14 @@
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
-            this.toolStripMenuItem2.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable;
+            this.toolStripMenuItem2.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem2.Text = "Edit";
             // 
             // toolStripMenuItem3
             // 
-            this.toolStripMenuItem3.Image = global::WindowsFormsApplication5.Properties.Resources.editenableselected;
+            this.toolStripMenuItem3.Image = global::WFA_FISGenerator.Properties.Resources.editenableselected;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(112, 22);
             this.toolStripMenuItem3.Text = "Enable";
@@ -1170,7 +1170,7 @@
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.Image = global::WindowsFormsApplication5.Properties.Resources.edit_enable_deselectted;
+            this.toolStripMenuItem4.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable_deselectted;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(112, 22);
             this.toolStripMenuItem4.Text = "Disable";
@@ -1183,7 +1183,7 @@
             // 
             // toolStripMenuItem5
             // 
-            this.toolStripMenuItem5.Image = global::WindowsFormsApplication5.Properties.Resources.unselect_all;
+            this.toolStripMenuItem5.Image = global::WFA_FISGenerator.Properties.Resources.unselect_all;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem5.Text = "Unselect All";

@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using ExcelM = Microsoft.Office.Interop.Excel;
 using MetroFramework.Forms;
 
-namespace WindowsFormsApplication5
+namespace WFA_FISGenerator
 {
 
     public partial class FISGenerator : Form

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication5
+﻿namespace WFA_FISGenerator
 {
     partial class Form1
     {

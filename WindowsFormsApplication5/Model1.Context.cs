@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication5
+namespace WFA_FISGenerator
 {
     using System;
     using System.Data.Entity;
