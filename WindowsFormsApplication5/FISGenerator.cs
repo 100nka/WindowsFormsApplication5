@@ -319,10 +319,26 @@ namespace WFA_FISGenerator
                 CreatingIntFaults();
 
                 _formatingDataGridAllFaults(dataGridView_AllFaults);  // dodanie wszystkich bledow dla grida 
-
                 dataGridView_AssetsList.DataSource = excelAssetlList;  // lista z assetami pobrana z excela .
-
                 AddAssetsListBox();
+
+
+
+                //========================= new table ======================================
+                //foreach (var fault in all_faults)
+                //{
+                //    _MiFilterSet(fault);
+                //}
+
+                //dataGridViewhehe.DataSource = all_faults;
+
+                //(cMenustriphehe.Items[0] as ToolStripMenuItem).DropDownItems.Clear();
+                //foreach (var assetname in excelAssetlList)
+                //{
+                //    (cMenustriphehe.Items[0] as ToolStripMenuItem).DropDownItems.Add(assetname.ToString(), null, AssingToAsset_allFaults);
+                //}
+
+                //_formatingDataGridNEW(dataGridViewhehe);
                 Genetatestatus(true);
             }
             else
@@ -330,6 +346,51 @@ namespace WFA_FISGenerator
                 MessageBox.Show("Necessary files for generate source are not loaded");
             }
 
+        }
+
+        private void _formatingDataGridNEW(DataGridView dg)
+        {
+            dg.Columns[0].FillWeight = 2;
+            dg.Columns[1].FillWeight = 2;
+            dg.Columns[2].FillWeight = 2;
+            dg.Columns[3].FillWeight = 2;
+            dg.Columns[4].FillWeight = 3;
+            dg.Columns[5].FillWeight = 20;
+            dg.Columns[6].FillWeight = 17;
+            dg.Columns[7].FillWeight = 20;
+            dg.Columns[0].Visible = false;
+            dg.Columns[1].Visible = false;
+            dg.Columns[2].Visible = false;
+            dg.Columns[3].Visible = false;
+            dg.Columns[4].Visible = false;
+            dg.Columns[5].Visible = true;
+            dg.Columns[6].Visible = true;
+            dg.Columns[7].Visible = true;
+            _setColorForDataGrid(dg);
+            dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dg.Refresh();
+            dg.Show();
+        }
+
+        private void AssingToAsset_allFaults(object sender, EventArgs e)
+        {
+            string assetname = sender.ToString();
+
+
+            //foreach (DataGridViewRow selrow in dataGridViewhehe.SelectedRows)
+            //{
+            //    selrow.Cells[7].Value = assetname;
+            //}
+        }
+
+        private void AssingToAsset_FilteredList(object sender, EventArgs e)
+        {
+            string assetname = sender.ToString();
+
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.Cells[7].Value = assetname;
+            }
         }
 
         private string _createassetnr(int i)
@@ -366,12 +427,23 @@ namespace WFA_FISGenerator
             {
                 this.lbAssetslist.ContextMenuStrip = this.cmstripassetsname; // podpiecie contexmenu dla groupname
             }
+
+
+            (cMenuStrip.Items[2] as ToolStripMenuItem).DropDownItems.Clear();
+            foreach (var assetname in excelAssetlList)
+            {
+                (cMenuStrip.Items[2] as ToolStripMenuItem).DropDownItems.Add(assetname.ToString(), null, AssingToAsset_FilteredList);
+            }
+
             //if (this.panel5.ContextMenuStrip == null)
             //{
             //    this.panel5.ContextMenuStrip = this.cmstripassetsname;     // podpiecie contexmenu dla dolnego paska
             //}
         }
-        private void AddDevicesListBox()
+
+
+
+        private void _AddDevicesListBoxGroupnames()
         {
             lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
@@ -394,6 +466,10 @@ namespace WFA_FISGenerator
                 {
                     name = groupname.GroupName.ToString();
                     lbgroupnames.Items.Add(name);  // przepisanie tylko jednego wywolania grupy do lboxa
+                    //     lbgroupnames.DrawMode
+                    //       lbgroupnames.BackColor = Color.Blue;
+                    //    lbgroupnames.Items.Add("bslslele", "dd");
+                    //     lbgroupnames.Items.Add(new MyListBoxItem(Color.Green, "Validated data successfully"));
                 }
             }
             //}
@@ -655,12 +731,11 @@ namespace WFA_FISGenerator
                         {
                             _MiFilterSet(fault);
                             filtered_faults_MIF.Add(fault);
-
-
                         }
-                    }
 
+                    }
                 }
+                _searchexceptions();
                 var aa = (AssetList)lbAssetslist.SelectedItem;
                 List<int> selected = new List<int>();
                 foreach (int index in lbgroupnames.SelectedIndices)
@@ -668,9 +743,26 @@ namespace WFA_FISGenerator
                     selected.Add(index);
                 }
                 aa.Selected = selected;
-                DataggridMIFformating();
+                _sourceFilteredFaults.DataSource = filtered_faults_MIF;
+                dataGridViewMAF.DataSource = _sourceFilteredFaults;
+                DataggridMIFformating(dataGridViewMAF);
             }
 
+        }
+
+        private void _searchexceptions()
+        {
+            foreach (var fault in all_faults)
+            {
+                if (fault.Exception != null)
+                {
+                    if (lbAssetslist.SelectedItem.ToString() == fault.Exception)
+                    {
+                        _MiFilterSet(fault);
+                        filtered_faults_MIF.Add(fault);
+                    }
+                }
+            }
         }
 
         private void _MiFilterSet(Single_fault fault)
@@ -680,8 +772,8 @@ namespace WFA_FISGenerator
             {
                 foreach (var item in lbMI.Items)
                 {
-                   // if (fault.FaultTextEn.Contains(item.ToString()))
-                    if ( Regex.IsMatch(fault.FaultTextEn, item.ToString(), RegexOptions.IgnoreCase))
+                    // if (fault.FaultTextEn.Contains(item.ToString()))
+                    if (Regex.IsMatch(fault.FaultTextEn, item.ToString(), RegexOptions.IgnoreCase))
                     {
                         fault.FaultFISMember = 2;
                         break;
@@ -693,7 +785,7 @@ namespace WFA_FISGenerator
                 }
                 foreach (var item in lbRem.Items)
                 {
-                  //  if (fault.FaultTextEn.Contains(item.ToString()))
+                    //  if (fault.FaultTextEn.Contains(item.ToString()))
                     if (Regex.IsMatch(fault.FaultTextEn, item.ToString(), RegexOptions.IgnoreCase))
                     {
                         fault.FaultFISMember = 3;
@@ -716,29 +808,34 @@ namespace WFA_FISGenerator
         }
 
 
-        private void DataggridMIFformating()
+        private void DataggridMIFformating(DataGridView dg)
         {
-            _sourceFilteredFaults.DataSource = filtered_faults_MIF;
-            dataGridViewMAF.DataSource = _sourceFilteredFaults;
-            dataGridViewMAF.Columns[0].FillWeight = 2;
-            dataGridViewMAF.Columns[1].FillWeight = 2;
-            dataGridViewMAF.Columns[2].FillWeight = 2;
-            dataGridViewMAF.Columns[3].FillWeight = 2;
-            dataGridViewMAF.Columns[4].FillWeight = 3;
-            dataGridViewMAF.Columns[5].FillWeight = 20;
-            dataGridViewMAF.Columns[6].FillWeight = 10;
-            dataGridViewMAF.Columns[0].Visible = false;
-            dataGridViewMAF.Columns[1].Visible = false;
-            dataGridViewMAF.Columns[2].Visible = false;
-            dataGridViewMAF.Columns[3].Visible = false;
-            dataGridViewMAF.Columns[4].Visible = false;
-            dataGridViewMAF.Columns[5].Visible = true;
-            dataGridViewMAF.Columns[6].Visible = true;
-            selRowsCount_MI = 0;
-            selRowsCount_MF = 0;
-            selRowsCount_Unused = 0;
+            dg.Columns[0].FillWeight = 1;
+            dg.Columns[1].FillWeight = 1;
+            dg.Columns[2].FillWeight = 1;
+            dg.Columns[3].FillWeight = 1;
+            dg.Columns[4].FillWeight = 1;
+            dg.Columns[5].FillWeight = 10;
+            dg.Columns[6].FillWeight = 50;
+            dg.Columns[6].FillWeight = 15;
+            dg.Columns[0].Visible = false;
+            dg.Columns[1].Visible = false;
+            dg.Columns[2].Visible = false;
+            dg.Columns[3].Visible = false;
+            dg.Columns[4].Visible = false;
+            dg.Columns[5].Visible = true;
+            dg.Columns[6].Visible = true;
+            dg.Columns[7].Visible = true;
+            _setColorForDataGrid(dg);
+            dg.AutoResizeColumns();
+            dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dg.Refresh();
+            Refrescounterdgridinfo();
+        }
 
-            foreach (DataGridViewRow irow in dataGridViewMAF.Rows)
+        private void _setColorForDataGrid(DataGridView dg)
+        {
+            foreach (DataGridViewRow irow in dg.Rows)
             {
                 int value = Convert.ToInt16(irow.Cells[0].Value);
                 switch (value)
@@ -759,16 +856,6 @@ namespace WFA_FISGenerator
                         irow.DefaultCellStyle.ForeColor = Color.Gray;
                         break;
                 }
-            }
-            dataGridViewMAF.AutoResizeColumns();
-            dataGridViewMAF.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewMAF.Refresh();
-            Refrescounterdgridinfo();
-
-
-            if (this.dataGridViewMAF.ContextMenuStrip == null)
-            {
-                this.dataGridViewMAF.ContextMenuStrip = this.cMenuStrip;
             }
         }
 
@@ -811,7 +898,7 @@ namespace WFA_FISGenerator
 
         private void lbAssetslist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AddDevicesListBox();
+            _AddDevicesListBoxGroupnames();
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -847,12 +934,22 @@ namespace WFA_FISGenerator
             foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
             {
                 selrow.DefaultCellStyle.ForeColor = Color.Green;
+
+                if (selrow.Cells[6].Value != null)
+                {
+                    lbMI.Items.Add(selrow.Cells[6].Value);
+                }
+                else
+                {
+                    MessageBox.Show(" For a fault: " + selrow.Cells[5].Value + " missing text, item not added to filter");
+                }
+                //  selrow.Cells[0].Value = 2;
             }
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            DataggridMIFformating();
+            DataggridMIFformating(dataGridViewMAF);
         }
 
         private void saveDataToXLSMToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1124,6 +1221,7 @@ namespace WFA_FISGenerator
             {
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
+                var exceptionname = irow.Cells[7].Value;
                 string faultDescription = (irow.Cells[5].Value + "_Spare");
                 if (cb_removeDescNoName.Checked == true)
                 {
@@ -1131,6 +1229,13 @@ namespace WFA_FISGenerator
                 }
                 string addressPLC = (irow.Cells[5].Value + "");
                 if (irow.Cells[6].Value != null)
+                    if (exceptionname != null)
+                    {
+                        if (lbAssetslist.SelectedItem.ToString() != exceptionname)
+                        {
+                            value = "Color [Orange]";
+                        }
+                    }
                 {
                     faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
                     //      irow.Cells[5].Value = new string 
@@ -1206,6 +1311,15 @@ namespace WFA_FISGenerator
             foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
             {
                 selrow.DefaultCellStyle.ForeColor = Color.Orange;
+                if ((selrow.Cells[6].Value) != null)
+                {
+                    lbRem.Items.Add(selrow.Cells[6].Value);
+                }
+                else
+                {
+                    MessageBox.Show(" For a fault: " + selrow.Cells[5].Value + " missing text, item not added to filter");
+                }
+
             }
         }
 
@@ -1335,6 +1449,33 @@ namespace WFA_FISGenerator
                 bts_design.BackColor = Color.Red;
             }
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void removeAssignToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string assetname = "";
+
+
+            //foreach (DataGridViewRow selrow in dataGridViewhehe.SelectedRows)
+            //{
+            //    selrow.Cells[7].Value = assetname;
+            //}
+        }
+
+        private void removeExceptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string assetname = null;
+
+            foreach (DataGridViewRow selrow in dataGridViewMAF.SelectedRows)
+            {
+                selrow.Cells[7].Value = assetname;
+            }
+        }
+        
     }
     #region classes
     class ExcelData
@@ -1459,6 +1600,7 @@ namespace WFA_FISGenerator
         public string AVName { get; set; }
         public string Fulltag { get { return string.Format("{0}.{1}.{2}", GroupName, AVName, Name); } }
         public string FaultTextEn { get { return GetTextFromInt(MagicNumber); } }
+        public string Exception { get; set; }
 
         private string GetTextFromInt(int magicnumber)
         {
@@ -1481,6 +1623,16 @@ namespace WFA_FISGenerator
 
     }
 
+    public class MyListBoxItem
+    {
+        public MyListBoxItem(Color c, string m)
+        {
+            ItemColor = c;
+            Message = m;
+        }
+        public Color ItemColor { get; set; }
+        public string Message { get; set; }
+    }
     //public class AssetStruct 
     //{
     //    public string AssetName { get; set; }

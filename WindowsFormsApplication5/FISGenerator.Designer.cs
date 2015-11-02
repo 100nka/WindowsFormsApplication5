@@ -114,12 +114,18 @@
             this.machineFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualIntFaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unusedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignToToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeExceptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveDataToXLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cMenustriphehe = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.assignToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.removeAssignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmStripGroupnames = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,13 +164,14 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).BeginInit();
             this.cMenuStrip.SuspendLayout();
+            this.cMenustriphehe.SuspendLayout();
             this.cmStripGroupnames.SuspendLayout();
             this.cmstripassetsname.SuspendLayout();
             this.SuspendLayout();
             // 
             // load_xml
             // 
-            this.load_xml.Location = new System.Drawing.Point(21, 35);
+            this.load_xml.Location = new System.Drawing.Point(38, 35);
             this.load_xml.Name = "load_xml";
             this.load_xml.Size = new System.Drawing.Size(109, 23);
             this.load_xml.TabIndex = 0;
@@ -174,7 +181,7 @@
             // 
             // loadcustomXls
             // 
-            this.loadcustomXls.Location = new System.Drawing.Point(22, 74);
+            this.loadcustomXls.Location = new System.Drawing.Point(39, 74);
             this.loadcustomXls.Name = "loadcustomXls";
             this.loadcustomXls.Size = new System.Drawing.Size(109, 23);
             this.loadcustomXls.TabIndex = 1;
@@ -185,7 +192,7 @@
             // tbxmlname
             // 
             this.tbxmlname.Cursor = System.Windows.Forms.Cursors.No;
-            this.tbxmlname.Location = new System.Drawing.Point(140, 38);
+            this.tbxmlname.Location = new System.Drawing.Point(157, 38);
             this.tbxmlname.Name = "tbxmlname";
             this.tbxmlname.ReadOnly = true;
             this.tbxmlname.Size = new System.Drawing.Size(493, 20);
@@ -195,7 +202,7 @@
             // tbxlsmname
             // 
             this.tbxlsmname.Cursor = System.Windows.Forms.Cursors.No;
-            this.tbxlsmname.Location = new System.Drawing.Point(140, 75);
+            this.tbxlsmname.Location = new System.Drawing.Point(157, 75);
             this.tbxlsmname.Name = "tbxlsmname";
             this.tbxlsmname.ReadOnly = true;
             this.tbxlsmname.Size = new System.Drawing.Size(493, 20);
@@ -205,7 +212,7 @@
             // tbxlsgenmname
             // 
             this.tbxlsgenmname.Cursor = System.Windows.Forms.Cursors.No;
-            this.tbxlsgenmname.Location = new System.Drawing.Point(139, 117);
+            this.tbxlsgenmname.Location = new System.Drawing.Point(156, 117);
             this.tbxlsgenmname.Name = "tbxlsgenmname";
             this.tbxlsgenmname.ReadOnly = true;
             this.tbxlsgenmname.Size = new System.Drawing.Size(494, 20);
@@ -214,7 +221,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 115);
+            this.button1.Location = new System.Drawing.Point(38, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 23);
             this.button1.TabIndex = 5;
@@ -228,7 +235,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(986, 21);
+            this.panel1.Size = new System.Drawing.Size(1075, 21);
             this.panel1.TabIndex = 12;
             // 
             // lcontrolerName
@@ -250,7 +257,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(986, 679);
+            this.tabControl1.Size = new System.Drawing.Size(1075, 688);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -273,7 +280,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(978, 653);
+            this.tabPage1.Size = new System.Drawing.Size(1067, 662);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Sources";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,7 +288,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::WFA_FISGenerator.Properties.Resources.ford;
-            this.pictureBox7.Location = new System.Drawing.Point(706, 562);
+            this.pictureBox7.Location = new System.Drawing.Point(781, 562);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(120, 70);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,7 +300,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(321, 339);
+            this.label8.Location = new System.Drawing.Point(338, 339);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 16);
             this.label8.TabIndex = 19;
@@ -318,7 +325,7 @@
             this.panel9.Controls.Add(this.tbMIAddItem);
             this.panel9.Controls.Add(this.btRemMIItem);
             this.panel9.Controls.Add(this.btAddMIItem);
-            this.panel9.Location = new System.Drawing.Point(12, 349);
+            this.panel9.Location = new System.Drawing.Point(29, 349);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(666, 207);
             this.panel9.TabIndex = 18;
@@ -486,7 +493,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::WFA_FISGenerator.Properties.Resources.Dürr_AG_logo1;
-            this.pictureBox3.Location = new System.Drawing.Point(845, 572);
+            this.pictureBox3.Location = new System.Drawing.Point(944, 573);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
             this.pictureBox3.TabIndex = 15;
@@ -497,7 +504,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(324, 205);
+            this.label2.Location = new System.Drawing.Point(341, 205);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 11;
@@ -512,7 +519,7 @@
             this.panel3.Controls.Add(this.cbupdateactualDesignSheet);
             this.panel3.Controls.Add(this.bSavePath);
             this.panel3.Controls.Add(this.tbSavePath);
-            this.panel3.Location = new System.Drawing.Point(12, 216);
+            this.panel3.Location = new System.Drawing.Point(29, 216);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(666, 116);
             this.panel3.TabIndex = 12;
@@ -592,7 +599,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(324, 10);
+            this.label1.Location = new System.Drawing.Point(341, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 9;
@@ -601,9 +608,9 @@
             // btstargen
             // 
             this.btstargen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btstargen.Location = new System.Drawing.Point(695, 21);
+            this.btstargen.Location = new System.Drawing.Point(712, 21);
             this.btstargen.Name = "btstargen";
-            this.btstargen.Size = new System.Drawing.Size(260, 535);
+            this.btstargen.Size = new System.Drawing.Size(332, 535);
             this.btstargen.TabIndex = 14;
             this.btstargen.Text = "Start";
             this.btstargen.UseVisualStyleBackColor = true;
@@ -618,7 +625,7 @@
             this.panel2.Controls.Add(this.bts_l5x);
             this.panel2.Controls.Add(this.btLoadDesignCt);
             this.panel2.Controls.Add(this.tbcriteriasheetname);
-            this.panel2.Location = new System.Drawing.Point(12, 21);
+            this.panel2.Location = new System.Drawing.Point(29, 21);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(666, 178);
             this.panel2.TabIndex = 10;
@@ -685,7 +692,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(978, 653);
+            this.tabPage4.Size = new System.Drawing.Size(1067, 662);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Assets List";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -722,7 +729,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_AssetsList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView_AssetsList.Size = new System.Drawing.Size(972, 647);
+            this.dataGridView_AssetsList.Size = new System.Drawing.Size(1061, 656);
             this.dataGridView_AssetsList.TabIndex = 10;
             // 
             // tabPage5
@@ -731,7 +738,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(978, 653);
+            this.tabPage5.Size = new System.Drawing.Size(1067, 662);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "All faults list";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -769,7 +776,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_AllFaults.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView_AllFaults.Size = new System.Drawing.Size(972, 647);
+            this.dataGridView_AllFaults.Size = new System.Drawing.Size(1061, 656);
             this.dataGridView_AllFaults.TabIndex = 8;
             // 
             // cMenuAllFaultGrid
@@ -833,9 +840,9 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(978, 653);
+            this.tabPage2.Size = new System.Drawing.Size(1067, 662);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Assets log Build";
+            this.tabPage2.Text = "Assets Creator by devices";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel7
@@ -847,16 +854,16 @@
             this.panel7.Controls.Add(this.l_MF_count);
             this.panel7.Controls.Add(this.pictureBox1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 624);
+            this.panel7.Location = new System.Drawing.Point(3, 633);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(972, 26);
+            this.panel7.Size = new System.Drawing.Size(1061, 26);
             this.panel7.TabIndex = 19;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox5.Image = global::WFA_FISGenerator.Properties.Resources.pic_notused;
-            this.pictureBox5.Location = new System.Drawing.Point(815, 6);
+            this.pictureBox5.Location = new System.Drawing.Point(904, 6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(45, 16);
             this.pictureBox5.TabIndex = 23;
@@ -867,7 +874,7 @@
             this.l_Noused.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_Noused.AutoSize = true;
             this.l_Noused.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.l_Noused.Location = new System.Drawing.Point(874, 6);
+            this.l_Noused.Location = new System.Drawing.Point(963, 6);
             this.l_Noused.Name = "l_Noused";
             this.l_Noused.Size = new System.Drawing.Size(60, 13);
             this.l_Noused.TabIndex = 22;
@@ -877,7 +884,7 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox2.Image = global::WFA_FISGenerator.Properties.Resources.pic_manualfault;
-            this.pictureBox2.Location = new System.Drawing.Point(643, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(732, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 16);
             this.pictureBox2.TabIndex = 21;
@@ -888,7 +895,7 @@
             this.l_MI_count.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_MI_count.AutoSize = true;
             this.l_MI_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.l_MI_count.Location = new System.Drawing.Point(699, 6);
+            this.l_MI_count.Location = new System.Drawing.Point(788, 6);
             this.l_MI_count.Name = "l_MI_count";
             this.l_MI_count.Size = new System.Drawing.Size(99, 13);
             this.l_MI_count.TabIndex = 4;
@@ -899,7 +906,7 @@
             this.l_MF_count.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.l_MF_count.AutoSize = true;
             this.l_MF_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.l_MF_count.Location = new System.Drawing.Point(524, 6);
+            this.l_MF_count.Location = new System.Drawing.Point(613, 6);
             this.l_MF_count.Name = "l_MF_count";
             this.l_MF_count.Size = new System.Drawing.Size(87, 13);
             this.l_MF_count.TabIndex = 2;
@@ -909,7 +916,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = global::WFA_FISGenerator.Properties.Resources.pic_machinefault;
-            this.pictureBox1.Location = new System.Drawing.Point(468, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(557, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 16);
             this.pictureBox1.TabIndex = 0;
@@ -924,7 +931,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(972, 647);
+            this.panel4.Size = new System.Drawing.Size(1061, 656);
             this.panel4.TabIndex = 15;
             // 
             // lbgroupnames
@@ -934,7 +941,7 @@
             this.lbgroupnames.Location = new System.Drawing.Point(235, 0);
             this.lbgroupnames.Name = "lbgroupnames";
             this.lbgroupnames.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbgroupnames.Size = new System.Drawing.Size(193, 647);
+            this.lbgroupnames.Size = new System.Drawing.Size(193, 656);
             this.lbgroupnames.Sorted = true;
             this.lbgroupnames.TabIndex = 1;
             this.lbgroupnames.SelectedIndexChanged += new System.EventHandler(this.lbgroupnames_SelectedIndexChanged);
@@ -945,12 +952,14 @@
             this.lbAssetslist.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbAssetslist.Location = new System.Drawing.Point(0, 0);
             this.lbAssetslist.Name = "lbAssetslist";
-            this.lbAssetslist.Size = new System.Drawing.Size(235, 647);
+            this.lbAssetslist.Size = new System.Drawing.Size(235, 656);
             this.lbAssetslist.TabIndex = 2;
             this.lbAssetslist.SelectedIndexChanged += new System.EventHandler(this.lbAssetslist_SelectedIndexChanged);
             // 
             // dataGridViewMAF
             // 
+            this.dataGridViewMAF.AllowUserToAddRows = false;
+            this.dataGridViewMAF.AllowUserToDeleteRows = false;
             this.dataGridViewMAF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -987,21 +996,23 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewMAF.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewMAF.Size = new System.Drawing.Size(538, 621);
+            this.dataGridViewMAF.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewMAF.Size = new System.Drawing.Size(627, 630);
             this.dataGridViewMAF.TabIndex = 3;
             // 
             // cMenuStrip
             // 
             this.cMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem6,
-            this.deleteRowsToolStripMenuItem,
             this.toolStripSeparator2,
-            this.saveDataToXLSMToolStripMenuItem,
-            this.toolStripSeparator6});
+            this.assignToToolStripMenuItem1,
+            this.removeExceptionToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.deleteRowsToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.saveDataToXLSMToolStripMenuItem});
             this.cMenuStrip.Name = "cMenuStrip";
-            this.cMenuStrip.Size = new System.Drawing.Size(177, 110);
+            this.cMenuStrip.Size = new System.Drawing.Size(201, 132);
             // 
             // toolStripMenuItem1
             // 
@@ -1011,8 +1022,8 @@
             this.unusedToolStripMenuItem});
             this.toolStripMenuItem1.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
-            this.toolStripMenuItem1.Text = "Mark Selected";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItem1.Text = "Add to Filtr";
             // 
             // machineFaultToolStripMenuItem
             // 
@@ -1038,44 +1049,86 @@
             this.unusedToolStripMenuItem.Text = "Unused";
             this.unusedToolStripMenuItem.Click += new System.EventHandler(this.unusedToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
+            // 
+            // assignToToolStripMenuItem1
+            // 
+            this.assignToToolStripMenuItem1.Image = global::WFA_FISGenerator.Properties.Resources.filter;
+            this.assignToToolStripMenuItem1.Name = "assignToToolStripMenuItem1";
+            this.assignToToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
+            this.assignToToolStripMenuItem1.Text = "Assign to exception :";
+            // 
+            // removeExceptionToolStripMenuItem
+            // 
+            this.removeExceptionToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unfilter;
+            this.removeExceptionToolStripMenuItem.Name = "removeExceptionToolStripMenuItem";
+            this.removeExceptionToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.removeExceptionToolStripMenuItem.Text = "Remove from exception";
+            this.removeExceptionToolStripMenuItem.Click += new System.EventHandler(this.removeExceptionToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = global::WFA_FISGenerator.Properties.Resources.editenableselected;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 22);
-            this.toolStripMenuItem6.Text = "Return default view";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
             // 
             // deleteRowsToolStripMenuItem
             // 
             this.deleteRowsToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unselect_all;
             this.deleteRowsToolStripMenuItem.Name = "deleteRowsToolStripMenuItem";
-            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.deleteRowsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.deleteRowsToolStripMenuItem.Text = "Delete sel Rows";
             this.deleteRowsToolStripMenuItem.Click += new System.EventHandler(this.deleteRowsToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
+            // toolStripSeparator6
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(197, 6);
             // 
             // saveDataToXLSMToolStripMenuItem
             // 
             this.saveDataToXLSMToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.excelSave;
             this.saveDataToXLSMToolStripMenuItem.Name = "saveDataToXLSMToolStripMenuItem";
-            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.saveDataToXLSMToolStripMenuItem.Text = "Save selected Asset";
+            this.saveDataToXLSMToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.saveDataToXLSMToolStripMenuItem.Text = "Export selected Asset";
             this.saveDataToXLSMToolStripMenuItem.Click += new System.EventHandler(this.saveDataToXLSMToolStripMenuItem_Click);
             // 
-            // toolStripSeparator6
+            // cMenustriphehe
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(173, 6);
+            this.cMenustriphehe.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assignToToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.removeAssignToolStripMenuItem,
+            this.eToolStripMenuItem});
+            this.cMenustriphehe.Name = "cMenustriphehe";
+            this.cMenustriphehe.Size = new System.Drawing.Size(156, 76);
+            this.cMenustriphehe.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // assignToToolStripMenuItem
+            // 
+            this.assignToToolStripMenuItem.Name = "assignToToolStripMenuItem";
+            this.assignToToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.assignToToolStripMenuItem.Text = "Assign to :";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(152, 6);
+            // 
+            // removeAssignToolStripMenuItem
+            // 
+            this.removeAssignToolStripMenuItem.Name = "removeAssignToolStripMenuItem";
+            this.removeAssignToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.removeAssignToolStripMenuItem.Text = "Remove Assign";
+            this.removeAssignToolStripMenuItem.Click += new System.EventHandler(this.removeAssignToolStripMenuItem_Click);
+            // 
+            // eToolStripMenuItem
+            // 
+            this.eToolStripMenuItem.Name = "eToolStripMenuItem";
+            this.eToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.eToolStripMenuItem.Text = "ExportData";
             // 
             // cmStripGroupnames
             // 
@@ -1193,12 +1246,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 700);
+            this.ClientSize = new System.Drawing.Size(1075, 709);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FISGenerator";
-            this.Text = "FIS Generator V1.3";
+            this.Text = "FIS Generator V1.4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1230,6 +1283,7 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMAF)).EndInit();
             this.cMenuStrip.ResumeLayout(false);
+            this.cMenustriphehe.ResumeLayout(false);
             this.cmStripGroupnames.ResumeLayout(false);
             this.cmStripGroupnames.PerformLayout();
             this.cmstripassetsname.ResumeLayout(false);
@@ -1290,7 +1344,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label l_MI_count;
         private System.Windows.Forms.Label l_MF_count;
@@ -1336,6 +1389,13 @@
         private System.Windows.Forms.Button bts_custom;
         private System.Windows.Forms.Button bts_l5x;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.ContextMenuStrip cMenustriphehe;
+        private System.Windows.Forms.ToolStripMenuItem assignToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem removeAssignToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assignToToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem removeExceptionToolStripMenuItem;
     }
 }
 
