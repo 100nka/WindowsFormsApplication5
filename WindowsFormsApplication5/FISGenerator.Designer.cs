@@ -97,6 +97,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.unselectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.findDescToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -591,7 +592,6 @@
             this.tbSavePath.Cursor = System.Windows.Forms.Cursors.No;
             this.tbSavePath.Location = new System.Drawing.Point(125, 25);
             this.tbSavePath.Name = "tbSavePath";
-            this.tbSavePath.ReadOnly = true;
             this.tbSavePath.Size = new System.Drawing.Size(513, 20);
             this.tbSavePath.TabIndex = 7;
             // 
@@ -785,9 +785,10 @@
             this.showToolStripMenuItem,
             this.toolStripSeparator3,
             this.unselectToolStripMenuItem,
-            this.toolStripSeparator7});
+            this.toolStripSeparator7,
+            this.findDescToolStripMenuItem});
             this.cMenuAllFaultGrid.Name = "cMenuAllFaultGrid";
-            this.cMenuAllFaultGrid.Size = new System.Drawing.Size(120, 60);
+            this.cMenuAllFaultGrid.Size = new System.Drawing.Size(126, 82);
             // 
             // showToolStripMenuItem
             // 
@@ -796,7 +797,7 @@
             this.misisingNumbersToolStripMenuItem});
             this.showToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.filter;
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.showToolStripMenuItem.Text = "Select";
             // 
             // missingDescriptionsToolStripMenuItem
@@ -818,20 +819,28 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(122, 6);
             // 
             // unselectToolStripMenuItem
             // 
             this.unselectToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.unfilter;
             this.unselectToolStripMenuItem.Name = "unselectToolStripMenuItem";
-            this.unselectToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.unselectToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.unselectToolStripMenuItem.Text = "Unselect";
             this.unselectToolStripMenuItem.Click += new System.EventHandler(this.unselectToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(122, 6);
+            // 
+            // findDescToolStripMenuItem
+            // 
+            this.findDescToolStripMenuItem.Image = global::WFA_FISGenerator.Properties.Resources.edit_enable;
+            this.findDescToolStripMenuItem.Name = "findDescToolStripMenuItem";
+            this.findDescToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.findDescToolStripMenuItem.Text = "Find Desc";
+            this.findDescToolStripMenuItem.Click += new System.EventHandler(this.findDescToolStripMenuItem_Click);
             // 
             // tabPage2
             // 
@@ -1251,7 +1260,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FISGenerator";
-            this.Text = "FIS Generator V1.4";
+            this.Text = "FIS Generator V1.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1396,6 +1405,7 @@
         private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assignToToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem removeExceptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findDescToolStripMenuItem;
     }
 }
 

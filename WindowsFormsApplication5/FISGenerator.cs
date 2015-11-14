@@ -448,9 +448,7 @@ namespace WFA_FISGenerator
             lbgroupnames.Items.Clear();
             dataGridViewMAF.Rows.Clear();
             tagFISName = "";
-            selRowsCount_MI = 0;
-            selRowsCount_MF = 0;
-            selRowsCount_Unused = 0;
+
             Refrescounterdgridinfo();
             foreach (var tagname in excelAssetlList)
             {
@@ -711,12 +709,16 @@ namespace WFA_FISGenerator
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 newwindow = new Form1();
+            Find newwindow = new Find();
             newwindow.ShowDialog();
         }
 
         private void lbgroupnames_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selRowsCount_MI = 0;
+            selRowsCount_MF = 0;
+            selRowsCount_Unused = 0;
+            Refrescounterdgridinfo();
             dataGridViewMAF.DataSource = null;
             filtered_faults_MIF = new List<Single_fault>();
             if (lbgroupnames.SelectedItem != null)
@@ -835,6 +837,9 @@ namespace WFA_FISGenerator
 
         private void _setColorForDataGrid(DataGridView dg)
         {
+            selRowsCount_MI = 0;
+            selRowsCount_MF = 0;
+            selRowsCount_Unused = 0;
             foreach (DataGridViewRow irow in dg.Rows)
             {
                 int value = Convert.ToInt16(irow.Cells[0].Value);
@@ -954,25 +959,41 @@ namespace WFA_FISGenerator
 
         private void saveDataToXLSMToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateXLSTable();
+            try
+            {
+                CreateXLSTable();
 
-            if (cbcreateNew.Checked == true)
-            {
-                _writeExternalExcelMiMF();
+                if (cbcreateNew.Checked == true)
+                {
+                    _writeExternalExcelMiMF();
+                }
+                if (cbupdateactualDesignSheet.Checked == true)
+                {
+                    _CleanDastaSheetExcelMIMF();
+                    _writeDastaSheetExcelMIMF();
+                }
+                if (cbCreateTxTout.Checked == true)
+                {
+                    _writeExternalExcelRoutineTXT();
+                }
+                if (cbCreateL5Xout.Checked == true)
+                {
+                    _writeExternalL5XRoutineMFMI();
+                }
+                MessageBox.Show("All Neccessary files are generated");
             }
-            if (cbupdateactualDesignSheet.Checked == true)
+            catch (Exception ex)
             {
-                _writeDastaSheetExcelMIMF();
+
+                var sb = new StringBuilder();
+                sb.Append("INTERRUPTED GENERATION OF FILES");
+                sb.AppendLine(); // which is equal to Append(Environment.NewLine);
+                sb.Append("Details: " + ex.ToString());
+                //    return sb.ToString();
+                //         MessageBox.Show("interrupted generation of files" + ex.ToString());
+                MessageBox.Show(sb.ToString());
             }
-            if (cbCreateTxTout.Checked == true)
-            {
-                _writeExternalExcelRoutineTXT();
-            }
-            if (cbCreateL5Xout.Checked == true)
-            {
-                _writeExternalL5XRoutineMFMI();
-            }
-            MessageBox.Show("All Neccessary files are generated");
+
         }
 
         private void _writeExternalL5XRoutineMFMI()
@@ -1114,6 +1135,82 @@ namespace WFA_FISGenerator
             }
             MessageBox.Show(string.Format("{0}{1}{2}", " New Files for Asset: ", outfilename, "are generated!"));
         }
+        private void _CleanDastaSheetExcelMIMF()
+        {
+            var filepath = designssheetlink;
+            MyApp = new ExcelM.Application();
+            MyApp.Visible = false;
+            MyBook = MyApp.Workbooks.Open(filepath);
+            #region Update MI
+            MySheet_MI = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MI"]; // Explicit cast is not required here
+            //            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count + 2, 3]];
+            ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[500 + 2, 3]];
+
+            foreach (ExcelM.Range item in cell_MI)
+            {
+                switch (item.Column)
+                {
+                    case 1:
+                        //      item.Value = excel_MI.ElementAt(item.Row - 3).AddressFIS;
+                        item.Value = "  ";
+                        break;
+                    case 2:
+                        //             item.Value = excel_MI.ElementAt(item.Row - 3).Trigger;
+                        item.Value = "  ";
+                        break;
+                    case 3:
+                        //    item.Value = excel_MI.ElementAt(item.Row - 3).FaultDescription;
+                        item.Value = "  ";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            #endregion
+            # region update MF
+
+            MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
+            //       ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count + 2, 3]];
+            ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[500 + 2, 3]];
+
+            foreach (ExcelM.Range item in cell_MF)
+            {
+                //   item.Value = string.Format("row:{0:D2} col:{1:D2}", item.Row, item.Column);
+                //   item.Value = excel_MI.ElementAt(1).Address;
+                switch (item.Column)
+                {
+                    case 1:
+                        //                 item.Value = excel_MF.ElementAt(item.Row - 3).AddressFIS;
+                        item.Value = "  ";
+                        break;
+                    case 2:
+                        //              item.Value = excel_MF.ElementAt(item.Row - 3).Trigger;
+                        item.Value = "  ";
+                        break;
+                    case 3:
+                        //                item.Value = excel_MF.ElementAt(item.Row - 3).FaultDescription;
+                        item.Value = "  ";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            #endregion
+            //          try
+            //         {
+            MyBook.SaveAs(Filename: filepath);
+            MyBook.Close();
+            //         }
+            //          catch (Exception ex)
+            //         {
+            //             MessageBox.Show(ex.ToString());
+            //         }
+
+
+        }
+
         private void _writeDastaSheetExcelMIMF()
         {
             var filepath = designssheetlink;
@@ -1123,29 +1220,33 @@ namespace WFA_FISGenerator
             #region Update MI
             MySheet_MI = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MI"]; // Explicit cast is not required here
             ExcelM.Range cell_MI = MySheet_MI.Range[MySheet_MI.Cells[3, 1], MySheet_MI.Cells[excel_MI.Count + 2, 3]];
-            foreach (ExcelM.Range item in cell_MI)
+            if (excel_MI.Count > 0)
             {
-                switch (item.Column)
+                foreach (ExcelM.Range item in cell_MI)
                 {
-                    case 1:
-                        item.Value = excel_MI.ElementAt(item.Row - 3).AddressFIS;
-                        break;
-                    case 2:
-                        item.Value = excel_MI.ElementAt(item.Row - 3).Trigger;
-                        break;
-                    case 3:
-                        item.Value = excel_MI.ElementAt(item.Row - 3).FaultDescription;
-                        break;
-                    default:
-                        break;
+                    switch (item.Column)
+                    {
+                        case 1:
+                            item.Value = excel_MI.ElementAt(item.Row - 3).AddressFIS;
+                            break;
+                        case 2:
+                            item.Value = excel_MI.ElementAt(item.Row - 3).Trigger;
+                            break;
+                        case 3:
+                            item.Value = excel_MI.ElementAt(item.Row - 3).FaultDescription;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             #endregion
             # region update MF
+
+            MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
+            ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count + 2, 3]];
             if (excel_MF.Count > 0)
             {
-                MySheet_MF = (ExcelM.Worksheet)MyBook.Sheets[tagFISName + " MF"]; // Explicit cast is not required here
-                ExcelM.Range cell_MF = MySheet_MF.Range[MySheet_MF.Cells[3, 1], MySheet_MF.Cells[excel_MF.Count + 2, 3]];
                 foreach (ExcelM.Range item in cell_MF)
                 {
                     //   item.Value = string.Format("row:{0:D2} col:{1:D2}", item.Row, item.Column);
@@ -1165,10 +1266,19 @@ namespace WFA_FISGenerator
                             break;
                     }
                 }
-            #endregion
-                MyBook.SaveAs(Filename: filepath);
-                MyBook.Close();
             }
+            #endregion
+            //          try
+            //         {
+            MyBook.SaveAs(Filename: filepath);
+            MyBook.Close();
+            //         }
+            //          catch (Exception ex)
+            //         {
+            //             MessageBox.Show(ex.ToString());
+            //         }
+
+
         }
         private void _writeExternalExcelRoutineTXT()
         {
@@ -1221,14 +1331,11 @@ namespace WFA_FISGenerator
             {
 
                 var value = irow.DefaultCellStyle.ForeColor.ToString();
-                var exceptionname = irow.Cells[7].Value;
-                string faultDescription = (irow.Cells[5].Value + "_Spare");
-                if (cb_removeDescNoName.Checked == true)
-                {
-                    faultDescription = "  ";
-                }
-                string addressPLC = (irow.Cells[5].Value + "");
-                if (irow.Cells[6].Value != null)
+                var exceptionname = irow.Cells[7].Value;                      // exception name. przechowywanie wartosci by ewentualnie nie dodawac do listy
+                string faultDescription = (irow.Cells[5].Value + "_Spare");  // 1. tworze na wstepie blad nawet jesli to spare  ( 5 - full tag)
+
+                string addressPLC = (irow.Cells[5].Value + "");              //3. pobieram rzeczywista wartosc taga 
+                if (irow.Cells[6].Value != null)                              // sprawdzenie czy istnieje description
                     if (exceptionname != null)
                     {
                         if (lbAssetslist.SelectedItem.ToString() != exceptionname)
@@ -1237,7 +1344,18 @@ namespace WFA_FISGenerator
                         }
                     }
                 {
-                    faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());
+                    if (irow.Cells[6].Value == null)  // 6 -text en
+                    {
+                        //   faultDescription = (irow.Cells[3].Value.ToString());
+                        if (cb_removeDescNoName.Checked == true)                      // 2. jesli ma byc to sprawdzane usuwam go ;]
+                        {
+                            faultDescription = "  ";
+                        }
+                    }
+                    else
+                    {
+                        faultDescription = (irow.Cells[3].Value.ToString()) + "-" + (irow.Cells[6].Value.ToString());  // 3 -group name + 6 - text desc en
+                    }
                     //      irow.Cells[5].Value = new string 
                 }
                 switch (value)
@@ -1475,7 +1593,12 @@ namespace WFA_FISGenerator
                 selrow.Cells[7].Value = assetname;
             }
         }
-        
+
+        private void findDescToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
     #region classes
     class ExcelData
